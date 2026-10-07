@@ -660,20 +660,18 @@
       box-shadow: 0 8px 20px -8px rgba(45, 126, 255, 0.3);
     }
 
+    /* Single large image for EA */
     .project-gallery.single {
       grid-template-columns: 1fr;
     }
 
     .project-gallery.single img {
-      height: 180px;
+      height: 240px;
+      object-fit: cover;
     }
 
-    .project-gallery.full {
-      grid-template-columns: 1fr;
-    }
-
-    .project-gallery.full img {
-      height: 200px;
+    .project-gallery.single img:hover {
+      transform: scale(1.02);
     }
 
     .project-media-note {
@@ -1296,6 +1294,9 @@
       .project-gallery img {
         height: 100px;
       }
+      .project-gallery.single img {
+        height: 180px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -1328,6 +1329,9 @@
       }
       .project-gallery img {
         height: 140px;
+      }
+      .project-gallery.single img {
+        height: 180px;
       }
     }
 
@@ -1477,7 +1481,7 @@
       </div>
       <div class="projects-grid">
 
-        <!-- PROJECT 01 — MT5 TRADING EA -->
+        <!-- PROJECT 01 — MT5 TRADING EA (SINGLE FULL IMAGE) -->
         <div class="project-card reveal">
           <div class="project-number">PROJECT 01</div>
           <div class="project-title">MT5 Trading Automation System</div>
@@ -1485,10 +1489,9 @@
           <div class="project-description">
             Custom MT5 Expert Advisor designed around structured market‑entry logic, risk management, automated trade execution and position management.
           </div>
-          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
-          <div class="project-gallery">
-            <img src="EA.png" alt="MT5 EA attached to chart" />
-            
+          <!-- SINGLE LARGE IMAGE — REPLACE SRC WITH YOUR FULL EA SCREENSHOT -->
+          <div class="project-gallery single">
+            <img src="EA.png" alt="MT5 EA full dashboard and log" />
           </div>
           <div class="project-media-note">SMC pro scalper</div>
           <div class="tech-list">
@@ -1505,7 +1508,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 02 — BLOG SITE -->
+        <!-- PROJECT 02 — BLOG SITE (2 IMAGES) -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
           <div class="project-title">Blog / Content Platform</div>
@@ -1513,12 +1516,12 @@
           <div class="project-description">
             Full‑featured blog platform with article management, categories, user authentication, comment system, search functionality and a custom admin dashboard for content publishing.
           </div>
-          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <!-- 2 IMAGES — REPLACE SRC WITH YOUR SCREENSHOTS -->
           <div class="project-gallery">
             <img src="blog.png" alt="Blog homepage" />
-            
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Article+Page" alt="Blog article page" />
           </div>
-          <div class="project-media-note">📸 Replace with your actual blog screenshots</div>
+          <div class="project-media-note"></div>
           <div class="tech-list">
             <span>PHP</span>
             <span>Laravel</span>
@@ -1534,7 +1537,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 03 — E-COMMERCE -->
+        <!-- PROJECT 03 — E-COMMERCE (2 IMAGES) -->
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
           <div class="project-title">E‑Commerce Platform</div>
@@ -1542,16 +1545,12 @@
           <div class="project-description">
             Full‑stack shopping platform designed to manage products, customers, orders and online business operations through a responsive web interface.
           </div>
-          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <!-- 2 IMAGES — REPLACE SRC WITH YOUR SCREENSHOTS -->
           <div class="project-gallery">
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Homepage" alt="E-commerce homepage" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Store+Homepage" alt="E-commerce homepage" />
             <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Product+Page" alt="Product page" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Cart" alt="Shopping cart" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Checkout" alt="Checkout page" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Admin" alt="Admin dashboard" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Mobile" alt="Mobile version" />
           </div>
-          <div class="project-media-note">📸 Replace with your actual e-commerce screenshots</div>
+          <div class="project-media-note">📸 Replace with your e-commerce screenshots</div>
           <div class="tech-list">
             <span>PHP</span>
             <span>JavaScript</span>
@@ -1566,7 +1565,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 04 — WEB3 -->
+        <!-- PROJECT 04 — WEB3 (2 IMAGES) -->
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
           <div class="project-title">Web3 / Crypto Application</div>
@@ -1574,16 +1573,12 @@
           <div class="project-description">
             Custom Web3 application integrating blockchain functionality with a web interface and backend services.
           </div>
-          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <!-- 2 IMAGES — REPLACE SRC WITH YOUR SCREENSHOTS -->
           <div class="project-gallery">
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Dashboard" alt="Web3 dashboard" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Web3+Dashboard" alt="Web3 dashboard" />
             <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Wallet+Connect" alt="Wallet connection" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Transaction" alt="Transaction screen" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Blockchain+Data" alt="Blockchain data view" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=API" alt="Backend API" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Confirmation" alt="Transaction confirmation" />
           </div>
-          <div class="project-media-note">📸 Replace with your actual Web3 screenshots</div>
+          <div class="project-media-note">📸 Replace with your Web3 screenshots</div>
           <div class="tech-list">
             <span>Solidity</span>
             <span>Ethers.js</span>
@@ -1599,7 +1594,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 05 — AUTOMATION / BOT -->
+        <!-- PROJECT 05 — AUTOMATION / BOT (2 IMAGES) -->
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
           <div class="project-title">Automation / Bot System</div>
@@ -1607,16 +1602,12 @@
           <div class="project-description">
             Automated communication and business workflow system designed to reduce manual operations through API integrations and bot‑based workflows.
           </div>
-          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <!-- 2 IMAGES — REPLACE SRC WITH YOUR SCREENSHOTS -->
           <div class="project-gallery">
             <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Telegram+Bot" alt="Telegram bot interface" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Discord+Bot" alt="Discord bot" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Dashboard" alt="Automation dashboard" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=API+Flow" alt="API flow diagram" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Notification" alt="Notification system" />
-            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Workflow" alt="Automation workflow" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Automation+Dashboard" alt="Automation dashboard" />
           </div>
-          <div class="project-media-note">📸 Replace with your actual automation screenshots</div>
+          <div class="project-media-note">📸 Replace with your automation screenshots</div>
           <div class="tech-list">
             <span>Python</span>
             <span>Telegram API</span>
