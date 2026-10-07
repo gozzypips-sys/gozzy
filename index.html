@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gozzy Group — Full‑Stack Developer · Uche Isaiah Chigozie</title>
+  <title>Gozzy Group | Full-Stack Development, Automation, Trading & Web3</title>
+  <meta name="description" content="Gozzy Group builds custom software, business applications, APIs, automation systems, MT4/MT5 trading technology and Web3 solutions for businesses and startups." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
@@ -348,7 +349,29 @@
       align-items: center;
     }
 
-    /* Hero right side — visual indicator of what's below */
+    .hero-tags {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      font-size: 0.75rem;
+      color: #6b8aa6;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-tags span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-tags span::before {
+      content: '·';
+      color: #4f9cf7;
+      font-weight: 700;
+    }
+
+    /* Hero right side */
     .hero-visual {
       display: flex;
       flex-direction: column;
@@ -457,7 +480,7 @@
       line-height: 1.2;
     }
 
-    /* ===== WHAT I BUILD ===== */
+    /* ===== WHAT WE BUILD ===== */
     .build-grid {
       display: flex;
       flex-wrap: wrap;
@@ -612,46 +635,53 @@
       flex-grow: 1;
     }
 
-    .project-media-placeholder {
-      background: #080e14;
-      border: 1.5px dashed #1e3040;
-      border-radius: 14px;
-      padding: 1.75rem 1.25rem;
-      text-align: center;
-      color: #5d7a94;
-      font-size: 0.8rem;
+    /* Project image gallery */
+    .project-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
       margin-bottom: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.65rem;
-      transition: border-color 0.3s ease, background 0.3s ease;
     }
 
-    .project-card:hover .project-media-placeholder {
-      border-color: #2d4b66;
-      background: #0a1219;
+    .project-gallery img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid #1a2a38;
+      background: #080e14;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
-    .project-media-placeholder i {
-      font-size: 1.5rem;
-      color: #2b4257;
-      transition: color 0.3s ease;
+    .project-gallery img:hover {
+      border-color: #2d7eff;
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px -8px rgba(45, 126, 255, 0.3);
     }
 
-    .project-card:hover .project-media-placeholder i {
-      color: #3d5a75;
+    .project-gallery.single {
+      grid-template-columns: 1fr;
     }
 
-    .project-media-placeholder span {
-      font-weight: 400;
-      background: #0a1219;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      border: 1px solid #182838;
-      font-size: 0.72rem;
-      letter-spacing: 0.3px;
-      color: #7a9ab5;
+    .project-gallery.single img {
+      height: 180px;
+    }
+
+    .project-gallery.full {
+      grid-template-columns: 1fr;
+    }
+
+    .project-gallery.full img {
+      height: 200px;
+    }
+
+    .project-media-note {
+      font-size: 0.7rem;
+      color: #4a6075;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-style: italic;
     }
 
     .tech-list {
@@ -691,6 +721,27 @@
     .personal-note i {
       font-size: 0.62rem;
       color: #4f9cf7;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      font-size: 0.75rem;
+      color: #4f9cf7;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+      font-weight: 500;
+    }
+
+    .project-links a:hover {
+      color: #7cb8ff;
     }
 
     .projects-footnote {
@@ -781,30 +832,150 @@
       line-height: 1.6;
     }
 
-    /* ===== HOW I WORK ===== */
-    .how-grid {
+    /* ===== WHY GOZZY GROUP ===== */
+    .why-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
 
-    .how-step {
+    .why-card {
       background: #0b1118;
       border: 1px solid #182430;
-      border-radius: 18px;
-      padding: 1.6rem 1.4rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
+      border-radius: 20px;
+      padding: 2rem 1.75rem;
+      transition: all 0.3s ease;
     }
 
-    .how-step:hover {
+    .why-card:hover {
       border-color: #2b4b66;
       background: #0d1723;
       transform: translateY(-3px);
-      box-shadow: 0 12px 28px -14px rgba(0, 0, 0, 0.5);
     }
 
-    .how-step .step-num {
+    .why-card .why-icon {
+      font-size: 1.6rem;
+      color: #4f9cf7;
+      margin-bottom: 1.25rem;
+    }
+
+    .why-card h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #ffffff;
+    }
+
+    .why-card p {
+      font-size: 0.87rem;
+      color: #8fa8c0;
+      line-height: 1.6;
+    }
+
+    /* ===== WHO WE WORK WITH ===== */
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .who-item {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 18px;
+      padding: 1.5rem 1.35rem;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .who-item:hover {
+      border-color: #2b4b66;
+      background: #0d1723;
+      transform: translateY(-3px);
+    }
+
+    .who-item i {
+      font-size: 1.4rem;
+      color: #4f9cf7;
+      margin-bottom: 0.85rem;
+      display: block;
+    }
+
+    .who-item h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #e8edf2;
+      margin-bottom: 0.35rem;
+    }
+
+    .who-item p {
+      font-size: 0.78rem;
+      color: #8fa8c0;
+      line-height: 1.5;
+    }
+
+    /* ===== FOR AGENCIES ===== */
+    .agency-card {
+      background: linear-gradient(135deg, #0b1118 0%, #0d1824 100%);
+      border: 1px solid #182430;
+      border-radius: 22px;
+      padding: 2.5rem 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agency-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #7c3aed, #2d7eff);
+    }
+
+    .agency-card h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .agency-card p {
+      color: #8fa8c0;
+      font-size: 0.95rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ===== PROCESS ===== */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.15rem;
+    }
+
+    .process-step {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 18px;
+      padding: 1.5rem 1.35rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .process-step:hover {
+      border-color: #2b4b66;
+      background: #0d1723;
+      transform: translateY(-3px);
+    }
+
+    .process-step .step-num {
       font-size: 0.68rem;
       font-weight: 800;
       color: #4f9cf7;
@@ -813,15 +984,15 @@
       display: block;
     }
 
-    .how-step h4 {
-      font-size: 0.95rem;
+    .process-step h4 {
+      font-size: 0.92rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
       color: #e8edf2;
     }
 
-    .how-step p {
-      font-size: 0.8rem;
+    .process-step p {
+      font-size: 0.78rem;
       color: #8fa8c0;
       line-height: 1.55;
     }
@@ -838,61 +1009,193 @@
       margin-top: 1rem;
     }
 
-    /* ===== CONTACT ===== */
-    .contact-card {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 2rem;
-      background: linear-gradient(135deg, #0b1118 0%, #0d1824 100%);
+    .about-text strong {
+      color: #ffffff;
+    }
+
+    /* ===== TESTIMONIALS (placeholder) ===== */
+    .testimonial-note {
+      background: #0b1118;
       border: 1px solid #182430;
-      border-radius: 26px;
-      padding: 2.75rem 2.75rem;
-      position: relative;
-      overflow: hidden;
+      border-radius: 18px;
+      padding: 2rem;
+      text-align: center;
+      color: #6b8aa6;
+      font-size: 0.92rem;
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .contact-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(180deg, #2d7eff, #7c3aed);
+    .testimonial-note i {
+      color: #4f9cf7;
+      margin-right: 0.5rem;
     }
 
-    .contact-card::after {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(45, 120, 255, 0.08) 0%, transparent 70%);
-      pointer-events: none;
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
     }
 
-    .contact-card h3 {
-      font-size: 1.7rem;
+    .contact-info h3 {
+      font-size: 1.8rem;
       font-weight: 700;
       color: #ffffff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       letter-spacing: -0.02em;
     }
 
-    .contact-card p {
+    .contact-info p {
       color: #8fa8c0;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
     }
 
-    .contact-buttons {
+    .contact-details {
       display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
       gap: 0.85rem;
+      font-size: 0.9rem;
+      color: #b8cbdd;
+    }
+
+    .contact-detail i {
+      width: 38px;
+      height: 38px;
+      background: #0e1a26;
+      border: 1px solid #1a2a38;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4f9cf7;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail a {
+      transition: color 0.2s ease;
+    }
+
+    .contact-detail a:hover {
+      color: #4f9cf7;
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 1;
+    }
+
+    .contact-socials a {
+      width: 42px;
+      height: 42px;
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8fa8c0;
+      font-size: 1rem;
+      transition: all 0.25s ease;
+    }
+
+    .contact-socials a:hover {
+      border-color: #2d7eff;
+      color: #ffffff;
+      background: #0d1723;
+      transform: translateY(-2px);
+    }
+
+    /* Form */
+    .contact-form {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 22px;
+      padding: 2rem 2rem;
+    }
+
+    .contact-form .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #b8cbdd;
+      margin-bottom: 0.45rem;
+      letter-spacing: 0.3px;
+    }
+
+    .contact-form input,
+    .contact-form select,
+    .contact-form textarea {
+      width: 100%;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      color: #e8edf2;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form select:focus,
+    .contact-form textarea:focus {
+      border-color: #2d7eff;
+      box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.1);
+    }
+
+    .contact-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .contact-form select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b8aa6' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .contact-form select option {
+      background: #0b1118;
+      color: #e8edf2;
+    }
+
+    .contact-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    .form-note {
+      font-size: 0.72rem;
+      color: #5d7a94;
+      text-align: center;
+      margin-top: 1rem;
     }
 
     /* ===== FOOTER ===== */
@@ -938,6 +1241,10 @@
         align-items: center;
         justify-content: center;
       }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
     }
 
     @media (max-width: 768px) {
@@ -959,11 +1266,6 @@
         align-items: flex-start;
         padding: 1.5rem;
       }
-      .contact-card {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-      }
       .projects-grid {
         grid-template-columns: 1fr;
       }
@@ -979,6 +1281,20 @@
       }
       .header-cta .btn-sm {
         display: none;
+      }
+      .contact-form .form-row {
+        grid-template-columns: 1fr;
+      }
+      .agency-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.75rem;
+      }
+      .project-gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+      .project-gallery img {
+        height: 100px;
       }
     }
 
@@ -1004,6 +1320,15 @@
       .cta-line .btn {
         width: 100%;
       }
+      .contact-form {
+        padding: 1.5rem 1.25rem;
+      }
+      .project-gallery {
+        grid-template-columns: 1fr;
+      }
+      .project-gallery img {
+        height: 140px;
+      }
     }
 
     /* ===== SCROLL REVEAL ===== */
@@ -1018,7 +1343,6 @@
       transform: translateY(0);
     }
 
-    /* Staggered reveal delays */
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
@@ -1042,10 +1366,10 @@
         </span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#what-i-build">What I Build</a>
-        <a href="#projects">Projects</a>
+        <a href="#what-we-build">What We Build</a>
+        <a href="#projects">Work</a>
         <a href="#services">Services</a>
-        <a href="#how-i-work">Process</a>
+        <a href="#process">Process</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -1068,14 +1392,23 @@
             Available for new projects
           </div>
           <h1>
-            I Build Software That Helps Businesses <span class="gradient-text">Operate, Automate & Grow</span>
+            We Build Digital Systems That <span class="gradient-text">Move Businesses Forward</span>
           </h1>
           <p class="hero-sub">
-            Full‑stack developer specializing in business applications, fintech systems, trading automation, Web3 and custom APIs. From dashboards and payment integrations to trading systems and complete web applications.
+            Gozzy Group designs and develops custom software, business applications, automation systems, trading technology, APIs and Web3 solutions for businesses, startups and entrepreneurs.
+          </p>
+          <p class="hero-sub" style="font-size: 0.95rem; color: #7a9ab5;">
+            From a new product that needs to be built to an existing system that needs to be fixed, integrated or automated — we turn technical requirements into working digital solutions.
           </p>
           <div class="hero-cta">
             <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Start a Project</a>
-            <a href="#projects" class="btn btn-outline"><i class="fas fa-arrow-down"></i> See my work</a>
+            <a href="#projects" class="btn btn-outline"><i class="fas fa-arrow-down"></i> View Our Work</a>
+          </div>
+          <div class="hero-tags">
+            <span>Full-Stack Development</span>
+            <span>Automation</span>
+            <span>Trading Technology</span>
+            <span>Web3</span>
           </div>
         </div>
         <div class="hero-visual">
@@ -1105,12 +1438,12 @@
     </div>
   </section>
 
-  <!-- ===== WHAT I BUILD ===== -->
-  <section class="section" id="what-i-build">
+  <!-- ===== WHAT WE BUILD ===== -->
+  <section class="section" id="what-we-build">
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <div class="section-label">WHAT I BUILD</div>
+          <div class="section-label">WHAT WE BUILD</div>
           <h2 class="section-title">From backend systems to full‑stack platforms</h2>
         </div>
       </div>
@@ -1144,7 +1477,7 @@
       </div>
       <div class="projects-grid">
 
-        <!-- PROJECT 01 -->
+        <!-- PROJECT 01 — MT5 TRADING EA -->
         <div class="project-card reveal">
           <div class="project-number">PROJECT 01</div>
           <div class="project-title">MT5 Trading Automation System</div>
@@ -1152,10 +1485,16 @@
           <div class="project-description">
             Custom MT5 Expert Advisor designed around structured market‑entry logic, risk management, automated trade execution and position management.
           </div>
-          <div class="project-media-placeholder">
-            <i class="fas fa-images"></i>
-            <span>📸 Add screenshots: EA running · inputs · dashboard · trades · strategy tester · code</span>
+          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <div class="project-gallery">
+            <img src="EA.png" alt="MT5 EA attached to chart" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Input+Settings" alt="EA input settings" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Dashboard" alt="EA dashboard" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Trade+Execution" alt="Trade being opened" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=SL+TP+Levels" alt="Stop loss and take profit" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Strategy+Tester" alt="Strategy tester results" />
           </div>
+          <div class="project-media-note">📸 Replace with your actual EA screenshots</div>
           <div class="tech-list">
             <span>MQL5</span>
             <span>MetaTrader 5</span>
@@ -1163,20 +1502,31 @@
             <span>Risk Management</span>
           </div>
           <div class="personal-note"><i class="fas fa-user"></i> Independent Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
         </div>
 
-        <!-- PROJECT 02 -->
+        <!-- PROJECT 02 — BLOG SITE -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
-          <div class="project-title">Financial / Banking Portfolio System</div>
-          <div class="project-category">Fintech / Web Application</div>
+          <div class="project-title">Blog / Content Platform</div>
+          <div class="project-category">Web Application / CMS</div>
           <div class="project-description">
-            Custom financial web application with user accounts, portfolio information, transaction workflows, dashboard interfaces and backend functionality.
+            Full‑featured blog platform with article management, categories, user authentication, comment system, search functionality and a custom admin dashboard for content publishing.
           </div>
-          <div class="project-media-placeholder">
-            <i class="fas fa-images"></i>
-            <span>📸 Add screenshots: login · dashboard · account page · transaction screen · admin · mobile view</span>
+          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <div class="project-gallery">
+            <img src="blog.png" alt="Blog homepage" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Article+Page" alt="Blog article page" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Admin+Dashboard" alt="Blog admin dashboard" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Editor" alt="Content editor" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Comments" alt="Comment system" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Mobile+View" alt="Mobile responsive view" />
           </div>
+          <div class="project-media-note">📸 Replace with your actual blog screenshots</div>
           <div class="tech-list">
             <span>PHP</span>
             <span>Laravel</span>
@@ -1185,9 +1535,14 @@
             <span>REST API</span>
           </div>
           <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Development Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
         </div>
 
-        <!-- PROJECT 03 -->
+        <!-- PROJECT 03 — E-COMMERCE -->
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
           <div class="project-title">E‑Commerce Platform</div>
@@ -1195,21 +1550,31 @@
           <div class="project-description">
             Full‑stack shopping platform designed to manage products, customers, orders and online business operations through a responsive web interface.
           </div>
-          <div class="project-media-placeholder">
-            <i class="fas fa-images"></i>
-            <span>📸 Add screenshots: homepage · product page · cart · checkout · admin · mobile version</span>
+          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <div class="project-gallery">
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Homepage" alt="E-commerce homepage" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Product+Page" alt="Product page" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Cart" alt="Shopping cart" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Checkout" alt="Checkout page" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Admin" alt="Admin dashboard" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Mobile" alt="Mobile version" />
           </div>
+          <div class="project-media-note">📸 Replace with your actual e-commerce screenshots</div>
           <div class="tech-list">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>Express</span>
-            <span>MongoDB</span>
-            <span>Stripe</span>
+            <span>PHP</span>
+            <span>JavaScript</span>
+            <span>MySQL</span>
+            <span>HTML/CSS</span>
           </div>
           <div class="personal-note"><i class="fas fa-user"></i> Independent Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
         </div>
 
-        <!-- PROJECT 04 -->
+        <!-- PROJECT 04 — WEB3 -->
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
           <div class="project-title">Web3 / Crypto Application</div>
@@ -1217,10 +1582,16 @@
           <div class="project-description">
             Custom Web3 application integrating blockchain functionality with a web interface and backend services.
           </div>
-          <div class="project-media-placeholder">
-            <i class="fas fa-images"></i>
-            <span>📸 Add screenshots: dashboard · wallet connection · transactions · blockchain data · backend/API</span>
+          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <div class="project-gallery">
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Dashboard" alt="Web3 dashboard" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Wallet+Connect" alt="Wallet connection" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Transaction" alt="Transaction screen" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Blockchain+Data" alt="Blockchain data view" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=API" alt="Backend API" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Confirmation" alt="Transaction confirmation" />
           </div>
+          <div class="project-media-note">📸 Replace with your actual Web3 screenshots</div>
           <div class="tech-list">
             <span>Solidity</span>
             <span>Ethers.js</span>
@@ -1229,9 +1600,14 @@
             <span>Web3.js</span>
           </div>
           <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Development Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
         </div>
 
-        <!-- PROJECT 05 -->
+        <!-- PROJECT 05 — AUTOMATION / BOT -->
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
           <div class="project-title">Automation / Bot System</div>
@@ -1239,10 +1615,16 @@
           <div class="project-description">
             Automated communication and business workflow system designed to reduce manual operations through API integrations and bot‑based workflows.
           </div>
-          <div class="project-media-placeholder">
-            <i class="fas fa-images"></i>
-            <span>📸 Add screenshots: Telegram · Discord · dashboard · API flow · automation</span>
+          <!-- IMAGE GALLERY — REPLACE SRC WITH YOUR SCREENSHOTS -->
+          <div class="project-gallery">
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Telegram+Bot" alt="Telegram bot interface" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Discord+Bot" alt="Discord bot" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Dashboard" alt="Automation dashboard" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=API+Flow" alt="API flow diagram" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Notification" alt="Notification system" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Workflow" alt="Automation workflow" />
           </div>
+          <div class="project-media-note">📸 Replace with your actual automation screenshots</div>
           <div class="tech-list">
             <span>Python</span>
             <span>Telegram API</span>
@@ -1251,6 +1633,11 @@
             <span>Webhooks</span>
           </div>
           <div class="personal-note"><i class="fas fa-user"></i> Independent Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
         </div>
 
       </div>
@@ -1267,63 +1654,169 @@
       <div class="section-head reveal">
         <div>
           <div class="section-label">SERVICES</div>
-          <h2 class="section-title">What I can do for you</h2>
+          <h2 class="section-title">What we can do for you</h2>
         </div>
       </div>
       <div class="services-grid">
         <div class="service-item reveal">
-          <div class="service-icon"><i class="fas fa-code"></i></div>
-          <h4>Full‑stack development</h4>
-          <p>End‑to‑end web apps with clean architecture, secure APIs and modern frontends.</p>
+          <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+          <h4>Custom Business Software</h4>
+          <p>Dashboards, portals, internal systems and web applications designed around your business workflow.</p>
         </div>
         <div class="service-item reveal reveal-delay-1">
-          <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
-          <h4>Business dashboards</h4>
-          <p>Custom portals that turn raw data into actionable insights for your team.</p>
+          <div class="service-icon"><i class="fas fa-plug"></i></div>
+          <h4>APIs & Integrations</h4>
+          <p>Connect payments, third‑party services, databases and business platforms through reliable APIs and webhooks.</p>
         </div>
         <div class="service-item reveal reveal-delay-2">
-          <div class="service-icon"><i class="fas fa-plug"></i></div>
-          <h4>Integrations & automation</h4>
-          <p>Payment gateways, third‑party APIs, bots and workflow automation.</p>
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h4>Automation</h4>
+          <p>Reduce repetitive work through bots, automated workflows, notifications and system integrations.</p>
         </div>
         <div class="service-item reveal reveal-delay-3">
-          <div class="service-icon"><i class="fas fa-robot"></i></div>
-          <h4>Trading & Web3</h4>
-          <p>MT4/MT5 EAs, trading systems, smart contracts and decentralised apps.</p>
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Trading Technology</h4>
+          <p>MT4/MT5 Expert Advisors, strategy implementation, risk management and trading automation.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-4">
+          <div class="service-icon"><i class="fas fa-cubes"></i></div>
+          <h4>Web3</h4>
+          <p>Blockchain applications, wallet integration, smart‑contract interaction and Web3 backend systems.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-5">
+          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h4>E‑commerce</h4>
+          <p>Complete online stores and custom commerce systems.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== HOW I WORK ===== -->
-  <section class="section" id="how-i-work">
+  <!-- ===== WHY GOZZY GROUP ===== -->
+  <section class="section" id="why">
     <div class="container">
       <div class="section-head reveal">
         <div>
-          <div class="section-label">HOW I WORK</div>
+          <div class="section-label">WHY GOZZY GROUP</div>
+          <h2 class="section-title">Built for businesses, not just for code</h2>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon"><i class="fas fa-bullseye"></i></div>
+          <h4>Business-first</h4>
+          <p>We focus on the problem the software needs to solve, not just the technology.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h4>Built around your workflow</h4>
+          <p>Solutions are designed around your actual requirements rather than forcing your business into a generic template.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><i class="fas fa-headset"></i></div>
+          <h4>Long-term support</h4>
+          <p>We can continue maintaining, improving and extending systems after launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHO WE WORK WITH ===== -->
+  <section class="section" id="who">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">WHO WE WORK WITH</div>
+          <h2 class="section-title">Trusted by builders and businesses</h2>
+        </div>
+      </div>
+      <div class="who-grid">
+        <div class="who-item reveal">
+          <i class="fas fa-rocket"></i>
+          <h4>Startups</h4>
+          <p>Turn ideas into functional products.</p>
+        </div>
+        <div class="who-item reveal reveal-delay-1">
+          <i class="fas fa-building"></i>
+          <h4>Small & Medium Businesses</h4>
+          <p>Automate operations and improve existing systems.</p>
+        </div>
+        <div class="who-item reveal reveal-delay-2">
+          <i class="fas fa-credit-card"></i>
+          <h4>Fintech & Payments</h4>
+          <p>Build dashboards, integrations and transaction workflows.</p>
+        </div>
+        <div class="who-item reveal reveal-delay-3">
+          <i class="fas fa-chart-bar"></i>
+          <h4>Trading Businesses</h4>
+          <p>Develop trading automation and MT5 systems.</p>
+        </div>
+        <div class="who-item reveal reveal-delay-4">
+          <i class="fas fa-link"></i>
+          <h4>Web3 Companies</h4>
+          <p>Build blockchain-enabled products and integrations.</p>
+        </div>
+        <div class="who-item reveal reveal-delay-5">
+          <i class="fas fa-handshake"></i>
+          <h4>Agencies</h4>
+          <p>Provide white‑label / overflow development capacity.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOR AGENCIES ===== -->
+  <section class="section" id="agencies">
+    <div class="container">
+      <div class="agency-card reveal">
+        <div>
+          <h3><i class="fas fa-handshake" style="color: #4f9cf7; margin-right: 10px;"></i> Need extra development capacity?</h3>
+          <p>Gozzy Group can work behind the scenes as a development partner for agencies that need additional full‑stack, API, automation, trading or Web3 development capacity.</p>
+        </div>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-comments"></i> Discuss Partnership</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">PROCESS</div>
           <h2 class="section-title">A clear, collaborative process</h2>
         </div>
       </div>
-      <div class="how-grid">
-        <div class="how-step reveal">
+      <div class="process-grid">
+        <div class="process-step reveal">
           <span class="step-num">01</span>
           <h4>Discover</h4>
-          <p>We discuss your goals, constraints and the exact problem to solve.</p>
+          <p>Understand your goals, users and requirements.</p>
         </div>
-        <div class="how-step reveal reveal-delay-1">
+        <div class="process-step reveal reveal-delay-1">
           <span class="step-num">02</span>
-          <h4>Plan</h4>
-          <p>I outline the architecture, timeline and milestones — no surprises.</p>
+          <h4>Define</h4>
+          <p>Determine scope, functionality, technology and milestones.</p>
         </div>
-        <div class="how-step reveal reveal-delay-2">
+        <div class="process-step reveal reveal-delay-2">
           <span class="step-num">03</span>
           <h4>Build</h4>
-          <p>Iterative development with regular updates and working demos.</p>
+          <p>Develop the system in clear stages with working progress.</p>
         </div>
-        <div class="how-step reveal reveal-delay-3">
+        <div class="process-step reveal reveal-delay-3">
           <span class="step-num">04</span>
-          <h4>Launch & support</h4>
-          <p>Deployment, documentation and post‑launch support to keep you moving.</p>
+          <h4>Test</h4>
+          <p>Test functionality, integrations, responsiveness and edge cases.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-4">
+          <span class="step-num">05</span>
+          <h4>Launch</h4>
+          <p>Deploy the completed system.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-5">
+          <span class="step-num">06</span>
+          <h4>Support</h4>
+          <p>Continue with maintenance, improvements and new features when required.</p>
         </div>
       </div>
     </div>
@@ -1335,12 +1828,31 @@
       <div class="section-head reveal">
         <div>
           <div class="section-label">ABOUT</div>
-          <h2 class="section-title">Developer, problem solver, builder</h2>
+          <h2 class="section-title">The Developer Behind Gozzy Group</h2>
         </div>
       </div>
       <div class="about-text reveal">
-        <p>I'm Uche Isaiah Chigozie, founder of <strong style="color: #ffffff;">Gozzy Group</strong>. I'm a full‑stack developer with a focus on business applications, fintech systems, trading automation and Web3. I don't just write code — I build tools that help businesses operate more efficiently, automate manual work and grow.</p>
-        <p>Whether you need a custom dashboard, a payment integration, an MT5 Expert Advisor or a complete web platform, I bring a pragmatic, detail‑oriented approach to every project.</p>
+        <p><strong>Gozzy Group</strong> was founded by <strong>Uche Isaiah Chigozie</strong>, a full‑stack developer focused on building practical software for businesses, startups and entrepreneurs.</p>
+        <p>My experience spans full‑stack web development, business applications, APIs, automation, fintech systems, MT4/MT5 trading technology and Web3 development.</p>
+        <p>I've built systems ranging from e‑commerce platforms and business dashboards to automated trading systems, API‑driven applications and blockchain integrations.</p>
+        <p>My approach is simple: understand the problem, design the right solution, build it properly and support it after launch.</p>
+        <p>Gozzy Group is available for project‑based development, ongoing technical support and partnerships with businesses and agencies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS (Real only) ===== -->
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">TESTIMONIALS</div>
+          <h2 class="section-title">What clients say</h2>
+        </div>
+      </div>
+      <div class="testimonial-note reveal">
+        <i class="fas fa-quote-left"></i>
+        Real testimonials coming soon. We only publish genuine feedback from actual clients.
       </div>
     </div>
   </section>
@@ -1353,14 +1865,85 @@
           <div class="section-label">CONTACT</div>
         </div>
       </div>
-      <div class="contact-card reveal">
-        <div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
           <h3>Let's build something great</h3>
-          <p>Tell me about your project — I'll get back to you within 24 hours.</p>
+          <p>Tell me about your project — I'll get back to you within 24 hours. Whether you need a new system built, an existing one fixed, or a partner for ongoing development, Gozzy Group is ready to help.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:Gozzypips@gmail.com">Gozzypips@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-telegram-plane"></i>
+              <a href="#">Telegram</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-github"></i>
+              <a href="#">GitHub</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-linkedin-in"></i>
+              <a href="#">LinkedIn</a>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
         </div>
-        <div class="contact-buttons">
-          <a href="mailto:Gozzypips@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Gozzypips@gmail.com</a>
-          <a href="#" class="btn btn-outline"><i class="fab fa-telegram-plane"></i> Telegram</a>
+        <div class="contact-form reveal reveal-delay-1">
+          <form action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company <span style="color: #4a6075; font-weight: 400;">(optional)</span></label>
+              <input type="text" id="company" name="company" placeholder="Your company" />
+            </div>
+            <div class="form-group">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="web-app">Web Application</option>
+                <option value="website">Website</option>
+                <option value="api-integration">API Integration</option>
+                <option value="payment-integration">Payment Integration</option>
+                <option value="automation">Automation</option>
+                <option value="mt5-trading">MT5 / Trading</option>
+                <option value="web3">Web3</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option value="under-500">Under $500</option>
+                <option value="500-1000">$500–$1,000</option>
+                <option value="1000-2500">$1,000–$2,500</option>
+                <option value="2500-plus">$2,500+</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project description</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project, goals and timeline..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Project Request</button>
+            <p class="form-note">We typically respond within 24 hours.</p>
+          </form>
         </div>
       </div>
     </div>
@@ -1369,13 +1952,16 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 · <strong style="color: #8fa8c0;">Gozzy Group</strong> · Uche Isaiah Chigozie · Full‑stack developer</p>
-      <p>Available for freelance & contract projects.</p>
+      <p>© <span id="year"></span> Gozzy Group. All rights reserved.</p>
+      <p>Full‑stack development · Automation · Trading Technology · Web3</p>
     </div>
   </footer>
 
   <!-- ===== SCRIPTS ===== -->
   <script>
+    // ===== DYNAMIC YEAR =====
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     // ===== SCROLL PROGRESS BAR =====
     (function() {
       const progressBar = document.getElementById('scrollProgress');
