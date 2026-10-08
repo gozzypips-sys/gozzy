@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gozzy Group | Full-Stack Development, Automation, Trading & Web3</title>
+  <meta name="description" content="Gozzy Group builds custom software, business applications, APIs, automation systems, MT4/MT5 trading technology and Web3 solutions for businesses and startups." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #07090C;
+      color: #e8edf2;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px;
+      background: linear-gradient(90deg, #2d7eff, #7c3aed);
+      z-index: 200; width: 0%; transition: width 0.1s linear;
+    }
+
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 9, 12, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 0.85rem 0;
+      transition: box-shadow 0.3s ease;
+    }
+    .site-header.scrolled { box-shadow: 0 8px 32px -12px rgba(0, 0, 0, 0.6); }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .brand {
+      font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
+      color: #ffffff; display: flex; align-items: center; gap: 0.6rem; white-space: nowrap;
+    }
+    .brand .brand-mark {
+      width: 32px; height: 32px; border-radius: 9px;
+      background: linear-gradient(135deg, #2d7eff, #7c3aed);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800; color: white;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 12px -4px rgba(45, 126, 255, 0.4);
+    }
+    .brand .brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+    .brand .brand-name { font-size: 1.05rem; font-weight: 700; color: #ffffff; }
+    .brand .brand-sub { font-size: 0.65rem; font-weight: 400; color: #6b8aa6; letter-spacing: 0.3px; }
+
+    .nav-links { display: flex; align-items: center; gap: 1.6rem; font-size: 0.82rem; font-weight: 500; color: #9bb1c7; }
+    .nav-links a { transition: color 0.15s ease; position: relative; }
+    .nav-links a:hover { color: #ffffff; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1.5px;
+      background: #4f9cf7; transition: width 0.2s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .header-cta { display: flex; align-items: center; gap: 0.75rem; }
+    .header-cta .btn-sm { padding: 0.5rem 1.2rem; font-size: 0.78rem; border-radius: 40px; font-weight: 600; }
+    .mobile-nav-toggle {
+      display: none; background: none; border: 1px solid #1e2a36;
+      color: #ccddee; width: 40px; height: 40px; border-radius: 10px;
+      cursor: pointer; font-size: 1rem; transition: all 0.2s ease;
+    }
+    .mobile-nav-toggle:hover { border-color: #4f9cf7; color: #ffffff; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.6rem; padding: 0.85rem 1.9rem; border-radius: 60px;
+      font-weight: 600; font-size: 0.88rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer; border: 1px solid transparent;
+      white-space: nowrap; position: relative; overflow: hidden;
+    }
+    .btn-primary {
+      background: #2d7eff; color: white;
+      box-shadow: 0 8px 18px -6px rgba(45, 126, 255, 0.35);
+    }
+    .btn-primary:hover {
+      background: #1b6af0; transform: translateY(-2px);
+      box-shadow: 0 14px 28px -8px rgba(45, 126, 255, 0.55);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-outline { background: transparent; border: 1px solid #263544; color: #ccddee; }
+    .btn-outline:hover { border-color: #4f9cf7; background: rgba(79, 156, 247, 0.06); transform: translateY(-2px); }
+
+    .hero {
+      padding: 5rem 0 4.5rem; position: relative; overflow: hidden;
+      background: radial-gradient(ellipse at 75% 15%, rgba(45, 120, 255, 0.14) 0%, transparent 65%);
+      min-height: 85vh; display: flex; align-items: center;
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -30%; right: -10%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
+      pointer-events: none; animation: float 8s ease-in-out infinite;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -20%; left: -5%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(45, 120, 255, 0.05) 0%, transparent 70%);
+      pointer-events: none; animation: float 10s ease-in-out infinite reverse;
+    }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-20px, -20px) scale(1.05); }
+    }
+    .hero-grid { display: grid; grid-template-columns: 1fr 0.85fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.6px;
+      text-transform: uppercase; color: #4f9cf7;
+      background: rgba(79, 156, 247, 0.06);
+      padding: 0.45rem 1.1rem; border-radius: 40px;
+      border: 1px solid rgba(79, 156, 247, 0.15);
+      margin-bottom: 1.75rem;
+    }
+    .hero-badge .pulse-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #4f9cf7;
+      box-shadow: 0 0 0 0 rgba(79, 156, 247, 0.6);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(79, 156, 247, 0.5); }
+      70% { box-shadow: 0 0 0 8px rgba(79, 156, 247, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(79, 156, 247, 0); }
+    }
+    .hero h1 {
+      font-size: 3.6rem; font-weight: 800; line-height: 1.08;
+      letter-spacing: -0.03em; margin-bottom: 1.5rem; color: #ffffff;
+    }
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, #4f9cf7 0%, #a78bfa 60%, #7c3aed 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-sub { font-size: 1.05rem; color: #9bb1c7; max-width: 600px; margin-bottom: 2.25rem; font-weight: 400; line-height: 1.7; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+    .hero-tags {
+      margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.6rem 1rem;
+      font-size: 0.75rem; color: #6b8aa6; letter-spacing: 0.3px;
+    }
+    .hero-tags span { display: flex; align-items: center; gap: 0.4rem; }
+    .hero-tags span::before { content: '·'; color: #4f9cf7; font-weight: 700; }
+
+    .hero-visual { display: flex; flex-direction: column; gap: 0.85rem; }
+    .hero-visual-card {
+      background: #0b1118; border: 1px solid #182430; border-radius: 16px;
+      padding: 1.1rem 1.4rem; display: flex; align-items: center; gap: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: default;
+    }
+    .hero-visual-card:hover {
+      border-color: #2b4b66; transform: translateX(8px);
+      background: #0d1620; box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.5);
+    }
+    .hero-visual-card .hv-icon {
+      width: 42px; height: 42px; border-radius: 11px;
+      background: #101d29; border: 1px solid #1d2d3b;
+      display: flex; align-items: center; justify-content: center;
+      color: #4f9cf7; font-size: 1rem; flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+    .hero-visual-card:hover .hv-icon {
+      background: rgba(45, 126, 255, 0.1); border-color: #2d7eff; color: #ffffff;
+    }
+    .hero-visual-card .hv-content { flex: 1; }
+    .hero-visual-card .hv-content .hv-title { font-size: 0.88rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.15rem; }
+    .hero-visual-card .hv-content .hv-desc { font-size: 0.75rem; color: #6b8aa6; }
+
+    .section { padding: 5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
+    .section:last-of-type { border-bottom: none; }
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem;
+    }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: #4f9cf7;
+      margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.7rem;
+    }
+    .section-label::before {
+      content: ''; width: 28px; height: 1.5px;
+      background: linear-gradient(90deg, #4f9cf7, transparent);
+    }
+    .section-title {
+      font-size: 2.1rem; font-weight: 700; letter-spacing: -0.025em;
+      color: #f0f6fc; line-height: 1.2;
+    }
+
+    .build-grid { display: flex; flex-wrap: wrap; gap: 0.7rem 0.85rem; margin-bottom: 2.75rem; }
+    .build-tag {
+      background: #0b1118; border: 1px solid #182430;
+      padding: 0.65rem 1.35rem; border-radius: 60px;
+      font-size: 0.88rem; font-weight: 500; color: #d0dfef;
+      transition: all 0.2s ease; display: inline-flex; align-items: center;
+      gap: 0.55rem; cursor: default;
+    }
+    .build-tag i { color: #4f9cf7; font-size: 0.78rem; width: 16px; text-align: center; transition: transform 0.2s ease; }
+    .build-tag:hover {
+      border-color: #2d7eff; background: #0d1723;
+      transform: translateY(-2px); box-shadow: 0 8px 20px -12px rgba(45, 126, 255, 0.3);
+    }
+    .build-tag:hover i { transform: scale(1.15); }
+
+    .cta-line {
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 1.5rem 2rem;
+      background: linear-gradient(135deg, #0b1118 0%, #0d1824 100%);
+      padding: 2rem 2.5rem; border-radius: 22px;
+      border: 1px solid #182430; position: relative; overflow: hidden;
+    }
+    .cta-line::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, #2d7eff, #7c3aed);
+    }
+    .cta-line p {
+      font-size: 1.1rem; font-weight: 500; color: #e2ebf5;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .cta-line p i { color: #4f9cf7; font-size: 1.15rem; }
+
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 1.75rem;
+    }
+    .project-card {
+      background: #0b1118; border: 1px solid #182430; border-radius: 22px;
+      padding: 1.9rem 1.75rem 1.75rem;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, #2d7eff, #7c3aed);
+      opacity: 0; transition: opacity 0.35s ease;
+    }
+    .project-card:hover::before { opacity: 1; }
+    .project-card:hover {
+      border-color: #253d52; background: #0d1620;
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.7);
+    }
+    .project-number { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.4px; color: #4f9cf7; margin-bottom: 0.65rem; }
+    .project-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4rem; color: #ffffff; letter-spacing: -0.01em; }
+    .project-category { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.7px; color: #6b8aa6; margin-bottom: 1.1rem; }
+    .project-description { color: #a6b9cc; font-size: 0.9rem; line-height: 1.65; margin-bottom: 1.4rem; flex-grow: 1; }
+    .project-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1.5rem; }
+    .project-gallery img {
+      width: 100%; height: 120px; object-fit: cover;
+      border-radius: 10px; border: 1px solid #1a2a38;
+      background: #080e14; transition: all 0.3s ease; cursor: pointer;
+    }
+    .project-gallery img:hover {
+      border-color: #2d7eff; transform: scale(1.03);
+      box-shadow: 0 8px 20px -8px rgba(45, 126, 255, 0.3);
+    }
+    .project-gallery.single { grid-template-columns: 1fr; }
+    .project-gallery.single img { height: 240px; object-fit: cover; }
+    .project-gallery.single img:hover { transform: scale(1.02); }
+    .project-media-note { font-size: 0.7rem; color: #4a6075; text-align: center; margin-bottom: 1rem; font-style: italic; }
+    .tech-list {
+      display: flex; flex-wrap: wrap; gap: 0.45rem 0.6rem;
+      font-size: 0.72rem; color: #9bb1c7;
+      border-top: 1px solid #15202b; padding-top: 1.35rem;
+    }
+    .tech-list span {
+      background: #0e1a24; padding: 0.3rem 0.85rem;
+      border-radius: 40px; border: 1px solid #1a2a38;
+      font-weight: 500; transition: all 0.2s ease;
+    }
+    .tech-list span:hover { border-color: #2d7eff; color: #ffffff; }
+    .personal-note {
+      font-size: 0.72rem; color: #6b8aa6; margin-top: 0.85rem;
+      display: flex; align-items: center; gap: 0.45rem; font-style: italic;
+    }
+    .personal-note i { font-size: 0.62rem; color: #4f9cf7; }
+    .client-note {
+      font-size: 0.72rem; color: #86efac; margin-top: 0.85rem;
+      display: flex; align-items: center; gap: 0.45rem; font-style: italic;
+    }
+    .client-note i { font-size: 0.62rem; color: #22c55e; }
+    .project-links { display: flex; gap: 0.75rem; margin-top: 0.85rem; flex-wrap: wrap; }
+    .project-links a {
+      font-size: 0.75rem; color: #4f9cf7;
+      display: flex; align-items: center; gap: 0.35rem;
+      transition: color 0.2s ease; font-weight: 500;
+    }
+    .project-links a:hover { color: #7cb8ff; }
+    .projects-footnote {
+      margin-top: 2.25rem; font-size: 0.82rem; color: #5d7a94;
+      text-align: center; border-top: 1px solid #111c26;
+      padding-top: 1.75rem; display: flex; align-items: center;
+      justify-content: center; gap: 0.5rem;
+    }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+    .service-item {
+      background: #0b1118; border: 1px solid #182430; border-radius: 20px;
+      padding: 1.75rem 1.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative; overflow: hidden;
+    }
+    .service-item::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, #2d7eff, #7c3aed);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+    }
+    .service-item:hover::after { transform: scaleX(1); }
+    .service-item:hover {
+      border-color: #2b4b66; background: #0d1723;
+      transform: translateY(-4px); box-shadow: 0 16px 32px -16px rgba(0, 0, 0, 0.5);
+    }
+    .service-icon {
+      font-size: 1.5rem; color: #4f9cf7; margin-bottom: 1.1rem;
+      width: 46px; height: 46px; background: #0e1a26;
+      border: 1px solid #1a2a38; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .service-item:hover .service-icon {
+      background: rgba(45, 126, 255, 0.1); border-color: #2d7eff; color: #ffffff;
+    }
+    .service-item h4 { font-size: 1.02rem; font-weight: 600; margin-bottom: 0.6rem; color: #ffffff; }
+    .service-item p { font-size: 0.85rem; color: #8fa8c0; line-height: 1.6; }
+
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+    .why-card {
+      background: #0b1118; border: 1px solid #182430; border-radius: 20px;
+      padding: 2rem 1.75rem; transition: all 0.3s ease;
+    }
+    .why-card:hover { border-color: #2b4b66; background: #0d1723; transform: translateY(-3px); }
+    .why-card .why-icon { font-size: 1.6rem; color: #4f9cf7; margin-bottom: 1.25rem; }
+    .why-card h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; color: #ffffff; }
+    .why-card p { font-size: 0.87rem; color: #8fa8c0; line-height: 1.6; }
+
+    .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
+    .who-item {
+      background: #0b1118; border: 1px solid #182430; border-radius: 18px;
+      padding: 1.5rem 1.35rem; transition: all 0.3s ease; text-align: center;
+    }
+    .who-item:hover { border-color: #2b4b66; background: #0d1723; transform: translateY(-3px); }
+    .who-item i { font-size: 1.4rem; color: #4f9cf7; margin-bottom: 0.85rem; display: block; }
+    .who-item h4 { font-size: 0.92rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.35rem; }
+    .who-item p { font-size: 0.78rem; color: #8fa8c0; line-height: 1.5; }
+
+    .agency-card {
+      background: linear-gradient(135deg, #0b1118 0%, #0d1824 100%);
+      border: 1px solid #182430; border-radius: 22px;
+      padding: 2.5rem 2.5rem; display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: space-between; gap: 2rem;
+      position: relative; overflow: hidden;
+    }
+    .agency-card::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, #7c3aed, #2d7eff);
+    }
+    .agency-card h3 { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem; }
+    .agency-card p { color: #8fa8c0; font-size: 0.95rem; max-width: 600px; line-height: 1.6; }
+
+    .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.15rem; }
+    .process-step {
+      background: #0b1118; border: 1px solid #182430; border-radius: 18px;
+      padding: 1.5rem 1.35rem; transition: all 0.3s ease; position: relative;
+    }
+    .process-step:hover { border-color: #2b4b66; background: #0d1723; transform: translateY(-3px); }
+    .process-step .step-num { font-size: 0.68rem; font-weight: 800; color: #4f9cf7; letter-spacing: 1.5px; margin-bottom: 0.6rem; display: block; }
+    .process-step h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.45rem; color: #e8edf2; }
+    .process-step p { font-size: 0.78rem; color: #8fa8c0; line-height: 1.55; }
+
+    .about-text { max-width: 720px; font-size: 1.02rem; color: #b8cbdd; line-height: 1.75; }
+    .about-text p + p { margin-top: 1rem; }
+    .about-text strong { color: #ffffff; }
+
+    .testimonial-note {
+      background: #0b1118; border: 1px solid #182430; border-radius: 18px;
+      padding: 2rem; text-align: center; color: #6b8aa6;
+      font-size: 0.92rem; font-style: italic; max-width: 700px; margin: 0 auto;
+    }
+    .testimonial-note i { color: #4f9cf7; margin-right: 0.5rem; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .contact-info h3 { font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .contact-info p { color: #8fa8c0; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail { display: flex; align-items: center; gap: 0.85rem; font-size: 0.9rem; color: #b8cbdd; }
+    .contact-detail i {
+      width: 38px; height: 38px; background: #0e1a26;
+      border: 1px solid #1a2a38; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #4f9cf7; font-size: 0.9rem; flex-shrink: 0;
+    }
+    .contact-detail a { transition: color 0.2s ease; }
+    .contact-detail a:hover { color: #4f9cf7; }
+    .contact-socials { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
+    .contact-socials a {
+      width: 42px; height: 42px; background: #0b1118;
+      border: 1px solid #182430; border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      color: #8fa8c0; font-size: 1rem; transition: all 0.25s ease;
+    }
+    .contact-socials a:hover {
+      border-color: #2d7eff; color: #ffffff;
+      background: #0d1723; transform: translateY(-2px);
+    }
+
+    .contact-form { background: #0b1118; border: 1px solid #182430; border-radius: 22px; padding: 2rem 2rem; }
+    .contact-form .form-group { margin-bottom: 1.25rem; }
+    .contact-form label {
+      display: block; font-size: 0.78rem; font-weight: 600;
+      color: #b8cbdd; margin-bottom: 0.45rem; letter-spacing: 0.3px;
+    }
+    .contact-form input, .contact-form select, .contact-form textarea {
+      width: 100%; background: #080e14; border: 1px solid #1a2a38;
+      border-radius: 12px; padding: 0.75rem 1rem;
+      color: #e8edf2; font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      outline: none;
+    }
+    .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+      border-color: #2d7eff; box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.1);
+    }
+    .contact-form textarea { min-height: 110px; resize: vertical; }
+    .contact-form select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b8aa6' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+    .contact-form select option { background: #0b1118; color: #e8edf2; }
+    .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-form .btn { width: 100%; margin-top: 0.5rem; }
+    .form-note { font-size: 0.72rem; color: #5d7a94; text-align: center; margin-top: 1rem; }
+
+    .form-alert {
+      padding: 1rem 1.25rem; border-radius: 14px;
+      font-size: 0.88rem; margin-bottom: 1.25rem;
+      display: flex; align-items: flex-start; gap: 0.7rem; line-height: 1.55;
+    }
+    .form-alert i { margin-top: 0.15rem; flex-shrink: 0; }
+    .form-alert.success { background: rgba(34, 197, 94, 0.08); border: 1px solid rgba(34, 197, 94, 0.25); color: #86efac; }
+    .form-alert.success i { color: #22c55e; }
+    .form-alert.error { background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); color: #fca5a5; }
+    .form-alert.error i { color: #ef4444; }
+    .form-alert.hidden { display: none; }
+
+    .footer {
+      padding: 2.5rem 0; text-align: center;
+      font-size: 0.8rem; color: #4a6075; border-top: 1px solid #111c26;
+    }
+    .footer p + p { margin-top: 0.4rem; font-size: 0.7rem; }
+
+    .container { max-width: 1220px; margin: 0 auto; padding: 0 2rem; }
+
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+      .hero h1 { font-size: 3rem; }
+      .nav-links { display: none; }
+      .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 3.5rem 0 3rem; min-height: auto; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-sub { font-size: 0.95rem; }
+      .section-title { font-size: 1.65rem; }
+      .cta-line { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .hero-visual { grid-template-columns: 1fr; }
+      .container { padding: 0 1.25rem; }
+      .section-head { flex-direction: column; align-items: flex-start; }
+      .header-cta .btn-sm { display: none; }
+      .contact-form .form-row { grid-template-columns: 1fr; }
+      .agency-card { flex-direction: column; align-items: flex-start; padding: 1.75rem; }
+      .project-gallery { grid-template-columns: 1fr 1fr; }
+      .project-gallery img { height: 100px; }
+      .project-gallery.single img { height: 180px; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.95rem; }
+      .btn { width: 100%; justify-content: center; }
+      .hero-cta { flex-direction: column; width: 100%; }
+      .contact-buttons { width: 100%; flex-direction: column; }
+      .contact-buttons .btn { width: 100%; }
+      .cta-line .btn { width: 100%; }
+      .contact-form { padding: 1.5rem 1.25rem; }
+      .project-gallery { grid-template-columns: 1fr; }
+      .project-gallery img { height: 140px; }
+      .project-gallery.single img { height: 180px; }
+    }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark">GG</span>
+        <span class="brand-text">
+          <span class="brand-name">Gozzy Group</span>
+          <span class="brand-sub">Uche Isaiah Chigozie</span>
+        </span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#what-we-build">What We Build</a>
+        <a href="#projects">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-cta">
+        <a href="#contact" class="btn btn-primary btn-sm"><i class="fas fa-paper-plane"></i> Start a Project</a>
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            Available for new projects
+          </div>
+          <h1>
+            We Build Digital Systems That <span class="gradient-text">Move Businesses Forward</span>
+          </h1>
+          <p class="hero-sub">
+            Gozzy Group designs and develops custom software, business applications, automation systems, trading technology, APIs and Web3 solutions for businesses, startups and entrepreneurs.
+          </p>
+          <p class="hero-sub" style="font-size: 0.95rem; color: #7a9ab5;">
+            From a new product that needs to be built to an existing system that needs to be fixed, integrated or automated — we turn technical requirements into working digital solutions.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Start a Project</a>
+            <a href="#projects" class="btn btn-outline"><i class="fas fa-arrow-down"></i> View Our Work</a>
+          </div>
+          <div class="hero-tags">
+            <span>Full-Stack Development</span>
+            <span>Automation</span>
+            <span>Trading Technology</span>
+            <span>Web3</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-visual-card reveal">
+            <div class="hv-icon"><i class="fas fa-code"></i></div>
+            <div class="hv-content">
+              <div class="hv-title">Full‑stack web apps</div>
+              <div class="hv-desc">Dashboards, portals & platforms</div>
+            </div>
+          </div>
+          <div class="hero-visual-card reveal reveal-delay-1">
+            <div class="hv-icon"><i class="fas fa-robot"></i></div>
+            <div class="hv-content">
+              <div class="hv-title">Trading & automation</div>
+              <div class="hv-desc">MT4/MT5 EAs · Bots · APIs</div>
+            </div>
+          </div>
+          <div class="hero-visual-card reveal reveal-delay-2">
+            <div class="hv-icon"><i class="fas fa-cubes"></i></div>
+            <div class="hv-content">
+              <div class="hv-title">Web3 & fintech</div>
+              <div class="hv-desc">Blockchain · Payments · Integrations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="what-we-build">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">WHAT WE BUILD</div>
+          <h2 class="section-title">From backend systems to full‑stack platforms</h2>
+        </div>
+      </div>
+      <div class="build-grid reveal">
+        <span class="build-tag"><i class="fas fa-layer-group"></i> Full‑stack web applications</span>
+        <span class="build-tag"><i class="fas fa-chart-pie"></i> Business dashboards & portals</span>
+        <span class="build-tag"><i class="fas fa-credit-card"></i> Payment & API integrations</span>
+        <span class="build-tag"><i class="fas fa-robot"></i> MT4/MT5 Expert Advisors</span>
+        <span class="build-tag"><i class="fas fa-chart-line"></i> Trading automation systems</span>
+        <span class="build-tag"><i class="fas fa-cubes"></i> Web3 & blockchain applications</span>
+        <span class="build-tag"><i class="fab fa-telegram-plane"></i> Telegram & Discord bots</span>
+        <span class="build-tag"><i class="fas fa-shopping-cart"></i> E‑commerce platforms</span>
+        <span class="build-tag"><i class="fas fa-cogs"></i> Business automation systems</span>
+        <span class="build-tag"><i class="fas fa-server"></i> Custom backend systems</span>
+      </div>
+      <div class="cta-line reveal">
+        <p><i class="fas fa-question-circle"></i> Have a system you need built, fixed or automated?</p>
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-comment"></i> Let's discuss the project</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">SELECTED PROJECTS</div>
+          <h2 class="section-title">Work that speaks for itself</h2>
+        </div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-number">PROJECT 01</div>
+          <div class="project-title">MT5 Trading Automation System</div>
+          <div class="project-category">Trading / MQL5</div>
+          <div class="project-description">
+            Custom MT5 Expert Advisor designed around structured market‑entry logic, risk management, automated trade execution and position management.
+          </div>
+          <div class="project-gallery single">
+            <img src="EA.png" alt="MT5 EA full dashboard and log" />
+          </div>
+          <div class="project-media-note">SMC pro scalper</div>
+          <div class="tech-list">
+            <span>MQL5</span><span>MetaTrader 5</span><span>Algorithmic Trading</span><span>Risk Management</span>
+          </div>
+          <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-number">PROJECT 02</div>
+          <div class="project-title">Blog / Content Platform</div>
+          <div class="project-category">Web Application / CMS</div>
+          <div class="project-description">
+            Full‑featured blog platform with article management, categories, user authentication, comment system, search functionality and a custom admin dashboard.
+          </div>
+          <div class="project-gallery">
+            <img src="blog.png" alt="Blog homepage" />
+            <img src="news.jpeg" alt="Blog article page" />
+          </div>
+          <div class="project-media-note">News / Content Site</div>
+          <div class="tech-list">
+            <span>PHP</span><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>REST API</span>
+          </div>
+          <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-number">PROJECT 03</div>
+          <div class="project-title">E‑Commerce Platform</div>
+          <div class="project-category">E‑Commerce</div>
+          <div class="project-description">
+            Full‑stack shopping platform designed to manage products, customers, orders and online business operations through a responsive web interface.
+          </div>
+          <div class="project-gallery">
+            <img src="commerce.jpeg" alt="E-commerce homepage" />
+            <img src="cart.png" alt="Product page" />
+          </div>
+          <div class="project-media-note">Marketplace</div>
+          <div class="tech-list">
+            <span>PHP</span><span>JavaScript</span><span>MySQL</span><span>HTML/CSS</span>
+          </div>
+          <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-number">PROJECT 04</div>
+          <div class="project-title">Web3 / Crypto Application</div>
+          <div class="project-category">Web3 / Blockchain</div>
+          <div class="project-description">
+            Custom Web3 application integrating blockchain functionality with a web interface and backend services.
+          </div>
+          <div class="project-gallery">
+            <img src="web.png" alt="Web3 dashboard" />
+            <img src="adweb.png" alt="Wallet connection" />
+          </div>
+          <div class="project-media-note">Payroll system (Smart contract)</div>
+          <div class="tech-list">
+            <span>Solidity</span><span>Ethers.js</span><span>React</span><span>Node.js</span><span>Web3.js</span>
+          </div>
+          <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
+        </div>
+
+        <div class="project-card reveal reveal-delay-4">
+          <div class="project-number">PROJECT 05</div>
+          <div class="project-title">Automation / Bot System</div>
+          <div class="project-category">Automation</div>
+          <div class="project-description">
+            Automated communication and business workflow system designed to reduce manual operations through API integrations and bot‑based workflows.
+          </div>
+          <div class="project-gallery">
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Telegram+Bot" alt="Telegram bot interface" />
+            <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Automation+Dashboard" alt="Automation dashboard" />
+          </div>
+          <div class="project-media-note">Telegram & Discord automation</div>
+          <div class="tech-list">
+            <span>Python</span><span>Telegram API</span><span>Discord API</span><span>Node.js</span><span>Webhooks</span>
+          </div>
+          <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
+          <div class="project-links">
+            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
+            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="projects-footnote reveal">
+        <i class="fas fa-info-circle" style="color: #4f9cf7;"></i>
+        Projects 01–03 are client work (with permission). Projects 04–05 are self‑initiated R&amp;D.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">SERVICES</div>
+          <h2 class="section-title">What we can do for you</h2>
+        </div>
+      </div>
+      <div class="services-grid">
+        <div class="service-item reveal">
+          <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+          <h4>Custom Business Software</h4>
+          <p>Dashboards, portals, internal systems and web applications designed around your business workflow.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-1">
+          <div class="service-icon"><i class="fas fa-plug"></i></div>
+          <h4>APIs & Integrations</h4>
+          <p>Connect payments, third‑party services, databases and business platforms through reliable APIs and webhooks.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-2">
+          <div class="service-icon"><i class="fas fa-cogs"></i></div>
+          <h4>Automation</h4>
+          <p>Reduce repetitive work through bots, automated workflows, notifications and system integrations.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-3">
+          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+          <h4>Trading Technology</h4>
+          <p>MT4/MT5 Expert Advisors, strategy implementation, risk management and trading automation.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-4">
+          <div class="service-icon"><i class="fas fa-cubes"></i></div>
+          <h4>Web3</h4>
+          <p>Blockchain applications, wallet integration, smart‑contract interaction and Web3 backend systems.</p>
+        </div>
+        <div class="service-item reveal reveal-delay-5">
+          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+          <h4>E‑commerce</h4>
+          <p>Complete online stores and custom commerce systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">WHY GOZZY GROUP</div>
+          <h2 class="section-title">Built for businesses, not just for code</h2>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="why-icon"><i class="fas fa-bullseye"></i></div>
+          <h4>Business-first</h4>
+          <p>We focus on the problem the software needs to solve, not just the technology.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon"><i class="fas fa-puzzle-piece"></i></div>
+          <h4>Built around your workflow</h4>
+          <p>Solutions are designed around your actual requirements rather than forcing your business into a generic template.</p>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon"><i class="fas fa-headset"></i></div>
+          <h4>Long-term support</h4>
+          <p>We can continue maintaining, improving and extending systems after launch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="who">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">WHO WE WORK WITH</div>
+          <h2 class="section-title">Trusted by builders and businesses</h2>
+        </div>
+      </div>
+      <div class="who-grid">
+        <div class="who-item reveal"><i class="fas fa-rocket"></i><h4>Startups</h4><p>Turn ideas into functional products.</p></div>
+        <div class="who-item reveal reveal-delay-1"><i class="fas fa-building"></i><h4>Small & Medium Businesses</h4><p>Automate operations and improve existing systems.</p></div>
+        <div class="who-item reveal reveal-delay-2"><i class="fas fa-credit-card"></i><h4>Fintech & Payments</h4><p>Build dashboards, integrations and transaction workflows.</p></div>
+        <div class="who-item reveal reveal-delay-3"><i class="fas fa-chart-bar"></i><h4>Trading Businesses</h4><p>Develop trading automation and MT5 systems.</p></div>
+        <div class="who-item reveal reveal-delay-4"><i class="fas fa-link"></i><h4>Web3 Companies</h4><p>Build blockchain-enabled products and integrations.</p></div>
+        <div class="who-item reveal reveal-delay-5"><i class="fas fa-handshake"></i><h4>Agencies</h4><p>Provide white‑label / overflow development capacity.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="agencies">
+    <div class="container">
+      <div class="agency-card reveal">
+        <div>
+          <h3><i class="fas fa-handshake" style="color: #4f9cf7; margin-right: 10px;"></i> Need extra development capacity?</h3>
+          <p>Gozzy Group can work behind the scenes as a development partner for agencies that need additional full‑stack, API, automation, trading or Web3 development capacity.</p>
+        </div>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-comments"></i> Discuss Partnership</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">PROCESS</div>
+          <h2 class="section-title">A clear, collaborative process</h2>
+        </div>
+      </div>
+      <div class="process-grid">
+        <div class="process-step reveal"><span class="step-num">01</span><h4>Discover</h4><p>Understand your goals, users and requirements.</p></div>
+        <div class="process-step reveal reveal-delay-1"><span class="step-num">02</span><h4>Define</h4><p>Determine scope, functionality, technology and milestones.</p></div>
+        <div class="process-step reveal reveal-delay-2"><span class="step-num">03</span><h4>Build</h4><p>Develop the system in clear stages with working progress.</p></div>
+        <div class="process-step reveal reveal-delay-3"><span class="step-num">04</span><h4>Test</h4><p>Test functionality, integrations, responsiveness and edge cases.</p></div>
+        <div class="process-step reveal reveal-delay-4"><span class="step-num">05</span><h4>Launch</h4><p>Deploy the completed system.</p></div>
+        <div class="process-step reveal reveal-delay-5"><span class="step-num">06</span><h4>Support</h4><p>Continue with maintenance, improvements and new features when required.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">ABOUT</div>
+          <h2 class="section-title">The Developer Behind Gozzy Group</h2>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <p><strong>Gozzy Group</strong> was founded by <strong>Uche Isaiah Chigozie</strong>, a full‑stack developer focused on building practical software for businesses, startups and entrepreneurs.</p>
+        <p>My experience spans full‑stack web development, business applications, APIs, automation, fintech systems, MT4/MT5 trading technology and Web3 development.</p>
+        <p>I've built systems ranging from e‑commerce platforms and business dashboards to automated trading systems, API‑driven applications and blockchain integrations.</p>
+        <p>My approach is simple: understand the problem, design the right solution, build it properly and support it after launch.</p>
+        <p>Gozzy Group is available for project‑based development, ongoing technical support and partnerships with businesses and agencies.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">TESTIMONIALS</div>
+          <h2 class="section-title">What clients say</h2>
+        </div>
+      </div>
+      <div class="testimonial-note reveal">
+        <i class="fas fa-quote-left"></i>
+        Real testimonials coming soon. We only publish genuine feedback from actual clients.
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-label">CONTACT</div>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <h3>Let's build something great</h3>
+          <p>Tell me about your project — I'll get back to you within 24 hours. Whether you need a new system built, an existing one fixed, or a partner for ongoing development, Gozzy Group is ready to help.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:Gozzypips@gmail.com">Gozzypips@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+2349021317870">09021317870</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-telegram-plane"></i>
+              <a href="https://t.me/+2349021317870" target="_blank" rel="noopener">Telegram</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-github"></i>
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-linkedin-in"></i>
+              <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://t.me/+2349021317870" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://wa.me/2349021317870" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="contact-form reveal reveal-delay-1">
+
+          <!-- Alert box (hidden by default, shown via JS) -->
+          <div class="form-alert hidden" id="formAlert">
+            <i class="fas fa-check-circle" id="formAlertIcon"></i>
+            <span id="formAlertText"></span>
+          </div>
+
+          <!-- ⚠️ IMPORTANT: Replace the action URL with your PHP host -->
+          <form id="contactForm" action="https://your-php-host.com/api.php" method="POST" novalidate>
+            <input type="hidden" name="form_type" value="contact" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@company.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company">Company <span style="color: #4a6075; font-weight: 400;">(optional)</span></label>
+              <input type="text" id="company" name="company" placeholder="Your company" />
+            </div>
+            <div class="form-group">
+              <label for="service">What do you need?</label>
+              <select id="service" name="service">
+                <option value="">Select a service</option>
+                <option value="web-app">Web Application</option>
+                <option value="website">Website</option>
+                <option value="api-integration">API Integration</option>
+                <option value="payment-integration">Payment Integration</option>
+                <option value="automation">Automation</option>
+                <option value="mt5-trading">MT5 / Trading</option>
+                <option value="web3">Web3</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option value="under-500">Under $500</option>
+                <option value="500-1000">$500–$1,000</option>
+                <option value="1000-2500">$1,000–$2,500</option>
+                <option value="2500-plus">$2,500+</option>
+                <option value="not-sure">Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project description</label>
+              <textarea id="message" name="message" placeholder="Tell me about your project, goals and timeline..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submitBtn">
+              <i class="fas fa-paper-plane"></i> Send Project Request
+            </button>
+            <p class="form-note">We typically respond within 24 hours.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Gozzy Group. All rights reserved.</p>
+      <p>Full‑stack development · Automation · Trading Technology · Web3</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function() {
+      const progressBar = document.getElementById('scrollProgress');
+      const header = document.getElementById('siteHeader');
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = scrollPercent + '%';
+        if (scrollTop > 20) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      }, { passive: true });
+    })();
+
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      if (!reveals.length) return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      reveals.forEach(el => observer.observe(el));
+    })();
+
+    (function() {
+      const toggle = document.getElementById('mobileNavToggle');
+      const nav = document.getElementById('navLinks');
+      if (!toggle || !nav) return;
+      let isOpen = false;
+      toggle.addEventListener('click', function() {
+        isOpen = !isOpen;
+        if (isOpen) {
+          nav.style.display = 'flex';
+          nav.style.flexDirection = 'column';
+          nav.style.position = 'absolute';
+          nav.style.top = '70px';
+          nav.style.left = '0';
+          nav.style.right = '0';
+          nav.style.background = 'rgba(7, 9, 12, 0.97)';
+          nav.style.backdropFilter = 'blur(18px)';
+          nav.style.padding = '1.5rem 2rem';
+          nav.style.gap = '1.25rem';
+          nav.style.borderBottom = '1px solid #182430';
+          nav.style.zIndex = '99';
+          toggle.innerHTML = '<i class="fas fa-times"></i>';
+        } else {
+          nav.style.display = '';
+          nav.style.flexDirection = '';
+          nav.style.position = '';
+          nav.style.top = '';
+          nav.style.left = '';
+          nav.style.right = '';
+          nav.style.background = '';
+          nav.style.backdropFilter = '';
+          nav.style.padding = '';
+          nav.style.gap = '';
+          nav.style.borderBottom = '';
+          nav.style.zIndex = '';
+          toggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (isOpen) {
+            isOpen = false;
+            nav.style.display = '';
+            nav.style.flexDirection = '';
+            nav.style.position = '';
+            nav.style.top = '';
+            nav.style.left = '';
+            nav.style.right = '';
+            nav.style.background = '';
+            nav.style.backdropFilter = '';
+            nav.style.padding = '';
+            nav.style.gap = '';
+            nav.style.borderBottom = '';
+            nav.style.zIndex = '';
+            toggle.innerHTML = '<i class="fas fa-bars"></i>';
+          }
+        });
+      });
+    })();
+
+    (function() {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const headerHeight = document.getElementById('siteHeader')?.offsetHeight || 70;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+
+    // ===== AJAX FORM SUBMISSION (works on Vercel + external PHP host) =====
+    (function() {
+      const form = document.getElementById('contactForm');
+      const alertBox = document.getElementById('formAlert');
+      const alertIcon = document.getElementById('formAlertIcon');
+      const alertText = document.getElementById('formAlertText');
+      const submitBtn = document.getElementById('submitBtn');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !email || !message) {
+          showAlert('error', 'Please fill in all required fields.');
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showAlert('error', 'Please enter a valid email address.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        const originalHTML = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        try {
+          const formData = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+          });
+          const data = await response.json();
+
+          if (data.status === 'success') {
+            showAlert('success', data.message || 'Project request received. We will get back to you shortly.');
+            form.reset();
+          } else {
+            showAlert('error', data.message || 'Something went wrong. Please try again.');
+          }
+        } catch (err) {
+          showAlert('error', 'Network error. Please check your connection and try again.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalHTML;
+        }
+      });
+
+      function showAlert(type, text) {
+        alertBox.classList.remove('hidden', 'success', 'error');
+        alertBox.classList.add(type);
+        alertIcon.className = type === 'success'
+          ? 'fas fa-check-circle'
+          : 'fas fa-exclamation-circle';
+        alertText.textContent = text;
+        alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    })();
+  </script>
+
+</body>
+</html>
