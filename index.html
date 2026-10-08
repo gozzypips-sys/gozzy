@@ -6,7 +6,6 @@
   <title>Gozzy Group | Full-Stack Development, Automation, Trading & Web3</title>
   <meta name="description" content="Gozzy Group builds custom software, business applications, APIs, automation systems, MT4/MT5 trading technology and Web3 solutions for businesses and startups." />
 
-  <!-- ===== SOCIAL PREVIEW ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Gozzy Group" />
   <meta property="og:title" content="Gozzy Group | Full-Stack Development, Automation, Trading & Web3" />
@@ -530,7 +529,6 @@
     .about-text p + p { margin-top: 1rem; }
     .about-text strong { color: #ffffff; }
 
-    /* ===== TESTIMONIALS + COMMENTS ===== */
     .testimonials-wrap {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
@@ -648,29 +646,6 @@
       font-size: 0.72rem;
     }
 
-    .testimonial-actions {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .action-link {
-      font-size: 0.72rem;
-      color: #6b8aa6;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      cursor: pointer;
-      transition: color 0.2s ease;
-      background: none;
-      border: none;
-      font-family: inherit;
-      font-weight: 500;
-    }
-    .action-link:hover { color: #4f9cf7; }
-    .action-link.danger:hover { color: #ef4444; }
-    .action-link i { font-size: 0.68rem; }
-
     .replies-list {
       margin-top: 1rem;
       padding-top: 0.9rem;
@@ -687,7 +662,6 @@
       background: #080e14;
       border: 1px solid #1a2a38;
       border-radius: 12px;
-      position: relative;
     }
 
     .reply-avatar {
@@ -750,8 +724,7 @@
       padding-top: 1rem;
       border-top: 1px solid #15202b;
     }
-    .reply-form input,
-    .reply-form textarea {
+    .reply-form input {
       flex: 1;
       background: #080e14;
       border: 1px solid #1a2a38;
@@ -762,10 +735,8 @@
       font-size: 0.82rem;
       outline: none;
       transition: border-color 0.2s ease;
-      resize: vertical;
     }
-    .reply-form input:focus,
-    .reply-form textarea:focus {
+    .reply-form input:focus {
       border-color: #2d7eff;
       box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.08);
     }
@@ -819,8 +790,7 @@
       letter-spacing: 0.3px;
     }
     .testimonial-form input,
-    .testimonial-form textarea,
-    .testimonial-form select {
+    .testimonial-form textarea {
       width: 100%;
       background: #080e14;
       border: 1px solid #1a2a38;
@@ -833,8 +803,7 @@
       transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
     .testimonial-form input:focus,
-    .testimonial-form textarea:focus,
-    .testimonial-form select:focus {
+    .testimonial-form textarea:focus {
       border-color: #2d7eff;
       box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.08);
     }
@@ -984,9 +953,6 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
-
-    /* ===== API CONFIG ===== */
-    /* Set this to your Render API URL. Used for testimonials + replies. */
   </style>
 </head>
 <body>
@@ -1099,7 +1065,7 @@
           <div class="project-media-note">SMC pro scalper</div>
           <div class="tech-list"><span>MQL5</span><span>MetaTrader 5</span><span>Algorithmic Trading</span><span>Risk Management</span></div>
           <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
-          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fas fa-lock"></i> Private Repository</a></div>
         </div>
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
@@ -1110,7 +1076,7 @@
           <div class="project-media-note">News / Content Site</div>
           <div class="tech-list"><span>PHP</span><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>REST API</span></div>
           <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
-          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fas fa-lock"></i> Private Repository</a></div>
         </div>
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
@@ -1121,7 +1087,7 @@
           <div class="project-media-note">Marketplace</div>
           <div class="tech-list"><span>PHP</span><span>JavaScript</span><span>MySQL</span><span>HTML/CSS</span></div>
           <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
-          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fas fa-lock"></i> Private Repository</a></div>
         </div>
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
@@ -1132,7 +1098,7 @@
           <div class="project-media-note">Payroll system (Smart contract)</div>
           <div class="tech-list"><span>Solidity</span><span>Ethers.js</span><span>React</span><span>Node.js</span><span>Web3.js</span></div>
           <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
-          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fas fa-lock"></i> Private Repository</a></div>
         </div>
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
@@ -1143,7 +1109,7 @@
           <div class="project-media-note">Telegram & Discord automation</div>
           <div class="tech-list"><span>Python</span><span>Telegram API</span><span>Discord API</span><span>Node.js</span><span>Webhooks</span></div>
           <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
-          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fas fa-lock"></i> Private Repository</a></div>
         </div>
       </div>
       <div class="projects-footnote reveal"><i class="fas fa-info-circle" style="color: #4f9cf7;"></i> Projects 01–03 are client work (with permission). Projects 04–05 are self‑initiated R&amp;D.</div>
@@ -1228,7 +1194,6 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS + COMMENTS ===== -->
   <section class="section" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
@@ -1240,7 +1205,7 @@
 
       <div class="testimonials-wrap">
         <div class="testimonial-list reveal" id="testimonialList">
-          <!-- Loaded via API -->
+          <!-- Loaded via testimonials.php -->
         </div>
 
         <div class="testimonial-form reveal reveal-delay-1">
@@ -1290,15 +1255,13 @@
             <div class="contact-detail"><i class="fas fa-envelope"></i><a href="mailto:Gozzypips@gmail.com">Gozzypips@gmail.com</a></div>
             <div class="contact-detail"><i class="fas fa-phone-alt"></i><a href="tel:+2349021317870">09021317870</a></div>
             <div class="contact-detail"><i class="fab fa-telegram-plane"></i><a href="https://t.me/+2349021317870" target="_blank" rel="noopener">Telegram</a></div>
-            <div class="contact-detail"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener">GitHub</a></div>
             <div class="contact-detail"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener">LinkedIn</a></div>
           </div>
           <div class="contact-socials">
-            <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="https://t.me/+2349021317870" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
             <a href="https://wa.me/2349021317870" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:Gozzypips@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
           </div>
         </div>
         <div class="contact-form reveal reveal-delay-1">
@@ -1356,15 +1319,12 @@
   </footer>
 
   <script>
-    // ============================================================
-    // API CONFIG — your Render backend
-    // ============================================================
-    const API_BASE = 'https://api-bh8k.onrender.com';
+    const API_CONTACT = 'https://api-bh8k.onrender.com/api.php';
+    const API_TESTIMONIALS = 'https://api-bh8k.onrender.com/testimonials.php';
 
-    // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===== CURSOR GLOW =====
+    // Cursor glow
     (function() {
       const glow = document.getElementById('cursorGlow');
       if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
@@ -1377,7 +1337,7 @@
       })();
     })();
 
-    // ===== SCROLL PROGRESS =====
+    // Scroll progress
     (function() {
       const progressBar = document.getElementById('scrollProgress');
       const header = document.getElementById('siteHeader');
@@ -1390,7 +1350,7 @@
       }, { passive: true });
     })();
 
-    // ===== SCROLL REVEAL =====
+    // Scroll reveal
     (function() {
       const reveals = document.querySelectorAll('.reveal');
       if (!reveals.length) return;
@@ -1405,7 +1365,7 @@
       reveals.forEach(el => observer.observe(el));
     })();
 
-    // ===== ANIMATED COUNTERS =====
+    // Counters
     (function() {
       const counters = document.querySelectorAll('.counter');
       if (!counters.length) return;
@@ -1429,7 +1389,7 @@
       counters.forEach(c => obs.observe(c));
     })();
 
-    // ===== MOBILE NAV =====
+    // Mobile nav
     (function() {
       const toggle = document.getElementById('mobileNavToggle');
       const nav = document.getElementById('navLinks');
@@ -1450,7 +1410,7 @@
       nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { if (isOpen) close(); }));
     })();
 
-    // ===== SMOOTH SCROLL =====
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', function(e) {
         const id = this.getAttribute('href');
@@ -1464,7 +1424,7 @@
       });
     });
 
-    // ===== CONTACT FORM =====
+    // Contact form
     (function() {
       const form = document.getElementById('contactForm');
       if (!form) return;
@@ -1509,9 +1469,7 @@
       }
     })();
 
-    // ============================================================
-    // TESTIMONIALS + COMMENTS — loaded from Render API
-    // ============================================================
+    // Testimonials
     (function() {
       const listEl = document.getElementById('testimonialList');
       if (!listEl) return;
@@ -1519,7 +1477,6 @@
       let items = [];
       let selectedRating = 5;
 
-      // ---- Helpers ----
       const escapeHtml = s => String(s ?? '')
         .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
@@ -1539,7 +1496,6 @@
       const renderStars = r => Array.from({ length: 5 }, (_, i) =>
         `<i class="${i < r ? 'fas' : 'far'} fa-star"></i>`).join('');
 
-      // ---- Render ----
       function render() {
         if (!items.length) {
           listEl.innerHTML = `
@@ -1565,7 +1521,6 @@
             <div class="testimonial-body">${escapeHtml(item.message)}</div>
             <div class="testimonial-foot">
               <div class="testimonial-stars">${renderStars(item.rating || 5)}</div>
-              <div class="testimonial-actions"></div>
             </div>
 
             ${item.replies && item.replies.length ? `
@@ -1594,21 +1549,18 @@
         `).join('');
       }
 
-      // ---- Load from API ----
       async function load() {
         try {
-          const res = await fetch(API_BASE + '/api.php?testimonials=1', { cache: 'no-store' });
+          const res = await fetch(API_TESTIMONIALS, { cache: 'no-store' });
           const data = await res.json();
           items = (data.items || []).sort((a, b) => b.date - a.date);
           render();
         } catch (err) {
-          console.warn('Could not load testimonials', err);
           items = [];
           render();
         }
       }
 
-      // ---- Post testimonial ----
       const form = document.getElementById('testimonialForm');
       const starPicker = document.getElementById('starPicker');
 
@@ -1649,7 +1601,7 @@
             fd.append('role', role);
             fd.append('rating', selectedRating);
             fd.append('message', message);
-            const res = await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+            const res = await fetch(API_TESTIMONIALS, { method: 'POST', body: fd });
             const data = await res.json();
             if (data.status === 'success') {
               await load();
@@ -1659,9 +1611,7 @@
                 starPicker.dataset.value = 5;
                 starPicker.querySelectorAll('i').forEach(s => s.classList.add('active'));
               }
-            } else {
-              alert(data.message || 'Could not post testimonial.');
-            }
+            } else alert(data.message || 'Could not post.');
           } catch (err) {
             alert('Network error. Please try again.');
           } finally {
@@ -1671,7 +1621,6 @@
         });
       }
 
-      // ---- Reply ----
       listEl.addEventListener('submit', async e => {
         const replyForm = e.target.closest('.reply-form');
         if (!replyForm) return;
@@ -1687,14 +1636,13 @@
           fd.append('testimonial_id', tid);
           fd.append('name', name);
           fd.append('message', message);
-          await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+          await fetch(API_TESTIMONIALS, { method: 'POST', body: fd });
           await load();
         } catch (err) {
           alert('Could not send reply.');
         }
       });
 
-      // ---- Initial load + refresh every 60s ----
       load();
       setInterval(load, 60000);
     })();
