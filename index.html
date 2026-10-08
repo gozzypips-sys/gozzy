@@ -22,12 +22,14 @@
     }
     a { text-decoration: none; color: inherit; }
 
+    /* ===== SCROLL PROGRESS ===== */
     .scroll-progress {
       position: fixed; top: 0; left: 0; height: 2px;
       background: linear-gradient(90deg, #2d7eff, #7c3aed);
       z-index: 200; width: 0%; transition: width 0.1s linear;
     }
 
+    /* ===== STICKY HEADER ===== */
     .site-header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(7, 9, 12, 0.82);
@@ -73,6 +75,7 @@
     }
     .mobile-nav-toggle:hover { border-color: #4f9cf7; color: #ffffff; }
 
+    /* ===== BUTTONS ===== */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 0.6rem; padding: 0.85rem 1.9rem; border-radius: 60px;
@@ -93,7 +96,10 @@
     .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
     .btn-outline { background: transparent; border: 1px solid #263544; color: #ccddee; }
     .btn-outline:hover { border-color: #4f9cf7; background: rgba(79, 156, 247, 0.06); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; border: none; color: #9bb1c7; padding: 0.6rem 1.2rem; }
+    .btn-ghost:hover { color: #ffffff; }
 
+    /* ===== HERO ===== */
     .hero {
       padding: 5rem 0 4.5rem; position: relative; overflow: hidden;
       background: radial-gradient(ellipse at 75% 15%, rgba(45, 120, 255, 0.14) 0%, transparent 65%);
@@ -177,6 +183,7 @@
     .hero-visual-card .hv-content .hv-title { font-size: 0.88rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.15rem; }
     .hero-visual-card .hv-content .hv-desc { font-size: 0.75rem; color: #6b8aa6; }
 
+    /* ===== SECTION SHARED ===== */
     .section { padding: 5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
     .section:last-of-type { border-bottom: none; }
     .section-head {
@@ -197,6 +204,7 @@
       color: #f0f6fc; line-height: 1.2;
     }
 
+    /* ===== WHAT WE BUILD ===== */
     .build-grid { display: flex; flex-wrap: wrap; gap: 0.7rem 0.85rem; margin-bottom: 2.75rem; }
     .build-tag {
       background: #0b1118; border: 1px solid #182430;
@@ -230,6 +238,7 @@
     }
     .cta-line p i { color: #4f9cf7; font-size: 1.15rem; }
 
+    /* ===== PROJECTS ===== */
     .projects-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 1.75rem;
@@ -305,6 +314,7 @@
       justify-content: center; gap: 0.5rem;
     }
 
+    /* ===== SERVICES ===== */
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
     .service-item {
       background: #0b1118; border: 1px solid #182430; border-radius: 20px;
@@ -336,6 +346,7 @@
     .service-item h4 { font-size: 1.02rem; font-weight: 600; margin-bottom: 0.6rem; color: #ffffff; }
     .service-item p { font-size: 0.85rem; color: #8fa8c0; line-height: 1.6; }
 
+    /* ===== WHY ===== */
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
     .why-card {
       background: #0b1118; border: 1px solid #182430; border-radius: 20px;
@@ -346,6 +357,7 @@
     .why-card h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; color: #ffffff; }
     .why-card p { font-size: 0.87rem; color: #8fa8c0; line-height: 1.6; }
 
+    /* ===== WHO ===== */
     .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
     .who-item {
       background: #0b1118; border: 1px solid #182430; border-radius: 18px;
@@ -356,6 +368,7 @@
     .who-item h4 { font-size: 0.92rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.35rem; }
     .who-item p { font-size: 0.78rem; color: #8fa8c0; line-height: 1.5; }
 
+    /* ===== AGENCIES ===== */
     .agency-card {
       background: linear-gradient(135deg, #0b1118 0%, #0d1824 100%);
       border: 1px solid #182430; border-radius: 22px;
@@ -371,6 +384,7 @@
     .agency-card h3 { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem; }
     .agency-card p { color: #8fa8c0; font-size: 0.95rem; max-width: 600px; line-height: 1.6; }
 
+    /* ===== PROCESS ===== */
     .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.15rem; }
     .process-step {
       background: #0b1118; border: 1px solid #182430; border-radius: 18px;
@@ -381,10 +395,12 @@
     .process-step h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.45rem; color: #e8edf2; }
     .process-step p { font-size: 0.78rem; color: #8fa8c0; line-height: 1.55; }
 
+    /* ===== ABOUT ===== */
     .about-text { max-width: 720px; font-size: 1.02rem; color: #b8cbdd; line-height: 1.75; }
     .about-text p + p { margin-top: 1rem; }
     .about-text strong { color: #ffffff; }
 
+    /* ===== TESTIMONIALS ===== */
     .testimonial-note {
       background: #0b1118; border: 1px solid #182430; border-radius: 18px;
       padding: 2rem; text-align: center; color: #6b8aa6;
@@ -392,6 +408,7 @@
     }
     .testimonial-note i { color: #4f9cf7; margin-right: 0.5rem; }
 
+    /* ===== CONTACT ===== */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .contact-info h3 { font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; letter-spacing: -0.02em; }
     .contact-info p { color: #8fa8c0; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
@@ -417,6 +434,7 @@
       background: #0d1723; transform: translateY(-2px);
     }
 
+    /* ===== FORM ===== */
     .contact-form { background: #0b1118; border: 1px solid #182430; border-radius: 22px; padding: 2rem 2rem; }
     .contact-form .form-group { margin-bottom: 1.25rem; }
     .contact-form label {
@@ -457,14 +475,17 @@
     .form-alert.error i { color: #ef4444; }
     .form-alert.hidden { display: none; }
 
+    /* ===== FOOTER ===== */
     .footer {
       padding: 2.5rem 0; text-align: center;
       font-size: 0.8rem; color: #4a6075; border-top: 1px solid #111c26;
     }
     .footer p + p { margin-top: 0.4rem; font-size: 0.7rem; }
 
+    /* ===== CONTAINER ===== */
     .container { max-width: 1220px; margin: 0 auto; padding: 0 2rem; }
 
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
@@ -503,7 +524,11 @@
       .project-gallery.single img { height: 180px; }
     }
 
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1); }
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .reveal.visible { opacity: 1; transform: translateY(0); }
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
@@ -514,8 +539,10 @@
 </head>
 <body>
 
+  <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
+  <!-- ===== STICKY HEADER ===== -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#" class="brand">
@@ -542,6 +569,7 @@
     </div>
   </header>
 
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -597,6 +625,7 @@
     </div>
   </section>
 
+  <!-- ===== WHAT WE BUILD ===== -->
   <section class="section" id="what-we-build">
     <div class="container">
       <div class="section-head reveal">
@@ -624,6 +653,7 @@
     </div>
   </section>
 
+  <!-- ===== PROJECTS ===== -->
   <section class="section" id="projects">
     <div class="container">
       <div class="section-head reveal">
@@ -634,6 +664,7 @@
       </div>
       <div class="projects-grid">
 
+        <!-- PROJECT 01 — MT5 EA (CLIENT) -->
         <div class="project-card reveal">
           <div class="project-number">PROJECT 01</div>
           <div class="project-title">MT5 Trading Automation System</div>
@@ -656,6 +687,7 @@
           </div>
         </div>
 
+        <!-- PROJECT 02 — BLOG (CLIENT) -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
           <div class="project-title">Blog / Content Platform</div>
@@ -679,6 +711,7 @@
           </div>
         </div>
 
+        <!-- PROJECT 03 — E-COMMERCE (CLIENT) -->
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
           <div class="project-title">E‑Commerce Platform</div>
@@ -702,6 +735,7 @@
           </div>
         </div>
 
+        <!-- PROJECT 04 — WEB3 (SELF) -->
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
           <div class="project-title">Web3 / Crypto Application</div>
@@ -725,6 +759,7 @@
           </div>
         </div>
 
+        <!-- PROJECT 05 — AUTOMATION (SELF) -->
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
           <div class="project-title">Automation / Bot System</div>
@@ -756,6 +791,7 @@
     </div>
   </section>
 
+  <!-- ===== SERVICES ===== -->
   <section class="section" id="services">
     <div class="container">
       <div class="section-head reveal">
@@ -799,6 +835,7 @@
     </div>
   </section>
 
+  <!-- ===== WHY GOZZY GROUP ===== -->
   <section class="section" id="why">
     <div class="container">
       <div class="section-head reveal">
@@ -827,6 +864,7 @@
     </div>
   </section>
 
+  <!-- ===== WHO WE WORK WITH ===== -->
   <section class="section" id="who">
     <div class="container">
       <div class="section-head reveal">
@@ -846,6 +884,7 @@
     </div>
   </section>
 
+  <!-- ===== FOR AGENCIES ===== -->
   <section class="section" id="agencies">
     <div class="container">
       <div class="agency-card reveal">
@@ -858,6 +897,7 @@
     </div>
   </section>
 
+  <!-- ===== PROCESS ===== -->
   <section class="section" id="process">
     <div class="container">
       <div class="section-head reveal">
@@ -877,6 +917,7 @@
     </div>
   </section>
 
+  <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
     <div class="container">
       <div class="section-head reveal">
@@ -895,6 +936,7 @@
     </div>
   </section>
 
+  <!-- ===== TESTIMONIALS ===== -->
   <section class="section" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
@@ -910,6 +952,7 @@
     </div>
   </section>
 
+  <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="container">
       <div class="section-head reveal">
@@ -959,8 +1002,8 @@
             <span id="formAlertText"></span>
           </div>
 
-          <!-- ⚠️ IMPORTANT: Replace the action URL with your PHP host -->
-          <form id="contactForm" action="https://your-php-host.com/api.php" method="POST" novalidate>
+          <!-- ✅ Form now points to your Render API -->
+          <form id="contactForm" action="https://api-bh8k.onrender.com/api.php" method="POST" novalidate>
             <input type="hidden" name="form_type" value="contact" />
             <div class="form-row">
               <div class="form-group">
@@ -1016,6 +1059,7 @@
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <p>© <span id="year"></span> Gozzy Group. All rights reserved.</p>
@@ -1023,9 +1067,12 @@
     </div>
   </footer>
 
+  <!-- ===== SCRIPTS ===== -->
   <script>
+    // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ===== SCROLL PROGRESS BAR =====
     (function() {
       const progressBar = document.getElementById('scrollProgress');
       const header = document.getElementById('siteHeader');
@@ -1039,6 +1086,7 @@
       }, { passive: true });
     })();
 
+    // ===== SCROLL REVEAL =====
     (function() {
       const reveals = document.querySelectorAll('.reveal');
       if (!reveals.length) return;
@@ -1053,11 +1101,13 @@
       reveals.forEach(el => observer.observe(el));
     })();
 
+    // ===== MOBILE NAV TOGGLE =====
     (function() {
       const toggle = document.getElementById('mobileNavToggle');
       const nav = document.getElementById('navLinks');
       if (!toggle || !nav) return;
       let isOpen = false;
+
       toggle.addEventListener('click', function() {
         isOpen = !isOpen;
         if (isOpen) {
@@ -1090,6 +1140,7 @@
           toggle.innerHTML = '<i class="fas fa-bars"></i>';
         }
       });
+
       nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (isOpen) {
@@ -1112,6 +1163,7 @@
       });
     })();
 
+    // ===== SMOOTH ANCHOR SCROLL =====
     (function() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -1128,7 +1180,7 @@
       });
     })();
 
-    // ===== AJAX FORM SUBMISSION (works on Vercel + external PHP host) =====
+    // ===== AJAX FORM SUBMISSION → Render API =====
     (function() {
       const form = document.getElementById('contactForm');
       const alertBox = document.getElementById('formAlert');
