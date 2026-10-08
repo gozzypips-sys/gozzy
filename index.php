@@ -3,12 +3,10 @@
  * Gozzy Group — Portfolio + Automation
  * index.php
  *
- * Handles:
- *  - Contact form submission (POST)
- *  - Sends email + Telegram + Discord notifications
- *  - Telegram bot webhook endpoint (/index.php?webhook=telegram)
- *  - Simple rate limiting + basic validation
- *  - Chat room / group automation hooks
+ * IMPORTANT:
+ *  - This file MUST be served by a PHP-enabled web server.
+ *  - Do NOT open the file directly (file://) — it will show raw code.
+ *  - Use `php -S localhost:8000` for local testing, or upload to Apache/Nginx.
  */
 
 // ============================================================
@@ -22,13 +20,13 @@ $CONFIG = [
 
     // Telegram Bot
     'telegram_bot_token' => 'YOUR_TELEGRAM_BOT_TOKEN_HERE',
-    'telegram_chat_id'   => 'YOUR_TELEGRAM_CHAT_ID_HERE', // personal or group chat id
+    'telegram_chat_id'   => 'YOUR_TELEGRAM_CHAT_ID_HERE', // your personal chat id (from @userinfobot)
 
     // Discord
     'discord_webhook_url' => 'YOUR_DISCORD_WEBHOOK_URL_HERE',
 
     // Telegram Webhook Secret (set when registering webhook)
-    'telegram_webhook_secret' => 'YOUR_TELEGRAM_WEBHOOK_SECRET',
+    'telegram_webhook_secret' => 'gozzysecret123',
 
     // Gozzy Group Telegram chat room (bot will manage this group)
     'gozzy_group_chat_id' => 'YOUR_GOZZY_GROUP_CHAT_ID_HERE',
@@ -39,15 +37,20 @@ $CONFIG = [
 
     // Log file for inquiries
     'log_file' => __DIR__ . '/inquiries.log',
+
+    // Public contact info (used in bot replies)
+    'public_phone'    => '+2349021317870',
+    'public_phone_display' => '09021317870',
+    'public_email'    => 'Gozzypips@gmail.com',
+    'public_telegram' => 'https://t.me/+2349021317870',
+    'public_linkedin' => 'https://www.linkedin.com/in/chigozie-uche-794b2b340',
+    'public_website'  => 'https://gozzygroup.com',
 ];
 
 // ============================================================
 // 2. HELPERS
 // ============================================================
 
-/**
- * Send JSON response and exit (for webhook endpoints).
- */
 function jsonResponse($data, $code = 200) {
     http_response_code($code);
     header('Content-Type: application/json');
@@ -55,41 +58,27 @@ function jsonResponse($data, $code = 200) {
     exit;
 }
 
-/**
- * Basic rate limiting by IP.
- */
 function isRateLimited($ip, $seconds, $file) {
     $now = time();
     $data = [];
     if (file_exists($file)) {
         $raw = @file_get_contents($file);
-        if ($raw) {
-            $data = json_decode($raw, true) ?: [];
-        }
+        if ($raw) $data = json_decode($raw, true) ?: [];
     }
-    // Clean old entries
     foreach ($data as $key => $ts) {
         if ($now - $ts > $seconds * 10) unset($data[$key]);
     }
-    if (isset($data[$ip]) && ($now - $data[$ip]) < $seconds) {
-        return true;
-    }
+    if (isset($data[$ip]) && ($now - $data[$ip]) < $seconds) return true;
     $data[$ip] = $now;
     @file_put_contents($file, json_encode($data), LOCK_EX);
     return false;
 }
 
-/**
- * Append inquiry to log file.
- */
 function logInquiry($logFile, $entry) {
     $line = '[' . date('Y-m-d H:i:s') . '] ' . json_encode($entry) . PHP_EOL;
     @file_put_contents($logFile, $line, FILE_APPEND | LOCK_EX);
 }
 
-/**
- * Send message to Telegram using bot API.
- */
 function sendTelegram($botToken, $chatId, $text, $parseMode = 'HTML') {
     if (empty($botToken) || empty($chatId)) return false;
     $url = "https://api.telegram.org/bot{$botToken}/sendMessage";
@@ -102,18 +91,11 @@ function sendTelegram($botToken, $chatId, $text, $parseMode = 'HTML') {
     return httpPost($url, $payload);
 }
 
-/**
- * Send payload to Discord webhook.
- */
 function sendDiscord($webhookUrl, $content) {
     if (empty($webhookUrl)) return false;
-    $payload = ['content' => $content];
-    return httpPost($webhookUrl, $payload);
+    return httpPost($webhookUrl, ['content' => $content]);
 }
 
-/**
- * Simple cURL POST helper.
- */
 function httpPost($url, $data) {
     $ch = curl_init($url);
     curl_setopt_array($ch, [
@@ -127,27 +109,18 @@ function httpPost($url, $data) {
     $result = curl_exec($ch);
     $err = curl_error($ch);
     curl_close($ch);
-    if ($err) {
-        error_log("Gozzy cURL error: $err");
-        return false;
-    }
+    if ($err) { error_log("Gozzy cURL error: $err"); return false; }
     return $result;
 }
 
-/**
- * Sanitize incoming form field.
- */
 function clean($value) {
     return htmlspecialchars(trim((string)$value), ENT_QUOTES, 'UTF-8');
 }
 
 // ============================================================
 // 3. TELEGRAM WEBHOOK HANDLER
-//    Register with:
-//    https://api.telegram.org/bot<TOKEN>/setWebhook?url=https://yourdomain/index.php?webhook=telegram&secret_token=YOUR_SECRET
 // ============================================================
 if (isset($_GET['webhook']) && $_GET['webhook'] === 'telegram') {
-    // Verify secret token (Telegram sends it as X-Telegram-Bot-Api-Secret-Token header)
     $secretHeader = $_SERVER['HTTP_X_TELEGRAM_BOT_API_SECRET_TOKEN'] ?? '';
     if ($CONFIG['telegram_webhook_secret'] && $secretHeader !== $CONFIG['telegram_webhook_secret']) {
         jsonResponse(['ok' => false, 'error' => 'unauthorized'], 403);
@@ -157,14 +130,12 @@ if (isset($_GET['webhook']) && $_GET['webhook'] === 'telegram') {
     $update = json_decode($raw, true);
     if (!$update) jsonResponse(['ok' => false, 'error' => 'invalid payload'], 400);
 
-    // Handle messages / commands
     if (isset($update['message'])) {
         $msg       = $update['message'];
         $chatId    = $msg['chat']['id'] ?? null;
         $text      = $msg['text'] ?? '';
         $firstName = $msg['from']['first_name'] ?? 'there';
 
-        // Route commands
         if ($text === '/start') {
             sendTelegram($CONFIG['telegram_bot_token'], $chatId,
                 "👋 <b>Welcome to Gozzy Group</b>, {$firstName}!\n\n" .
@@ -173,7 +144,8 @@ if (isset($_GET['webhook']) && $_GET['webhook'] === 'telegram') {
                 "/start — Show this message\n" .
                 "/services — What we build\n" .
                 "/contact — How to reach us\n" .
-                "/project — Start a project inquiry"
+                "/project — Start a project inquiry\n" .
+                "/group — Join the Gozzy Group chat room"
             );
         } elseif ($text === '/services') {
             sendTelegram($CONFIG['telegram_bot_token'], $chatId,
@@ -188,20 +160,28 @@ if (isset($_GET['webhook']) && $_GET['webhook'] === 'telegram') {
         } elseif ($text === '/contact') {
             sendTelegram($CONFIG['telegram_bot_token'], $chatId,
                 "📬 <b>Contact Gozzy Group</b>\n\n" .
-                "Email: Gozzypips@gmail.com\n" .
-                "Telegram: @gozzygroup\n" .
-                "Web: https://gozzygroup.com"
+                "📧 Email: {$CONFIG['public_email']}\n" .
+                "📱 Phone: {$CONFIG['public_phone_display']}\n" .
+                "💬 Telegram: <a href=\"{$CONFIG['public_telegram']}\">Chat with us</a>\n" .
+                "🌐 Web: {$CONFIG['public_website']}"
             );
         } elseif ($text === '/project') {
             sendTelegram($CONFIG['telegram_bot_token'], $chatId,
-                "🚀 Ready to start? Visit our contact form:\n" .
-                "https://gozzygroup.com/#contact\n\n" .
+                "🚀 <b>Ready to start?</b>\n\n" .
+                "Visit our contact form:\n" .
+                "{$CONFIG['public_website']}/#contact\n\n" .
                 "Or just reply here with your project details and we'll get back to you."
             );
+        } elseif ($text === '/group') {
+            sendTelegram($CONFIG['telegram_bot_token'], $chatId,
+                "💬 <b>Gozzy Group Chat Room</b>\n\n" .
+                "Join the community: {$CONFIG['public_telegram']}"
+            );
         } else {
-            // Forward non-command messages to Gozzy Group chat room (if configured)
+            // Forward non-command messages to Gozzy Group chat room
             if ($CONFIG['gozzy_group_chat_id'] && $chatId != $CONFIG['gozzy_group_chat_id']) {
-                $forwardText = "📩 <b>New message from {$firstName}</b>\nChat ID: <code>{$chatId}</code>\n\n" . $text;
+                $forwardText = "📩 <b>New message from {$firstName}</b>\n" .
+                               "Chat ID: <code>{$chatId}</code>\n\n" . $text;
                 sendTelegram($CONFIG['telegram_bot_token'], $CONFIG['gozzy_group_chat_id'], $forwardText);
             }
             sendTelegram($CONFIG['telegram_bot_token'], $chatId,
@@ -216,19 +196,16 @@ if (isset($_GET['webhook']) && $_GET['webhook'] === 'telegram') {
 // ============================================================
 // 4. CONTACT FORM HANDLER
 // ============================================================
-$formStatus = null; // 'success' | 'error'
+$formStatus = null;
 $formMessage = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POST['form_type'] === 'contact') {
-
     $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
 
-    // Rate limit
     if (isRateLimited($ip, $CONFIG['rate_limit_seconds'], $CONFIG['rate_limit_file'])) {
         $formStatus = 'error';
         $formMessage = 'Too many requests. Please wait a minute before submitting again.';
     } else {
-        // Collect & clean fields
         $name    = clean($_POST['name']    ?? '');
         $email   = clean($_POST['email']   ?? '');
         $company = clean($_POST['company'] ?? '');
@@ -236,7 +213,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
         $budget  = clean($_POST['budget']  ?? '');
         $message = clean($_POST['message'] ?? '');
 
-        // Validate
         if (empty($name) || empty($email) || empty($message)) {
             $formStatus = 'error';
             $formMessage = 'Please fill in all required fields.';
@@ -244,7 +220,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             $formStatus = 'error';
             $formMessage = 'Please enter a valid email address.';
         } else {
-            // Build notification text
             $subject = $CONFIG['email_subject'];
             $body =
                 "New Project Inquiry — Gozzy Group\n\n" .
@@ -262,7 +237,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                        "Content-Type: text/plain; charset=UTF-8\r\n";
             @mail($CONFIG['email_to'], $subject, $body, $headers);
 
-            // 2. Telegram notification
+            // 2. Telegram
             $tgText =
                 "🚀 <b>New Project Inquiry — Gozzy Group</b>\n\n" .
                 "<b>Name:</b> {$name}\n" .
@@ -273,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
                 "<b>Message:</b>\n{$message}";
             sendTelegram($CONFIG['telegram_bot_token'], $CONFIG['telegram_chat_id'], $tgText);
 
-            // 3. Discord notification
+            // 3. Discord
             $discordText =
                 "**🚀 New Project Inquiry — Gozzy Group**\n" .
                 "**Name:** {$name}\n" .
@@ -675,7 +650,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       font-weight: 700;
     }
 
-    /* Hero right side */
     .hero-visual {
       display: flex;
       flex-direction: column;
@@ -939,7 +913,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       flex-grow: 1;
     }
 
-    /* Project image gallery */
     .project-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -964,7 +937,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       box-shadow: 0 8px 20px -8px rgba(45, 126, 255, 0.3);
     }
 
-    /* Single large image for EA */
     .project-gallery.single {
       grid-template-columns: 1fr;
     }
@@ -1023,6 +995,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     .personal-note i {
       font-size: 0.62rem;
       color: #4f9cf7;
+    }
+
+    .client-note {
+      font-size: 0.72rem;
+      color: #86efac;
+      margin-top: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-style: italic;
+    }
+
+    .client-note i {
+      font-size: 0.62rem;
+      color: #22c55e;
     }
 
     .project-links {
@@ -1315,7 +1302,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       color: #ffffff;
     }
 
-    /* ===== TESTIMONIALS (placeholder) ===== */
+    /* ===== TESTIMONIALS ===== */
     .testimonial-note {
       background: #0b1118;
       border: 1px solid #182430;
@@ -1697,10 +1684,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
 </head>
 <body>
 
-  <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- ===== STICKY HEADER ===== -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#" class="brand">
@@ -1727,7 +1712,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
@@ -1783,7 +1767,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== WHAT WE BUILD ===== -->
   <section class="section" id="what-we-build">
     <div class="container">
       <div class="section-head reveal">
@@ -1811,7 +1794,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
   <section class="section" id="projects">
     <div class="container">
       <div class="section-head reveal">
@@ -1822,7 +1804,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       </div>
       <div class="projects-grid">
 
-        <!-- PROJECT 01 — MT5 TRADING EA (SINGLE FULL IMAGE) -->
+        <!-- PROJECT 01 — MT5 EA (CLIENT) -->
         <div class="project-card reveal">
           <div class="project-number">PROJECT 01</div>
           <div class="project-title">MT5 Trading Automation System</div>
@@ -1840,7 +1822,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <span>Algorithmic Trading</span>
             <span>Risk Management</span>
           </div>
-          <div class="personal-note"><i class="fas fa-user"></i> Independent Project</div>
+          <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
           <div class="project-links">
             <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -1848,7 +1830,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
           </div>
         </div>
 
-        <!-- PROJECT 02 — BLOG SITE (2 IMAGES) -->
+        <!-- PROJECT 02 — BLOG (CLIENT) -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
           <div class="project-title">Blog / Content Platform</div>
@@ -1860,7 +1842,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <img src="blog.png" alt="Blog homepage" />
             <img src="news.jpeg" alt="Blog article page" />
           </div>
-          <div class="project-media-note"></div>
+          <div class="project-media-note">News / Content Site</div>
           <div class="tech-list">
             <span>PHP</span>
             <span>Laravel</span>
@@ -1868,7 +1850,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <span>JavaScript</span>
             <span>REST API</span>
           </div>
-          <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Development Project</div>
+          <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
           <div class="project-links">
             <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -1876,7 +1858,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
           </div>
         </div>
 
-        <!-- PROJECT 03 — E-COMMERCE (2 IMAGES) -->
+        <!-- PROJECT 03 — E-COMMERCE (CLIENT) -->
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
           <div class="project-title">E‑Commerce Platform</div>
@@ -1895,7 +1877,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <span>MySQL</span>
             <span>HTML/CSS</span>
           </div>
-          <div class="personal-note"><i class="fas fa-user"></i> Independent Project</div>
+          <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
           <div class="project-links">
             <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -1903,7 +1885,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
           </div>
         </div>
 
-        <!-- PROJECT 04 — WEB3 (2 IMAGES) -->
+        <!-- PROJECT 04 — WEB3 (SELF PROJECT) -->
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
           <div class="project-title">Web3 / Crypto Application</div>
@@ -1915,7 +1897,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <img src="web.png" alt="Web3 dashboard" />
             <img src="adweb.png" alt="Wallet connection" />
           </div>
-          <div class="project-media-note">Payroll system(Smart contract)</div>
+          <div class="project-media-note">Payroll system (Smart contract)</div>
           <div class="tech-list">
             <span>Solidity</span>
             <span>Ethers.js</span>
@@ -1923,7 +1905,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <span>Node.js</span>
             <span>Web3.js</span>
           </div>
-          <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Development Project</div>
+          <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
           <div class="project-links">
             <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -1931,7 +1913,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
           </div>
         </div>
 
-        <!-- PROJECT 05 — AUTOMATION / BOT (2 IMAGES) -->
+        <!-- PROJECT 05 — AUTOMATION (SELF PROJECT) -->
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
           <div class="project-title">Automation / Bot System</div>
@@ -1943,7 +1925,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Telegram+Bot" alt="Telegram bot interface" />
             <img src="https://via.placeholder.com/400x250/0d1723/4f9cf7?text=Automation+Dashboard" alt="Automation dashboard" />
           </div>
-          <div class="project-media-note">📸 Replace with your automation screenshots</div>
+          <div class="project-media-note">Telegram & Discord automation</div>
           <div class="tech-list">
             <span>Python</span>
             <span>Telegram API</span>
@@ -1951,7 +1933,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
             <span>Node.js</span>
             <span>Webhooks</span>
           </div>
-          <div class="personal-note"><i class="fas fa-user"></i> Independent Project</div>
+          <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
           <div class="project-links">
             <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
             <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
@@ -1962,12 +1944,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       </div>
       <div class="projects-footnote reveal">
         <i class="fas fa-info-circle" style="color: #4f9cf7;"></i>
-        All projects above are independent / self‑initiated. Real client work available on request.
+        Projects 01–03 are client work (with permission). Projects 04–05 are self‑initiated R&amp;D.
       </div>
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
   <section class="section" id="services">
     <div class="container">
       <div class="section-head reveal">
@@ -2011,7 +1992,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== WHY GOZZY GROUP ===== -->
   <section class="section" id="why">
     <div class="container">
       <div class="section-head reveal">
@@ -2040,7 +2020,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== WHO WE WORK WITH ===== -->
   <section class="section" id="who">
     <div class="container">
       <div class="section-head reveal">
@@ -2084,7 +2063,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== FOR AGENCIES ===== -->
   <section class="section" id="agencies">
     <div class="container">
       <div class="agency-card reveal">
@@ -2097,7 +2075,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== PROCESS ===== -->
   <section class="section" id="process">
     <div class="container">
       <div class="section-head reveal">
@@ -2141,7 +2118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
     <div class="container">
       <div class="section-head reveal">
@@ -2160,7 +2136,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS (Real only) ===== -->
   <section class="section" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
@@ -2176,7 +2151,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="container">
       <div class="section-head reveal">
@@ -2194,24 +2168,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
               <a href="mailto:Gozzypips@gmail.com">Gozzypips@gmail.com</a>
             </div>
             <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+2349021317870">09021317870</a>
+            </div>
+            <div class="contact-detail">
               <i class="fab fa-telegram-plane"></i>
-              <a href="https://t.me/+2349033233385">Telegram</a>
+              <a href="https://t.me/+2349021317870" target="_blank" rel="noopener">Telegram</a>
             </div>
             <div class="contact-detail">
               <i class="fab fa-github"></i>
-              <a href="#">GitHub</a>
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
             </div>
             <div class="contact-detail">
               <i class="fab fa-linkedin-in"></i>
-              <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener">LinkedIn</a>
             </div>
           </div>
           <div class="contact-socials">
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://t.me/+2349033233385" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-            <a href="" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://t.me/+2349021317870" target="_blank" rel="noopener" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://wa.me/2349021317870" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="contact-form reveal reveal-delay-1">
@@ -2282,7 +2260,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <p>© <span id="year"></span> Gozzy Group. All rights reserved.</p>
@@ -2290,12 +2267,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
     </div>
   </footer>
 
-  <!-- ===== SCRIPTS ===== -->
   <script>
-    // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===== SCROLL PROGRESS BAR =====
     (function() {
       const progressBar = document.getElementById('scrollProgress');
       const header = document.getElementById('siteHeader');
@@ -2305,20 +2279,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
         progressBar.style.width = scrollPercent + '%';
-
-        if (scrollTop > 20) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
+        if (scrollTop > 20) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
       }, { passive: true });
     })();
 
-    // ===== SCROLL REVEAL =====
     (function() {
       const reveals = document.querySelectorAll('.reveal');
       if (!reveals.length) return;
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -2327,16 +2295,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
       reveals.forEach(el => observer.observe(el));
     })();
 
-    // ===== MOBILE NAV TOGGLE =====
     (function() {
       const toggle = document.getElementById('mobileNavToggle');
       const nav = document.getElementById('navLinks');
       if (!toggle || !nav) return;
-
       let isOpen = false;
 
       toggle.addEventListener('click', function() {
@@ -2372,7 +2337,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
         }
       });
 
-      // Close mobile nav on link click
       nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (isOpen) {
@@ -2395,7 +2359,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['form_type']) && $_POS
       });
     })();
 
-    // ===== SMOOTH ANCHOR SCROLL (with header offset) =====
     (function() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
