@@ -6,7 +6,7 @@
   <title>Gozzy Group | Full-Stack Development, Automation, Trading & Web3</title>
   <meta name="description" content="Gozzy Group builds custom software, business applications, APIs, automation systems, MT4/MT5 trading technology and Web3 solutions for businesses and startups." />
 
-  <!-- ===== SOCIAL PREVIEW (Open Graph / Twitter) ===== -->
+  <!-- ===== SOCIAL PREVIEW ===== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Gozzy Group" />
   <meta property="og:title" content="Gozzy Group | Full-Stack Development, Automation, Trading & Web3" />
@@ -15,15 +15,11 @@
   <meta property="og:image" content="https://gozzygroup.vercel.app/logo.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Gozzy Group — Full-Stack Development, Automation, Trading & Web3" />
   <meta property="og:locale" content="en_US" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Gozzy Group | Full-Stack Development, Automation, Trading & Web3" />
-  <meta name="twitter:description" content="We build digital systems that move businesses forward — custom software, automation, trading technology, APIs and Web3 solutions." />
+  <meta name="twitter:description" content="We build digital systems that move businesses forward." />
   <meta name="twitter:image" content="https://gozzygroup.vercel.app/logo.png" />
-  <meta name="twitter:image:alt" content="Gozzy Group logo" />
-
   <meta name="theme-color" content="#07090C" />
   <link rel="icon" type="image/png" href="logo.png" />
   <link rel="apple-touch-icon" href="logo.png" />
@@ -45,7 +41,6 @@
     }
     a { text-decoration: none; color: inherit; }
 
-    /* ===== CURSOR GLOW ===== */
     .cursor-glow {
       position: fixed; top: 0; left: 0;
       width: 480px; height: 480px; border-radius: 50%;
@@ -56,14 +51,12 @@
     }
     body:hover .cursor-glow { opacity: 1; }
 
-    /* ===== SCROLL PROGRESS ===== */
     .scroll-progress {
       position: fixed; top: 0; left: 0; height: 2px;
       background: linear-gradient(90deg, #2d7eff, #7c3aed);
       z-index: 200; width: 0%; transition: width 0.1s linear;
     }
 
-    /* ===== STICKY HEADER ===== */
     .site-header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(7, 9, 12, 0.82);
@@ -109,7 +102,6 @@
     }
     .mobile-nav-toggle:hover { border-color: #4f9cf7; color: #ffffff; }
 
-    /* ===== BUTTONS ===== */
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       gap: 0.6rem; padding: 0.85rem 1.9rem; border-radius: 60px;
@@ -133,7 +125,6 @@
     .btn-ghost { background: transparent; border: none; color: #9bb1c7; padding: 0.6rem 1.2rem; }
     .btn-ghost:hover { color: #ffffff; }
 
-    /* ===== TOP RIBBON ===== */
     .top-ribbon {
       position: relative; overflow: hidden;
       background: linear-gradient(90deg, #0b1118 0%, #0f1a26 50%, #0b1118 100%);
@@ -185,7 +176,6 @@
       .ribbon-sep:not(:first-of-type) { display: none; }
     }
 
-    /* ===== HERO ===== */
     .hero {
       padding: 5rem 0 4.5rem; position: relative; overflow: hidden;
       background: radial-gradient(ellipse at 75% 15%, rgba(45, 120, 255, 0.14) 0%, transparent 65%);
@@ -332,7 +322,6 @@
       .floating-badge .fb-label { font-size: 0.5rem; }
     }
 
-    /* ===== SECTION SHARED ===== */
     .section { padding: 5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
     .section:last-of-type { border-bottom: none; }
     .section-head {
@@ -353,7 +342,6 @@
       color: #f0f6fc; line-height: 1.2;
     }
 
-    /* ===== WHAT WE BUILD ===== */
     .build-grid { display: flex; flex-wrap: wrap; gap: 0.7rem 0.85rem; margin-bottom: 2.75rem; }
     .build-tag {
       background: #0b1118; border: 1px solid #182430;
@@ -387,7 +375,6 @@
     }
     .cta-line p i { color: #4f9cf7; font-size: 1.15rem; }
 
-    /* ===== PROJECTS ===== */
     .projects-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 1.75rem;
@@ -463,7 +450,6 @@
       justify-content: center; gap: 0.5rem;
     }
 
-    /* ===== SERVICES ===== */
     .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
     .service-item {
       background: #0b1118; border: 1px solid #182430; border-radius: 20px;
@@ -495,7 +481,6 @@
     .service-item h4 { font-size: 1.02rem; font-weight: 600; margin-bottom: 0.6rem; color: #ffffff; }
     .service-item p { font-size: 0.85rem; color: #8fa8c0; line-height: 1.6; }
 
-    /* ===== WHY ===== */
     .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
     .why-card {
       background: #0b1118; border: 1px solid #182430; border-radius: 20px;
@@ -506,7 +491,6 @@
     .why-card h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.6rem; color: #ffffff; }
     .why-card p { font-size: 0.87rem; color: #8fa8c0; line-height: 1.6; }
 
-    /* ===== WHO ===== */
     .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem; }
     .who-item {
       background: #0b1118; border: 1px solid #182430; border-radius: 18px;
@@ -517,7 +501,6 @@
     .who-item h4 { font-size: 0.92rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.35rem; }
     .who-item p { font-size: 0.78rem; color: #8fa8c0; line-height: 1.5; }
 
-    /* ===== AGENCIES ===== */
     .agency-card {
       background: linear-gradient(135deg, #0b1118 0%, #0d1824 100%);
       border: 1px solid #182430; border-radius: 22px;
@@ -533,7 +516,6 @@
     .agency-card h3 { font-size: 1.4rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem; }
     .agency-card p { color: #8fa8c0; font-size: 0.95rem; max-width: 600px; line-height: 1.6; }
 
-    /* ===== PROCESS ===== */
     .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.15rem; }
     .process-step {
       background: #0b1118; border: 1px solid #182430; border-radius: 18px;
@@ -544,12 +526,11 @@
     .process-step h4 { font-size: 0.92rem; font-weight: 600; margin-bottom: 0.45rem; color: #e8edf2; }
     .process-step p { font-size: 0.78rem; color: #8fa8c0; line-height: 1.55; }
 
-    /* ===== ABOUT ===== */
     .about-text { max-width: 720px; font-size: 1.02rem; color: #b8cbdd; line-height: 1.75; }
     .about-text p + p { margin-top: 1rem; }
     .about-text strong { color: #ffffff; }
 
-    /* ===== TESTIMONIALS + COMMENT SYSTEM ===== */
+    /* ===== TESTIMONIALS + COMMENTS ===== */
     .testimonials-wrap {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
@@ -690,7 +671,6 @@
     .action-link.danger:hover { color: #ef4444; }
     .action-link i { font-size: 0.68rem; }
 
-    /* Replies */
     .replies-list {
       margin-top: 1rem;
       padding-top: 0.9rem;
@@ -763,23 +743,6 @@
       line-height: 1.55;
     }
 
-    .reply-delete {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: none;
-      border: none;
-      color: #4a6075;
-      cursor: pointer;
-      font-size: 0.7rem;
-      padding: 0.25rem;
-      transition: color 0.2s ease;
-      opacity: 0;
-    }
-    .reply-item:hover .reply-delete { opacity: 1; }
-    .reply-delete:hover { color: #ef4444; }
-
-    /* Reply form */
     .reply-form {
       display: flex;
       gap: 0.6rem;
@@ -824,7 +787,6 @@
     }
     .reply-form .reply-submit:hover { background: #1b6af0; }
 
-    /* New testimonial form */
     .testimonial-form {
       background: #0b1118;
       border: 1px solid #182430;
@@ -898,119 +860,6 @@
       margin-top: 0.5rem;
     }
 
-    /* Admin access hint */
-    .admin-hint {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      font-size: 0.65rem;
-      color: #2d4b66;
-      background: rgba(7, 9, 12, 0.85);
-      border: 1px solid #182430;
-      padding: 0.35rem 0.75rem;
-      border-radius: 30px;
-      z-index: 90;
-      backdrop-filter: blur(12px);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .admin-hint:hover { color: #4f9cf7; border-color: #2d7eff; }
-
-    /* Admin panel drawer */
-    .admin-drawer {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      max-width: 380px;
-      background: #0b1118;
-      border: 1px solid #182430;
-      border-radius: 20px 20px 0 0;
-      transform: translateY(100%);
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 101;
-      box-shadow: 0 -20px 60px -20px rgba(0, 0, 0, 0.8);
-    }
-    .admin-drawer.open { transform: translateY(0); }
-    .admin-drawer-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      border-bottom: 1px solid #182430;
-    }
-    .admin-drawer-head h4 {
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .admin-drawer-head h4 i { color: #a78bfa; }
-    .admin-drawer-head button {
-      background: none;
-      border: none;
-      color: #6b8aa6;
-      cursor: pointer;
-      font-size: 0.9rem;
-      padding: 0.25rem;
-      transition: color 0.2s ease;
-    }
-    .admin-drawer-head button:hover { color: #ffffff; }
-    .admin-drawer-body {
-      padding: 1.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .admin-toggle-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 0.75rem 0.9rem;
-      background: #080e14;
-      border: 1px solid #1a2a38;
-      border-radius: 12px;
-      font-size: 0.82rem;
-      color: #b8cbdd;
-    }
-    .admin-toggle {
-      position: relative;
-      width: 36px;
-      height: 20px;
-      background: #1a2a38;
-      border-radius: 40px;
-      cursor: pointer;
-      transition: background 0.25s ease;
-      flex-shrink: 0;
-    }
-    .admin-toggle::after {
-      content: '';
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #ffffff;
-      transition: transform 0.25s ease;
-    }
-    .admin-toggle.on { background: #2d7eff; }
-    .admin-toggle.on::after { transform: translateX(16px); }
-    .admin-note {
-      font-size: 0.72rem;
-      color: #6b8aa6;
-      line-height: 1.55;
-      padding: 0.75rem 0.9rem;
-      background: rgba(45, 126, 255, 0.05);
-      border: 1px solid rgba(45, 126, 255, 0.15);
-      border-radius: 10px;
-    }
-    .admin-note strong { color: #7cb8ff; }
-
-    /* ===== CONTACT ===== */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
     .contact-info h3 { font-size: 1.8rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; letter-spacing: -0.02em; }
     .contact-info p { color: #8fa8c0; font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem; }
@@ -1036,7 +885,6 @@
       background: #0d1723; transform: translateY(-2px);
     }
 
-    /* ===== FORM ===== */
     .contact-form { background: #0b1118; border: 1px solid #182430; border-radius: 22px; padding: 2rem 2rem; }
     .contact-form .form-group { margin-bottom: 1.25rem; }
     .contact-form label {
@@ -1077,17 +925,14 @@
     .form-alert.error i { color: #ef4444; }
     .form-alert.hidden { display: none; }
 
-    /* ===== FOOTER ===== */
     .footer {
       padding: 2.5rem 0; text-align: center;
       font-size: 0.8rem; color: #4a6075; border-top: 1px solid #111c26;
     }
     .footer p + p { margin-top: 0.4rem; font-size: 0.7rem; }
 
-    /* ===== CONTAINER ===== */
     .container { max-width: 1220px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .hero-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
@@ -1127,10 +972,8 @@
       .project-gallery.single img { height: 180px; }
       .reply-form { flex-direction: column; }
       .reply-form .reply-submit { padding: 0.7rem 1.2rem; justify-content: center; }
-      .admin-drawer { max-width: 100%; }
     }
 
-    /* ===== SCROLL REVEAL ===== */
     .reveal {
       opacity: 0; transform: translateY(24px);
       transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1141,22 +984,19 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
     .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== API CONFIG ===== */
+    /* Set this to your Render API URL. Used for testimonials + replies. */
   </style>
 </head>
 <body>
 
-  <!-- ===== CURSOR GLOW ===== -->
   <div class="cursor-glow" id="cursorGlow"></div>
-
-  <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- ===== TOP RIBBON ===== -->
   <div class="top-ribbon">
     <div class="ribbon-inner">
-      <span class="ribbon-badge">
-        <i class="fas fa-award"></i> 9+ Years in Business
-      </span>
+      <span class="ribbon-badge"><i class="fas fa-award"></i> 9+ Years in Business</span>
       <span class="ribbon-sep"></span>
       <span class="ribbon-text"><strong>150+</strong> Projects Delivered</span>
       <span class="ribbon-sep"></span>
@@ -1166,7 +1006,6 @@
     </div>
   </div>
 
-  <!-- ===== STICKY HEADER ===== -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#" class="brand">
@@ -1193,95 +1032,41 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
-          <div class="hero-badge">
-            <span class="pulse-dot"></span>
-            Available for new projects
-          </div>
-          <h1>
-            We Build Digital Systems That <span class="gradient-text">Move Businesses Forward</span>
-          </h1>
-          <p class="hero-sub">
-            Gozzy Group designs and develops custom software, business applications, automation systems, trading technology, APIs and Web3 solutions for businesses, startups and entrepreneurs.
-          </p>
-          <p class="hero-sub" style="font-size: 0.95rem; color: #7a9ab5;">
-            From a new product that needs to be built to an existing system that needs to be fixed, integrated or automated — we turn technical requirements into working digital solutions.
-          </p>
+          <div class="hero-badge"><span class="pulse-dot"></span> Available for new projects</div>
+          <h1>We Build Digital Systems That <span class="gradient-text">Move Businesses Forward</span></h1>
+          <p class="hero-sub">Gozzy Group designs and develops custom software, business applications, automation systems, trading technology, APIs and Web3 solutions for businesses, startups and entrepreneurs.</p>
+          <p class="hero-sub" style="font-size: 0.95rem; color: #7a9ab5;">From a new product that needs to be built to an existing system that needs to be fixed, integrated or automated — we turn technical requirements into working digital solutions.</p>
           <div class="hero-cta">
             <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Start a Project</a>
             <a href="#projects" class="btn btn-outline"><i class="fas fa-arrow-down"></i> View Our Work</a>
           </div>
-
           <div class="hero-stats">
-            <div class="hero-stat">
-              <div class="hero-stat-num"><span class="counter" data-target="9">0</span><span class="suffix">+</span></div>
-              <div class="hero-stat-label">Years Active</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-num"><span class="counter" data-target="150">0</span><span class="suffix">+</span></div>
-              <div class="hero-stat-label">Projects</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-num"><span class="counter" data-target="40">0</span><span class="suffix">+</span></div>
-              <div class="hero-stat-label">Clients</div>
-            </div>
-            <div class="hero-stat">
-              <div class="hero-stat-num"><span class="counter" data-target="24">0</span><span class="suffix">/7</span></div>
-              <div class="hero-stat-label">Support</div>
-            </div>
+            <div class="hero-stat"><div class="hero-stat-num"><span class="counter" data-target="9">0</span><span class="suffix">+</span></div><div class="hero-stat-label">Years Active</div></div>
+            <div class="hero-stat"><div class="hero-stat-num"><span class="counter" data-target="150">0</span><span class="suffix">+</span></div><div class="hero-stat-label">Projects</div></div>
+            <div class="hero-stat"><div class="hero-stat-num"><span class="counter" data-target="40">0</span><span class="suffix">+</span></div><div class="hero-stat-label">Clients</div></div>
+            <div class="hero-stat"><div class="hero-stat-num"><span class="counter" data-target="24">0</span><span class="suffix">/7</span></div><div class="hero-stat-label">Support</div></div>
           </div>
-
           <div class="hero-tags">
-            <span>Full-Stack Development</span>
-            <span>Automation</span>
-            <span>Trading Technology</span>
-            <span>Web3</span>
+            <span>Full-Stack Development</span><span>Automation</span><span>Trading Technology</span><span>Web3</span>
           </div>
         </div>
         <div class="hero-visual">
-          <div class="floating-badge">
-            <div class="fb-num">9+</div>
-            <div class="fb-label">Years</div>
-          </div>
-          <div class="hero-visual-card reveal">
-            <div class="hv-icon"><i class="fas fa-code"></i></div>
-            <div class="hv-content">
-              <div class="hv-title">Full‑stack web apps</div>
-              <div class="hv-desc">Dashboards, portals & platforms</div>
-            </div>
-          </div>
-          <div class="hero-visual-card reveal reveal-delay-1">
-            <div class="hv-icon"><i class="fas fa-robot"></i></div>
-            <div class="hv-content">
-              <div class="hv-title">Trading & automation</div>
-              <div class="hv-desc">MT4/MT5 EAs · Bots · APIs</div>
-            </div>
-          </div>
-          <div class="hero-visual-card reveal reveal-delay-2">
-            <div class="hv-icon"><i class="fas fa-cubes"></i></div>
-            <div class="hv-content">
-              <div class="hv-title">Web3 & fintech</div>
-              <div class="hv-desc">Blockchain · Payments · Integrations</div>
-            </div>
-          </div>
+          <div class="floating-badge"><div class="fb-num">9+</div><div class="fb-label">Years</div></div>
+          <div class="hero-visual-card reveal"><div class="hv-icon"><i class="fas fa-code"></i></div><div class="hv-content"><div class="hv-title">Full‑stack web apps</div><div class="hv-desc">Dashboards, portals & platforms</div></div></div>
+          <div class="hero-visual-card reveal reveal-delay-1"><div class="hv-icon"><i class="fas fa-robot"></i></div><div class="hv-content"><div class="hv-title">Trading & automation</div><div class="hv-desc">MT4/MT5 EAs · Bots · APIs</div></div></div>
+          <div class="hero-visual-card reveal reveal-delay-2"><div class="hv-icon"><i class="fas fa-cubes"></i></div><div class="hv-content"><div class="hv-title">Web3 & fintech</div><div class="hv-desc">Blockchain · Payments · Integrations</div></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHAT WE BUILD ===== -->
   <section class="section" id="what-we-build">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">WHAT WE BUILD</div>
-          <h2 class="section-title">From backend systems to full‑stack platforms</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">WHAT WE BUILD</div><h2 class="section-title">From backend systems to full‑stack platforms</h2></div></div>
       <div class="build-grid reveal">
         <span class="build-tag"><i class="fas fa-layer-group"></i> Full‑stack web applications</span>
         <span class="build-tag"><i class="fas fa-chart-pie"></i> Business dashboards & portals</span>
@@ -1301,226 +1086,98 @@
     </div>
   </section>
 
-  <!-- ===== PROJECTS ===== -->
   <section class="section" id="projects">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">SELECTED PROJECTS</div>
-          <h2 class="section-title">Work that speaks for itself</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">SELECTED PROJECTS</div><h2 class="section-title">Work that speaks for itself</h2></div></div>
       <div class="projects-grid">
-
-        <!-- PROJECT 01 -->
         <div class="project-card reveal">
           <div class="project-number">PROJECT 01</div>
           <div class="project-title">MT5 Trading Automation System</div>
           <div class="project-category">Trading / MQL5</div>
-          <div class="project-description">
-            Custom MT5 Expert Advisor designed around structured market‑entry logic, risk management, automated trade execution and position management.
-          </div>
-          <div class="project-gallery single">
-            <img src="EA.png" alt="MT5 EA full dashboard and log" />
-          </div>
+          <div class="project-description">Custom MT5 Expert Advisor designed around structured market‑entry logic, risk management, automated trade execution and position management.</div>
+          <div class="project-gallery single"><img src="EA.png" alt="MT5 EA full dashboard and log" /></div>
           <div class="project-media-note">SMC pro scalper</div>
-          <div class="tech-list">
-            <span>MQL5</span><span>MetaTrader 5</span><span>Algorithmic Trading</span><span>Risk Management</span>
-          </div>
+          <div class="tech-list"><span>MQL5</span><span>MetaTrader 5</span><span>Algorithmic Trading</span><span>Risk Management</span></div>
           <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
-          <div class="project-links">
-            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
-          </div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
         </div>
-
-        <!-- PROJECT 02 -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
           <div class="project-title">Blog / Content Platform</div>
           <div class="project-category">Web Application / CMS</div>
-          <div class="project-description">
-            Full‑featured blog platform with article management, categories, user authentication, comment system, search functionality and a custom admin dashboard.
-          </div>
-          <div class="project-gallery">
-            <img src="blog.png" alt="Blog homepage" />
-            <img src="news.jpeg" alt="Blog article page" />
-          </div>
+          <div class="project-description">Full‑featured blog platform with article management, categories, user authentication, comment system, search functionality and a custom admin dashboard.</div>
+          <div class="project-gallery"><img src="blog.png" alt="Blog homepage" /><img src="news.jpeg" alt="Blog article page" /></div>
           <div class="project-media-note">News / Content Site</div>
-          <div class="tech-list">
-            <span>PHP</span><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>REST API</span>
-          </div>
+          <div class="tech-list"><span>PHP</span><span>Laravel</span><span>MySQL</span><span>JavaScript</span><span>REST API</span></div>
           <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
-          <div class="project-links">
-            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
-          </div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
         </div>
-
-        <!-- PROJECT 03 -->
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
           <div class="project-title">E‑Commerce Platform</div>
           <div class="project-category">E‑Commerce</div>
-          <div class="project-description">
-            Full‑stack shopping platform designed to manage products, customers, orders and online business operations through a responsive web interface.
-          </div>
-          <div class="project-gallery">
-            <img src="commerce.jpeg" alt="E-commerce homepage" />
-            <img src="cart.png" alt="Product page" />
-          </div>
+          <div class="project-description">Full‑stack shopping platform designed to manage products, customers, orders and online business operations through a responsive web interface.</div>
+          <div class="project-gallery"><img src="commerce.jpeg" alt="E-commerce homepage" /><img src="cart.png" alt="Product page" /></div>
           <div class="project-media-note">Marketplace</div>
-          <div class="tech-list">
-            <span>PHP</span><span>JavaScript</span><span>MySQL</span><span>HTML/CSS</span>
-          </div>
+          <div class="tech-list"><span>PHP</span><span>JavaScript</span><span>MySQL</span><span>HTML/CSS</span></div>
           <div class="client-note"><i class="fas fa-briefcase"></i> Client Project</div>
-          <div class="project-links">
-            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
-          </div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
         </div>
-
-        <!-- PROJECT 04 -->
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
           <div class="project-title">Web3 / Crypto Application</div>
           <div class="project-category">Web3 / Blockchain</div>
-          <div class="project-description">
-            Custom Web3 application integrating blockchain functionality with a web interface and backend services.
-          </div>
-          <div class="project-gallery">
-            <img src="web.png" alt="Web3 dashboard" />
-            <img src="adweb.png" alt="Wallet connection" />
-          </div>
+          <div class="project-description">Custom Web3 application integrating blockchain functionality with a web interface and backend services.</div>
+          <div class="project-gallery"><img src="web.png" alt="Web3 dashboard" /><img src="adweb.png" alt="Wallet connection" /></div>
           <div class="project-media-note">Payroll system (Smart contract)</div>
-          <div class="tech-list">
-            <span>Solidity</span><span>Ethers.js</span><span>React</span><span>Node.js</span><span>Web3.js</span>
-          </div>
+          <div class="tech-list"><span>Solidity</span><span>Ethers.js</span><span>React</span><span>Node.js</span><span>Web3.js</span></div>
           <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
-          <div class="project-links">
-            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
-          </div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
         </div>
-
-        <!-- PROJECT 05 -->
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
           <div class="project-title">Automation / Bot System</div>
           <div class="project-category">Automation</div>
-          <div class="project-description">
-            Automated communication and business workflow system designed to reduce manual operations through API integrations and bot‑based workflows.
-          </div>
-          <div class="project-gallery">
-            <img src="bot.jpeg" alt="Telegram bot interface" />
-            <img src="automation.png" alt="Automation dashboard" />
-          </div>
+          <div class="project-description">Automated communication and business workflow system designed to reduce manual operations through API integrations and bot‑based workflows.</div>
+          <div class="project-gallery"><img src="bot.jpeg" alt="Telegram bot interface" /><img src="automation.png" alt="Automation dashboard" /></div>
           <div class="project-media-note">Telegram & Discord automation</div>
-          <div class="tech-list">
-            <span>Python</span><span>Telegram API</span><span>Discord API</span><span>Node.js</span><span>Webhooks</span>
-          </div>
+          <div class="tech-list"><span>Python</span><span>Telegram API</span><span>Discord API</span><span>Node.js</span><span>Webhooks</span></div>
           <div class="personal-note"><i class="fas fa-user"></i> Self‑Initiated Project</div>
-          <div class="project-links">
-            <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-            <a href="#"><i class="fas fa-file-alt"></i> Case Study</a>
-            <a href="#"><i class="fab fa-github"></i> Private Repository</a>
-          </div>
+          <div class="project-links"><a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a><a href="#"><i class="fas fa-file-alt"></i> Case Study</a><a href="#"><i class="fab fa-github"></i> Private Repository</a></div>
         </div>
-
       </div>
-      <div class="projects-footnote reveal">
-        <i class="fas fa-info-circle" style="color: #4f9cf7;"></i>
-        Projects 01–03 are client work (with permission). Projects 04–05 are self‑initiated R&amp;D.
-      </div>
+      <div class="projects-footnote reveal"><i class="fas fa-info-circle" style="color: #4f9cf7;"></i> Projects 01–03 are client work (with permission). Projects 04–05 are self‑initiated R&amp;D.</div>
     </div>
   </section>
 
-  <!-- ===== SERVICES ===== -->
   <section class="section" id="services">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">SERVICES</div>
-          <h2 class="section-title">What we can do for you</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">SERVICES</div><h2 class="section-title">What we can do for you</h2></div></div>
       <div class="services-grid">
-        <div class="service-item reveal">
-          <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-          <h4>Custom Business Software</h4>
-          <p>Dashboards, portals, internal systems and web applications designed around your business workflow.</p>
-        </div>
-        <div class="service-item reveal reveal-delay-1">
-          <div class="service-icon"><i class="fas fa-plug"></i></div>
-          <h4>APIs & Integrations</h4>
-          <p>Connect payments, third‑party services, databases and business platforms through reliable APIs and webhooks.</p>
-        </div>
-        <div class="service-item reveal reveal-delay-2">
-          <div class="service-icon"><i class="fas fa-cogs"></i></div>
-          <h4>Automation</h4>
-          <p>Reduce repetitive work through bots, automated workflows, notifications and system integrations.</p>
-        </div>
-        <div class="service-item reveal reveal-delay-3">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-          <h4>Trading Technology</h4>
-          <p>MT4/MT5 Expert Advisors, strategy implementation, risk management and trading automation.</p>
-        </div>
-        <div class="service-item reveal reveal-delay-4">
-          <div class="service-icon"><i class="fas fa-cubes"></i></div>
-          <h4>Web3</h4>
-          <p>Blockchain applications, wallet integration, smart‑contract interaction and Web3 backend systems.</p>
-        </div>
-        <div class="service-item reveal reveal-delay-5">
-          <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
-          <h4>E‑commerce</h4>
-          <p>Complete online stores and custom commerce systems.</p>
-        </div>
+        <div class="service-item reveal"><div class="service-icon"><i class="fas fa-briefcase"></i></div><h4>Custom Business Software</h4><p>Dashboards, portals, internal systems and web applications designed around your business workflow.</p></div>
+        <div class="service-item reveal reveal-delay-1"><div class="service-icon"><i class="fas fa-plug"></i></div><h4>APIs & Integrations</h4><p>Connect payments, third‑party services, databases and business platforms through reliable APIs and webhooks.</p></div>
+        <div class="service-item reveal reveal-delay-2"><div class="service-icon"><i class="fas fa-cogs"></i></div><h4>Automation</h4><p>Reduce repetitive work through bots, automated workflows, notifications and system integrations.</p></div>
+        <div class="service-item reveal reveal-delay-3"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h4>Trading Technology</h4><p>MT4/MT5 Expert Advisors, strategy implementation, risk management and trading automation.</p></div>
+        <div class="service-item reveal reveal-delay-4"><div class="service-icon"><i class="fas fa-cubes"></i></div><h4>Web3</h4><p>Blockchain applications, wallet integration, smart‑contract interaction and Web3 backend systems.</p></div>
+        <div class="service-item reveal reveal-delay-5"><div class="service-icon"><i class="fas fa-shopping-cart"></i></div><h4>E‑commerce</h4><p>Complete online stores and custom commerce systems.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHY GOZZY GROUP ===== -->
   <section class="section" id="why">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">WHY GOZZY GROUP</div>
-          <h2 class="section-title">Built for businesses, not just for code</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">WHY GOZZY GROUP</div><h2 class="section-title">Built for businesses, not just for code</h2></div></div>
       <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-icon"><i class="fas fa-bullseye"></i></div>
-          <h4>Business-first</h4>
-          <p>We focus on the problem the software needs to solve, not just the technology.</p>
-        </div>
-        <div class="why-card reveal reveal-delay-1">
-          <div class="why-icon"><i class="fas fa-puzzle-piece"></i></div>
-          <h4>Built around your workflow</h4>
-          <p>Solutions are designed around your actual requirements rather than forcing your business into a generic template.</p>
-        </div>
-        <div class="why-card reveal reveal-delay-2">
-          <div class="why-icon"><i class="fas fa-headset"></i></div>
-          <h4>Long-term support</h4>
-          <p>We can continue maintaining, improving and extending systems after launch.</p>
-        </div>
+        <div class="why-card reveal"><div class="why-icon"><i class="fas fa-bullseye"></i></div><h4>Business-first</h4><p>We focus on the problem the software needs to solve, not just the technology.</p></div>
+        <div class="why-card reveal reveal-delay-1"><div class="why-icon"><i class="fas fa-puzzle-piece"></i></div><h4>Built around your workflow</h4><p>Solutions are designed around your actual requirements rather than forcing your business into a generic template.</p></div>
+        <div class="why-card reveal reveal-delay-2"><div class="why-icon"><i class="fas fa-headset"></i></div><h4>Long-term support</h4><p>We can continue maintaining, improving and extending systems after launch.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== WHO WE WORK WITH ===== -->
   <section class="section" id="who">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">WHO WE WORK WITH</div>
-          <h2 class="section-title">Trusted by builders and businesses</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">WHO WE WORK WITH</div><h2 class="section-title">Trusted by builders and businesses</h2></div></div>
       <div class="who-grid">
         <div class="who-item reveal"><i class="fas fa-rocket"></i><h4>Startups</h4><p>Turn ideas into functional products.</p></div>
         <div class="who-item reveal reveal-delay-1"><i class="fas fa-building"></i><h4>Small & Medium Businesses</h4><p>Automate operations and improve existing systems.</p></div>
@@ -1532,7 +1189,6 @@
     </div>
   </section>
 
-  <!-- ===== FOR AGENCIES ===== -->
   <section class="section" id="agencies">
     <div class="container">
       <div class="agency-card reveal">
@@ -1545,15 +1201,9 @@
     </div>
   </section>
 
-  <!-- ===== PROCESS ===== -->
   <section class="section" id="process">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">PROCESS</div>
-          <h2 class="section-title">A clear, collaborative process</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">PROCESS</div><h2 class="section-title">A clear, collaborative process</h2></div></div>
       <div class="process-grid">
         <div class="process-step reveal"><span class="step-num">01</span><h4>Discover</h4><p>Understand your goals, users and requirements.</p></div>
         <div class="process-step reveal reveal-delay-1"><span class="step-num">02</span><h4>Define</h4><p>Determine scope, functionality, technology and milestones.</p></div>
@@ -1565,15 +1215,9 @@
     </div>
   </section>
 
-  <!-- ===== ABOUT ===== -->
   <section class="section" id="about">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">ABOUT</div>
-          <h2 class="section-title">The Developer Behind Gozzy Group</h2>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">ABOUT</div><h2 class="section-title">The Developer Behind Gozzy Group</h2></div></div>
       <div class="about-text reveal">
         <p><strong>Gozzy Group</strong> was founded by <strong>Uche Isaiah Chigozie</strong>, a full‑stack developer focused on building practical software for businesses, startups and entrepreneurs.</p>
         <p>My experience spans full‑stack web development, business applications, APIs, automation, fintech systems, MT4/MT5 trading technology and Web3 development.</p>
@@ -1595,12 +1239,10 @@
       </div>
 
       <div class="testimonials-wrap">
-        <!-- LEFT: Testimonials list -->
         <div class="testimonial-list reveal" id="testimonialList">
-          <!-- Testimonials injected via JS -->
+          <!-- Loaded via API -->
         </div>
 
-        <!-- RIGHT: Add testimonial form -->
         <div class="testimonial-form reveal reveal-delay-1">
           <h3>Leave a testimonial</h3>
           <p class="form-sub">Worked with Gozzy Group? Share your experience — it will appear on this page.</p>
@@ -1608,7 +1250,7 @@
           <form id="testimonialForm">
             <div class="form-group">
               <label for="tName">Your Name</label>
-              <input type="text" id="tName" placeholder="e.g. Mr. Kind" required />
+              <input type="text" id="tName" placeholder="e.g. Example Name" required />
             </div>
             <div class="form-group">
               <label for="tRole">Role / Company <span style="color: #4a6075; font-weight: 400;">(optional)</span></label>
@@ -1637,39 +1279,19 @@
     </div>
   </section>
 
-  <!-- ===== CONTACT ===== -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <div class="section-label">CONTACT</div>
-        </div>
-      </div>
+      <div class="section-head reveal"><div><div class="section-label">CONTACT</div></div></div>
       <div class="contact-grid">
         <div class="contact-info reveal">
           <h3>Let's build something great</h3>
           <p>Tell me about your project — I'll get back to you within 24 hours. Whether you need a new system built, an existing one fixed, or a partner for ongoing development, Gozzy Group is ready to help.</p>
           <div class="contact-details">
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:Gozzypips@gmail.com">Gozzypips@gmail.com</a>
-            </div>
-            <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i>
-              <a href="tel:+2349021317870">09021317870</a>
-            </div>
-            <div class="contact-detail">
-              <i class="fab fa-telegram-plane"></i>
-              <a href="https://t.me/+2349021317870" target="_blank" rel="noopener">Telegram</a>
-            </div>
-            <div class="contact-detail">
-              <i class="fab fa-github"></i>
-              <a href="#" target="_blank" rel="noopener">GitHub</a>
-            </div>
-            <div class="contact-detail">
-              <i class="fab fa-linkedin-in"></i>
-              <a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener">LinkedIn</a>
-            </div>
+            <div class="contact-detail"><i class="fas fa-envelope"></i><a href="mailto:Gozzypips@gmail.com">Gozzypips@gmail.com</a></div>
+            <div class="contact-detail"><i class="fas fa-phone-alt"></i><a href="tel:+2349021317870">09021317870</a></div>
+            <div class="contact-detail"><i class="fab fa-telegram-plane"></i><a href="https://t.me/+2349021317870" target="_blank" rel="noopener">Telegram</a></div>
+            <div class="contact-detail"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener">GitHub</a></div>
+            <div class="contact-detail"><i class="fab fa-linkedin-in"></i><a href="https://www.linkedin.com/in/chigozie-uche-794b2b340" target="_blank" rel="noopener">LinkedIn</a></div>
           </div>
           <div class="contact-socials">
             <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -1687,19 +1309,10 @@
           <form id="contactForm" action="https://api-bh8k.onrender.com/api.php" method="POST" novalidate>
             <input type="hidden" name="form_type" value="contact" />
             <div class="form-row">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="you@company.com" required />
-              </div>
+              <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name" placeholder="Your name" required /></div>
+              <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" placeholder="you@company.com" required /></div>
             </div>
-            <div class="form-group">
-              <label for="company">Company <span style="color: #4a6075; font-weight: 400;">(optional)</span></label>
-              <input type="text" id="company" name="company" placeholder="Your company" />
-            </div>
+            <div class="form-group"><label for="company">Company <span style="color: #4a6075; font-weight: 400;">(optional)</span></label><input type="text" id="company" name="company" placeholder="Your company" /></div>
             <div class="form-group">
               <label for="service">What do you need?</label>
               <select id="service" name="service">
@@ -1726,13 +1339,8 @@
                 <option value="not-sure">Not sure yet</option>
               </select>
             </div>
-            <div class="form-group">
-              <label for="message">Project description</label>
-              <textarea id="message" name="message" placeholder="Tell me about your project, goals and timeline..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" id="submitBtn">
-              <i class="fas fa-paper-plane"></i> Send Project Request
-            </button>
+            <div class="form-group"><label for="message">Project description</label><textarea id="message" name="message" placeholder="Tell me about your project, goals and timeline..." required></textarea></div>
+            <button type="submit" class="btn btn-primary" id="submitBtn"><i class="fas fa-paper-plane"></i> Send Project Request</button>
             <p class="form-note">We typically respond within 24 hours.</p>
           </form>
         </div>
@@ -1740,7 +1348,6 @@
     </div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <p>© <span id="year"></span> Gozzy Group. All rights reserved.</p>
@@ -1748,77 +1355,46 @@
     </div>
   </footer>
 
-  <!-- ===== ADMIN HINT (click to open admin drawer) ===== -->
-  <div class="admin-hint" id="adminHint">
-    <i class="fas fa-lock"></i> Admin
-  </div>
-
-  <!-- ===== ADMIN DRAWER ===== -->
-  <div class="admin-drawer" id="adminDrawer">
-    <div class="admin-drawer-head">
-      <h4><i class="fas fa-shield-alt"></i> Gozzy Admin Panel</h4>
-      <button id="adminClose" aria-label="Close"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="admin-drawer-body">
-      <div class="admin-toggle-row">
-        <span>Admin mode (reply & delete)</span>
-        <div class="admin-toggle" id="adminToggle"></div>
-      </div>
-      <div class="admin-note">
-        <strong>No password needed</strong> — this is a local admin panel.<br />
-        Turn on <strong>Admin mode</strong> to reply to testimonials and delete any comment or testimonial. Changes are saved locally in this browser.
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== SCRIPTS ===== -->
   <script>
     // ============================================================
-    // DYNAMIC YEAR
+    // API CONFIG — your Render backend
     // ============================================================
+    const API_BASE = 'https://api-bh8k.onrender.com';
+
+    // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ============================================================
-    // CURSOR GLOW
-    // ============================================================
+    // ===== CURSOR GLOW =====
     (function() {
       const glow = document.getElementById('cursorGlow');
       if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
       let x = 0, y = 0, tx = 0, ty = 0;
-      document.addEventListener('mousemove', function(e) {
-        tx = e.clientX; ty = e.clientY;
-      });
+      document.addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
       (function loop() {
-        x += (tx - x) * 0.12;
-        y += (ty - y) * 0.12;
+        x += (tx - x) * 0.12; y += (ty - y) * 0.12;
         glow.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
         requestAnimationFrame(loop);
       })();
     })();
 
-    // ============================================================
-    // SCROLL PROGRESS BAR
-    // ============================================================
+    // ===== SCROLL PROGRESS =====
     (function() {
       const progressBar = document.getElementById('scrollProgress');
       const header = document.getElementById('siteHeader');
       window.addEventListener('scroll', function() {
         const scrollTop = window.scrollY;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        progressBar.style.width = scrollPercent + '%';
+        progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
         if (scrollTop > 20) header.classList.add('scrolled');
         else header.classList.remove('scrolled');
       }, { passive: true });
     })();
 
-    // ============================================================
-    // SCROLL REVEAL
-    // ============================================================
+    // ===== SCROLL REVEAL =====
     (function() {
       const reveals = document.querySelectorAll('.reveal');
       if (!reveals.length) return;
-      const observer = new IntersectionObserver((entries) => {
+      const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
@@ -1829,159 +1405,98 @@
       reveals.forEach(el => observer.observe(el));
     })();
 
-    // ============================================================
-    // ANIMATED COUNTERS
-    // ============================================================
+    // ===== ANIMATED COUNTERS =====
     (function() {
       const counters = document.querySelectorAll('.counter');
       if (!counters.length) return;
       const easeOut = t => 1 - Math.pow(1 - t, 3);
-      const animateCounter = (el) => {
+      const animate = el => {
         const target = parseInt(el.dataset.target, 10) || 0;
-        const duration = 1600;
         const start = performance.now();
-        const step = (now) => {
-          const p = Math.min((now - start) / duration, 1);
+        const step = now => {
+          const p = Math.min((now - start) / 1600, 1);
           el.textContent = Math.floor(easeOut(p) * target);
           if (p < 1) requestAnimationFrame(step);
           else el.textContent = target;
         };
         requestAnimationFrame(step);
       };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            observer.unobserve(entry.target);
-          }
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { animate(e.target); obs.unobserve(e.target); }
         });
       }, { threshold: 0.5 });
-      counters.forEach(c => observer.observe(c));
+      counters.forEach(c => obs.observe(c));
     })();
 
-    // ============================================================
-    // MOBILE NAV TOGGLE
-    // ============================================================
+    // ===== MOBILE NAV =====
     (function() {
       const toggle = document.getElementById('mobileNavToggle');
       const nav = document.getElementById('navLinks');
       if (!toggle || !nav) return;
       let isOpen = false;
-      toggle.addEventListener('click', function() {
+      const close = () => {
+        isOpen = false;
+        nav.style.cssText = '';
+        toggle.innerHTML = '<i class="fas fa-bars"></i>';
+      };
+      toggle.addEventListener('click', () => {
         isOpen = !isOpen;
         if (isOpen) {
-          nav.style.display = 'flex';
-          nav.style.flexDirection = 'column';
-          nav.style.position = 'absolute';
-          nav.style.top = '70px';
-          nav.style.left = '0';
-          nav.style.right = '0';
-          nav.style.background = 'rgba(7, 9, 12, 0.97)';
-          nav.style.backdropFilter = 'blur(18px)';
-          nav.style.padding = '1.5rem 2rem';
-          nav.style.gap = '1.25rem';
-          nav.style.borderBottom = '1px solid #182430';
-          nav.style.zIndex = '99';
+          nav.style.cssText = 'display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;background:rgba(7,9,12,0.97);backdrop-filter:blur(18px);padding:1.5rem 2rem;gap:1.25rem;border-bottom:1px solid #182430;z-index:99;';
           toggle.innerHTML = '<i class="fas fa-times"></i>';
-        } else {
-          nav.style.display = '';
-          nav.style.flexDirection = '';
-          nav.style.position = '';
-          nav.style.top = '';
-          nav.style.left = '';
-          nav.style.right = '';
-          nav.style.background = '';
-          nav.style.backdropFilter = '';
-          nav.style.padding = '';
-          nav.style.gap = '';
-          nav.style.borderBottom = '';
-          nav.style.zIndex = '';
-          toggle.innerHTML = '<i class="fas fa-bars"></i>';
+        } else close();
+      });
+      nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { if (isOpen) close(); }));
+    })();
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const id = this.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          const h = document.getElementById('siteHeader')?.offsetHeight || 70;
+          window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - h - 16, behavior: 'smooth' });
         }
       });
-      nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          if (isOpen) {
-            isOpen = false;
-            nav.style.display = '';
-            nav.style.flexDirection = '';
-            nav.style.position = '';
-            nav.style.top = '';
-            nav.style.left = '';
-            nav.style.right = '';
-            nav.style.background = '';
-            nav.style.backdropFilter = '';
-            nav.style.padding = '';
-            nav.style.gap = '';
-            nav.style.borderBottom = '';
-            nav.style.zIndex = '';
-            toggle.innerHTML = '<i class="fas fa-bars"></i>';
-          }
-        });
-      });
-    })();
+    });
 
-    // ============================================================
-    // SMOOTH ANCHOR SCROLL
-    // ============================================================
-    (function() {
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            const headerHeight = document.getElementById('siteHeader')?.offsetHeight || 70;
-            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
-            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-          }
-        });
-      });
-    })();
-
-    // ============================================================
-    // AJAX FORM SUBMISSION → Render API
-    // ============================================================
+    // ===== CONTACT FORM =====
     (function() {
       const form = document.getElementById('contactForm');
+      if (!form) return;
       const alertBox = document.getElementById('formAlert');
       const alertIcon = document.getElementById('formAlertIcon');
       const alertText = document.getElementById('formAlertText');
       const submitBtn = document.getElementById('submitBtn');
-      if (!form) return;
 
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const message = form.message.value.trim();
-        if (!name || !email || !message) {
-          showAlert('error', 'Please fill in all required fields.');
-          return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-          showAlert('error', 'Please enter a valid email address.');
-          return;
-        }
+        if (!name || !email || !message) return showAlert('error', 'Please fill in all required fields.');
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showAlert('error', 'Please enter a valid email address.');
+
         submitBtn.disabled = true;
-        const originalHTML = submitBtn.innerHTML;
+        const original = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
         try {
-          const formData = new FormData(form);
-          const response = await fetch(form.action, { method: 'POST', body: formData });
-          const data = await response.json();
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+          const data = await res.json();
           if (data.status === 'success') {
-            showAlert('success', data.message || 'Project request received. We will get back to you shortly.');
+            showAlert('success', data.message || 'Project request received.');
             form.reset();
-          } else {
-            showAlert('error', data.message || 'Something went wrong. Please try again.');
-          }
+          } else showAlert('error', data.message || 'Something went wrong.');
         } catch (err) {
-          showAlert('error', 'Network error. Please check your connection and try again.');
+          showAlert('error', 'Network error. Please try again.');
         } finally {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = originalHTML;
+          submitBtn.innerHTML = original;
         }
       });
 
@@ -1995,91 +1510,34 @@
     })();
 
     // ============================================================
-    // TESTIMONIALS + COMMENTS SYSTEM (localStorage, no database)
+    // TESTIMONIALS + COMMENTS — loaded from Render API
     // ============================================================
     (function() {
-      const STORAGE_KEY = 'gozzy_testimonials_v1';
-      const ADMIN_KEY = 'gozzy_admin_mode_v1';
       const listEl = document.getElementById('testimonialList');
       if (!listEl) return;
 
-      // ---- Initial seed (only added once, if storage empty) ----
-      const SEED = [
-        {
-          id: 'seed-1',
-          name: 'Mr. Kind',
-          role: 'Business Owner · 2 Projects with Gozzy',
-          rating: 5,
-          message: "Thank you Gozzy Group — it feels easier to do my business now. The systems you built for me just work, and I don't have to think about them.",
-          date: Date.now() - 1000 * 60 * 60 * 24 * 2,
-          replies: [],
-        }
-      ];
-
-      // ---- State ----
-      let items = loadItems();
-      let adminMode = localStorage.getItem(ADMIN_KEY) === '1';
-
-      // ---- Storage helpers ----
-      function loadItems() {
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY);
-          if (!raw) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED));
-            return SEED.slice();
-          }
-          const parsed = JSON.parse(raw);
-          return Array.isArray(parsed) ? parsed : SEED.slice();
-        } catch (e) {
-          return SEED.slice();
-        }
-      }
-
-      function saveItems() {
-        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
-        catch (e) { console.warn('Could not save testimonials', e); }
-      }
+      let items = [];
+      let selectedRating = 5;
 
       // ---- Helpers ----
-      function escapeHtml(str) {
-        return String(str ?? '')
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#039;');
-      }
+      const escapeHtml = s => String(s ?? '')
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
 
-      function initials(name) {
-        return String(name || '?')
-          .trim()
-          .split(/\s+/)
-          .slice(0, 2)
-          .map(p => p[0])
-          .join('')
-          .toUpperCase();
-      }
+      const initials = name => String(name || '?').trim().split(/\s+/).slice(0, 2).map(p => p[0]).join('').toUpperCase();
 
-      function timeAgo(ts) {
+      const timeAgo = ts => {
         const diff = Math.max(0, Date.now() - ts);
         const s = Math.floor(diff / 1000);
         if (s < 60) return 'just now';
-        const m = Math.floor(s / 60);
-        if (m < 60) return m + ' min ago';
-        const h = Math.floor(m / 60);
-        if (h < 24) return h + ' hour' + (h > 1 ? 's' : '') + ' ago';
-        const d = Math.floor(h / 24);
-        if (d < 30) return d + ' day' + (d > 1 ? 's' : '') + ' ago';
+        const m = Math.floor(s / 60); if (m < 60) return m + ' min ago';
+        const h = Math.floor(m / 60); if (h < 24) return h + ' hour' + (h > 1 ? 's' : '') + ' ago';
+        const d = Math.floor(h / 24); if (d < 30) return d + ' day' + (d > 1 ? 's' : '') + ' ago';
         return new Date(ts).toLocaleDateString();
-      }
+      };
 
-      function renderStars(rating) {
-        let html = '';
-        for (let i = 1; i <= 5; i++) {
-          html += '<i class="' + (i <= rating ? 'fas' : 'far') + ' fa-star"></i>';
-        }
-        return html;
-      }
+      const renderStars = r => Array.from({ length: 5 }, (_, i) =>
+        `<i class="${i < r ? 'fas' : 'far'} fa-star"></i>`).join('');
 
       // ---- Render ----
       function render() {
@@ -2107,15 +1565,13 @@
             <div class="testimonial-body">${escapeHtml(item.message)}</div>
             <div class="testimonial-foot">
               <div class="testimonial-stars">${renderStars(item.rating || 5)}</div>
-              <div class="testimonial-actions">
-                ${adminMode ? `<button class="action-link danger" data-action="delete-testimonial" data-id="${item.id}"><i class="fas fa-trash"></i> Delete</button>` : ''}
-              </div>
+              <div class="testimonial-actions"></div>
             </div>
 
             ${item.replies && item.replies.length ? `
               <div class="replies-list">
                 ${item.replies.map(r => `
-                  <div class="reply-item" data-reply-id="${r.id}">
+                  <div class="reply-item">
                     <div class="reply-avatar">${escapeHtml(initials(r.name))}</div>
                     <div class="reply-content">
                       <div class="reply-head">
@@ -2124,14 +1580,13 @@
                       </div>
                       <div class="reply-body">${escapeHtml(r.message)}</div>
                     </div>
-                    ${adminMode ? `<button class="reply-delete" data-action="delete-reply" data-tid="${item.id}" data-rid="${r.id}"><i class="fas fa-times"></i></button>` : ''}
                   </div>
                 `).join('')}
               </div>
             ` : ''}
 
             <form class="reply-form" data-tid="${item.id}">
-              <input type="text" class="reply-name-input" placeholder="${adminMode ? 'Your reply (as Admin)' : 'Your name'}" value="${adminMode ? 'Gozzy Group' : ''}" ${adminMode ? 'readonly' : ''} required />
+              <input type="text" class="reply-name-input" placeholder="Your name" required />
               <input type="text" class="reply-message-input" placeholder="Write a reply..." required />
               <button type="submit" class="reply-submit"><i class="fas fa-paper-plane"></i> Reply</button>
             </form>
@@ -2139,141 +1594,109 @@
         `).join('');
       }
 
-      // ---- Add testimonial ----
+      // ---- Load from API ----
+      async function load() {
+        try {
+          const res = await fetch(API_BASE + '/api.php?testimonials=1', { cache: 'no-store' });
+          const data = await res.json();
+          items = (data.items || []).sort((a, b) => b.date - a.date);
+          render();
+        } catch (err) {
+          console.warn('Could not load testimonials', err);
+          items = [];
+          render();
+        }
+      }
+
+      // ---- Post testimonial ----
       const form = document.getElementById('testimonialForm');
       const starPicker = document.getElementById('starPicker');
-      let selectedRating = 5;
 
       if (starPicker) {
         starPicker.querySelectorAll('i').forEach(star => {
           star.addEventListener('mouseenter', () => {
-            const val = parseInt(star.dataset.star, 10);
-            starPicker.querySelectorAll('i').forEach(s => {
-              s.classList.toggle('active', parseInt(s.dataset.star, 10) <= val);
-            });
+            const v = +star.dataset.star;
+            starPicker.querySelectorAll('i').forEach(s => s.classList.toggle('active', +s.dataset.star <= v));
           });
           star.addEventListener('click', () => {
-            selectedRating = parseInt(star.dataset.star, 10);
+            selectedRating = +star.dataset.star;
             starPicker.dataset.value = selectedRating;
-            starPicker.querySelectorAll('i').forEach(s => {
-              s.classList.toggle('active', parseInt(s.dataset.star, 10) <= selectedRating);
-            });
+            starPicker.querySelectorAll('i').forEach(s => s.classList.toggle('active', +s.dataset.star <= selectedRating));
           });
         });
         starPicker.addEventListener('mouseleave', () => {
-          starPicker.querySelectorAll('i').forEach(s => {
-            s.classList.toggle('active', parseInt(s.dataset.star, 10) <= selectedRating);
-          });
+          starPicker.querySelectorAll('i').forEach(s => s.classList.toggle('active', +s.dataset.star <= selectedRating));
         });
       }
 
       if (form) {
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', async e => {
           e.preventDefault();
           const name = document.getElementById('tName').value.trim();
           const role = document.getElementById('tRole').value.trim();
           const message = document.getElementById('tMessage').value.trim();
-          if (!name || !message) {
-            alert('Please enter your name and testimonial.');
-            return;
-          }
-          items.unshift({
-            id: 't-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
-            name, role, message,
-            rating: selectedRating || 5,
-            date: Date.now(),
-            replies: [],
-          });
-          saveItems();
-          render();
-          form.reset();
-          selectedRating = 5;
-          if (starPicker) {
-            starPicker.dataset.value = 5;
-            starPicker.querySelectorAll('i').forEach(s => s.classList.add('active'));
+          if (!name || !message) return alert('Please enter your name and testimonial.');
+
+          const btn = form.querySelector('button[type="submit"]');
+          const orig = btn.innerHTML;
+          btn.disabled = true;
+          btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Posting...';
+
+          try {
+            const fd = new FormData();
+            fd.append('form_type', 'testimonial');
+            fd.append('name', name);
+            fd.append('role', role);
+            fd.append('rating', selectedRating);
+            fd.append('message', message);
+            const res = await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+            const data = await res.json();
+            if (data.status === 'success') {
+              await load();
+              form.reset();
+              selectedRating = 5;
+              if (starPicker) {
+                starPicker.dataset.value = 5;
+                starPicker.querySelectorAll('i').forEach(s => s.classList.add('active'));
+              }
+            } else {
+              alert(data.message || 'Could not post testimonial.');
+            }
+          } catch (err) {
+            alert('Network error. Please try again.');
+          } finally {
+            btn.disabled = false;
+            btn.innerHTML = orig;
           }
         });
       }
 
-      // ---- Event delegation for replies & deletes ----
-      listEl.addEventListener('submit', e => {
+      // ---- Reply ----
+      listEl.addEventListener('submit', async e => {
         const replyForm = e.target.closest('.reply-form');
         if (!replyForm) return;
         e.preventDefault();
         const tid = replyForm.dataset.tid;
-        const nameInput = replyForm.querySelector('.reply-name-input');
-        const msgInput = replyForm.querySelector('.reply-message-input');
-        const name = nameInput.value.trim() || (adminMode ? 'Gozzy Group' : 'Anonymous');
-        const message = msgInput.value.trim();
+        const name = replyForm.querySelector('.reply-name-input').value.trim() || 'Anonymous';
+        const message = replyForm.querySelector('.reply-message-input').value.trim();
         if (!message) return;
-        const item = items.find(x => x.id === tid);
-        if (!item) return;
-        item.replies = item.replies || [];
-        item.replies.push({
-          id: 'r-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
-          name,
-          message,
-          isAdmin: adminMode,
-          date: Date.now(),
-        });
-        saveItems();
-        render();
-      });
 
-      listEl.addEventListener('click', e => {
-        const btn = e.target.closest('button[data-action]');
-        if (!btn) return;
-        const action = btn.dataset.action;
-
-        if (action === 'delete-testimonial') {
-          if (!adminMode) return;
-          if (!confirm('Delete this testimonial?')) return;
-          const id = btn.dataset.id;
-          items = items.filter(x => x.id !== id);
-          saveItems();
-          render();
-        }
-
-        if (action === 'delete-reply') {
-          if (!adminMode) return;
-          if (!confirm('Delete this reply?')) return;
-          const tid = btn.dataset.tid;
-          const rid = btn.dataset.rid;
-          const item = items.find(x => x.id === tid);
-          if (!item) return;
-          item.replies = (item.replies || []).filter(r => r.id !== rid);
-          saveItems();
-          render();
+        try {
+          const fd = new FormData();
+          fd.append('form_type', 'reply');
+          fd.append('testimonial_id', tid);
+          fd.append('name', name);
+          fd.append('message', message);
+          await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+          await load();
+        } catch (err) {
+          alert('Could not send reply.');
         }
       });
 
-      // ---- Admin drawer ----
-      const adminHint = document.getElementById('adminHint');
-      const adminDrawer = document.getElementById('adminDrawer');
-      const adminClose = document.getElementById('adminClose');
-      const adminToggle = document.getElementById('adminToggle');
-
-      function syncAdminToggle() {
-        adminToggle.classList.toggle('on', adminMode);
-      }
-      syncAdminToggle();
-
-      if (adminHint) adminHint.addEventListener('click', () => adminDrawer.classList.add('open'));
-      if (adminClose) adminClose.addEventListener('click', () => adminDrawer.classList.remove('open'));
-      if (adminToggle) {
-        adminToggle.addEventListener('click', () => {
-          adminMode = !adminMode;
-          localStorage.setItem(ADMIN_KEY, adminMode ? '1' : '0');
-          syncAdminToggle();
-          render();
-        });
-      }
-
-      // ---- Initial render ----
-      render();
-
-      // ---- Keep timestamps fresh (every 60s) ----
-      setInterval(render, 60000);
+      // ---- Initial load + refresh every 60s ----
+      load();
+      setInterval(load, 60000);
     })();
   </script>
 
