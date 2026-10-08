@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gozzy Group | Full-Stack Development, Automation, Trading & Web3</title>
   <meta name="description" content="Gozzy Group builds custom software, business applications, APIs, automation systems, MT4/MT5 trading technology and Web3 solutions for businesses and startups." />
+
+  <!-- ===== SOCIAL PREVIEW (Open Graph / Twitter) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gozzy Group" />
+  <meta property="og:title" content="Gozzy Group | Full-Stack Development, Automation, Trading & Web3" />
+  <meta property="og:description" content="We build digital systems that move businesses forward — custom software, automation, trading technology, APIs and Web3 solutions." />
+  <meta property="og:url" content="https://gozzygroup.vercel.app/" />
+  <meta property="og:image" content="https://gozzygroup.vercel.app/logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Gozzy Group — Full-Stack Development, Automation, Trading & Web3" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Gozzy Group | Full-Stack Development, Automation, Trading & Web3" />
+  <meta name="twitter:description" content="We build digital systems that move businesses forward — custom software, automation, trading technology, APIs and Web3 solutions." />
+  <meta name="twitter:image" content="https://gozzygroup.vercel.app/logo.png" />
+  <meta name="twitter:image:alt" content="Gozzy Group logo" />
+
+  <meta name="theme-color" content="#07090C" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
@@ -24,18 +47,12 @@
 
     /* ===== CURSOR GLOW ===== */
     .cursor-glow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 480px;
-      height: 480px;
-      border-radius: 50%;
+      position: fixed; top: 0; left: 0;
+      width: 480px; height: 480px; border-radius: 50%;
       background: radial-gradient(circle, rgba(45, 126, 255, 0.10) 0%, rgba(124, 58, 237, 0.05) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: 1;
+      pointer-events: none; z-index: 1;
       transform: translate(-50%, -50%);
-      transition: opacity 0.3s ease;
-      opacity: 0;
+      transition: opacity 0.3s ease; opacity: 0;
     }
     body:hover .cursor-glow { opacity: 1; }
 
@@ -116,22 +133,16 @@
     .btn-ghost { background: transparent; border: none; color: #9bb1c7; padding: 0.6rem 1.2rem; }
     .btn-ghost:hover { color: #ffffff; }
 
-    /* ===== TOP RIBBON — 9+ YEARS ===== */
+    /* ===== TOP RIBBON ===== */
     .top-ribbon {
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       background: linear-gradient(90deg, #0b1118 0%, #0f1a26 50%, #0b1118 100%);
       border-bottom: 1px solid #182430;
-      padding: 0.55rem 0;
-      z-index: 99;
+      padding: 0.55rem 0; z-index: 99;
     }
     .top-ribbon::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -50%;
-      width: 200%;
-      height: 1px;
+      content: ''; position: absolute; top: 0; left: -50%;
+      width: 200%; height: 1px;
       background: linear-gradient(90deg, transparent, rgba(45, 126, 255, 0.6), rgba(124, 58, 237, 0.6), transparent);
       animation: ribbon-glow 4s linear infinite;
     }
@@ -140,39 +151,22 @@
       100% { transform: translateX(25%); }
     }
     .ribbon-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.25rem;
-      font-size: 0.72rem;
-      color: #b8cbdd;
-      font-weight: 500;
-      letter-spacing: 0.3px;
-      padding: 0 1.25rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 1.25rem; font-size: 0.72rem; color: #b8cbdd; font-weight: 500;
+      letter-spacing: 0.3px; padding: 0 1.25rem;
     }
     .ribbon-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      color: #ffffff;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.6px;
+      text-transform: uppercase; color: #ffffff;
       background: linear-gradient(90deg, #2d7eff, #7c3aed);
-      padding: 0.28rem 0.85rem;
-      border-radius: 30px;
+      padding: 0.28rem 0.85rem; border-radius: 30px;
       box-shadow: 0 4px 14px -4px rgba(45, 126, 255, 0.5);
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
     }
     .ribbon-badge::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
       animation: shine 3s ease-in-out infinite;
     }
@@ -180,24 +174,13 @@
       0% { left: -100%; }
       60%, 100% { left: 100%; }
     }
-    .ribbon-badge i {
-      font-size: 0.65rem;
-    }
-    .ribbon-sep {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #2d4b66;
-    }
+    .ribbon-badge i { font-size: 0.65rem; }
+    .ribbon-sep { width: 4px; height: 4px; border-radius: 50%; background: #2d4b66; }
     .ribbon-text { color: #9bb1c7; }
     .ribbon-text strong { color: #ffffff; font-weight: 600; }
 
     @media (max-width: 640px) {
-      .ribbon-inner {
-        font-size: 0.65rem;
-        gap: 0.6rem;
-        flex-wrap: wrap;
-      }
+      .ribbon-inner { font-size: 0.65rem; gap: 0.6rem; flex-wrap: wrap; }
       .ribbon-text:not(:first-of-type) { display: none; }
       .ribbon-sep:not(:first-of-type) { display: none; }
     }
@@ -256,13 +239,9 @@
     .hero-sub { font-size: 1.05rem; color: #9bb1c7; max-width: 600px; margin-bottom: 2.25rem; font-weight: 400; line-height: 1.7; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
 
-    /* ===== HERO STATS TICKER ===== */
     .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      margin-top: 2.75rem;
-      max-width: 620px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem; margin-top: 2.75rem; max-width: 620px;
     }
     .hero-stat {
       border-left: 2px solid #182430;
@@ -271,27 +250,15 @@
     }
     .hero-stat:hover { border-color: #4f9cf7; }
     .hero-stat-num {
-      font-size: 1.45rem;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      line-height: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 0.15rem;
+      font-size: 1.45rem; font-weight: 700; color: #ffffff;
+      letter-spacing: -0.02em; line-height: 1;
+      display: flex; align-items: baseline; gap: 0.15rem;
     }
-    .hero-stat-num .suffix {
-      font-size: 0.9rem;
-      color: #4f9cf7;
-      font-weight: 600;
-    }
+    .hero-stat-num .suffix { font-size: 0.9rem; color: #4f9cf7; font-weight: 600; }
     .hero-stat-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
-      color: #6b8aa6;
-      margin-top: 0.4rem;
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.7px;
+      color: #6b8aa6; margin-top: 0.4rem;
     }
     @media (max-width: 640px) {
       .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
@@ -328,61 +295,36 @@
     .hero-visual-card .hv-content .hv-title { font-size: 0.88rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.15rem; }
     .hero-visual-card .hv-content .hv-desc { font-size: 0.75rem; color: #6b8aa6; }
 
-    /* ===== FLOATING BADGE (9+ years) ===== */
     .floating-badge {
-      position: absolute;
-      top: -20px;
-      right: -20px;
-      z-index: 5;
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
+      position: absolute; top: -20px; right: -20px; z-index: 5;
+      width: 110px; height: 110px; border-radius: 50%;
       background: linear-gradient(135deg, #0f1a26, #0b1118);
       border: 1.5px solid rgba(45, 126, 255, 0.35);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center;
       box-shadow: 0 12px 40px -10px rgba(45, 126, 255, 0.4), inset 0 0 20px rgba(45, 126, 255, 0.08);
-      animation: badge-float 4s ease-in-out infinite;
-      cursor: default;
+      animation: badge-float 4s ease-in-out infinite; cursor: default;
     }
     .floating-badge::before {
-      content: '';
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
+      content: ''; position: absolute; inset: -4px; border-radius: 50%;
       background: conic-gradient(from 0deg, #2d7eff, #7c3aed, #06b6d4, #2d7eff);
-      opacity: 0.35;
-      z-index: -1;
-      animation: badge-spin 8s linear infinite;
-      filter: blur(6px);
+      opacity: 0.35; z-index: -1;
+      animation: badge-spin 8s linear infinite; filter: blur(6px);
     }
     @keyframes badge-float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
     }
-    @keyframes badge-spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes badge-spin { to { transform: rotate(360deg); } }
     .floating-badge .fb-num {
-      font-size: 1.85rem;
-      font-weight: 800;
+      font-size: 1.85rem; font-weight: 800;
       background: linear-gradient(135deg, #ffffff, #a78bfa);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      letter-spacing: -0.03em;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; line-height: 1; letter-spacing: -0.03em;
     }
     .floating-badge .fb-label {
-      font-size: 0.55rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #7cb8ff;
-      margin-top: 0.25rem;
+      font-size: 0.55rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #7cb8ff; margin-top: 0.25rem;
     }
     @media (max-width: 1024px) {
       .floating-badge { width: 90px; height: 90px; top: -12px; right: -12px; }
@@ -607,13 +549,466 @@
     .about-text p + p { margin-top: 1rem; }
     .about-text strong { color: #ffffff; }
 
-    /* ===== TESTIMONIALS ===== */
-    .testimonial-note {
-      background: #0b1118; border: 1px solid #182430; border-radius: 18px;
-      padding: 2rem; text-align: center; color: #6b8aa6;
-      font-size: 0.92rem; font-style: italic; max-width: 700px; margin: 0 auto;
+    /* ===== TESTIMONIALS + COMMENT SYSTEM ===== */
+    .testimonials-wrap {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+      align-items: start;
     }
-    .testimonial-note i { color: #4f9cf7; margin-right: 0.5rem; }
+    @media (max-width: 1024px) {
+      .testimonials-wrap { grid-template-columns: 1fr; }
+    }
+
+    .testimonial-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .testimonial-card {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 20px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      position: relative;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 0.5rem;
+      right: 1.5rem;
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1;
+      color: rgba(45, 126, 255, 0.08);
+      pointer-events: none;
+      font-family: Georgia, serif;
+    }
+    .testimonial-card:hover {
+      border-color: #2b4b66;
+      background: #0d1723;
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -20px rgba(0, 0, 0, 0.6);
+    }
+
+    .testimonial-head {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .testimonial-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2d7eff, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      box-shadow: 0 6px 16px -6px rgba(45, 126, 255, 0.5);
+      letter-spacing: -0.5px;
+    }
+
+    .testimonial-meta { flex: 1; min-width: 0; }
+    .testimonial-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.15rem;
+    }
+    .testimonial-role {
+      font-size: 0.72rem;
+      color: #6b8aa6;
+      font-weight: 500;
+    }
+
+    .testimonial-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      padding: 0.22rem 0.65rem;
+      border-radius: 30px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-body {
+      font-size: 0.92rem;
+      color: #b8cbdd;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 1px solid #15202b;
+      padding-top: 0.9rem;
+      flex-wrap: wrap;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 0.15rem;
+      color: #f59e0b;
+      font-size: 0.72rem;
+    }
+
+    .testimonial-actions {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .action-link {
+      font-size: 0.72rem;
+      color: #6b8aa6;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      background: none;
+      border: none;
+      font-family: inherit;
+      font-weight: 500;
+    }
+    .action-link:hover { color: #4f9cf7; }
+    .action-link.danger:hover { color: #ef4444; }
+    .action-link i { font-size: 0.68rem; }
+
+    /* Replies */
+    .replies-list {
+      margin-top: 1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid #15202b;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .reply-item {
+      display: flex;
+      gap: 0.7rem;
+      padding: 0.75rem 0.9rem;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .reply-avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: #101d29;
+      border: 1px solid #1d2d3b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4f9cf7;
+      font-weight: 600;
+      font-size: 0.72rem;
+      flex-shrink: 0;
+    }
+
+    .reply-content { flex: 1; min-width: 0; }
+    .reply-head {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .reply-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .reply-name.admin {
+      color: #a78bfa;
+    }
+    .reply-name.admin::after {
+      content: 'OWNER';
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: rgba(124, 58, 237, 0.15);
+      color: #a78bfa;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      margin-left: 0.35rem;
+    }
+    .reply-time {
+      font-size: 0.68rem;
+      color: #6b8aa6;
+    }
+    .reply-body {
+      font-size: 0.83rem;
+      color: #a6b9cc;
+      line-height: 1.55;
+    }
+
+    .reply-delete {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      background: none;
+      border: none;
+      color: #4a6075;
+      cursor: pointer;
+      font-size: 0.7rem;
+      padding: 0.25rem;
+      transition: color 0.2s ease;
+      opacity: 0;
+    }
+    .reply-item:hover .reply-delete { opacity: 1; }
+    .reply-delete:hover { color: #ef4444; }
+
+    /* Reply form */
+    .reply-form {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #15202b;
+    }
+    .reply-form input,
+    .reply-form textarea {
+      flex: 1;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 10px;
+      padding: 0.6rem 0.85rem;
+      color: #e8edf2;
+      font-family: inherit;
+      font-size: 0.82rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+      resize: vertical;
+    }
+    .reply-form input:focus,
+    .reply-form textarea:focus {
+      border-color: #2d7eff;
+      box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.08);
+    }
+    .reply-form .reply-submit {
+      background: #2d7eff;
+      color: #ffffff;
+      border: none;
+      padding: 0 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      flex-shrink: 0;
+    }
+    .reply-form .reply-submit:hover { background: #1b6af0; }
+
+    /* New testimonial form */
+    .testimonial-form {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 20px;
+      padding: 1.75rem 1.6rem;
+      position: sticky;
+      top: 100px;
+    }
+    .testimonial-form h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 0.4rem;
+    }
+    .testimonial-form .form-sub {
+      font-size: 0.78rem;
+      color: #6b8aa6;
+      margin-bottom: 1.5rem;
+      line-height: 1.55;
+    }
+    .testimonial-form .form-group {
+      margin-bottom: 1rem;
+    }
+    .testimonial-form label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #b8cbdd;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.3px;
+    }
+    .testimonial-form input,
+    .testimonial-form textarea,
+    .testimonial-form select {
+      width: 100%;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 12px;
+      padding: 0.7rem 0.9rem;
+      color: #e8edf2;
+      font-family: inherit;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .testimonial-form input:focus,
+    .testimonial-form textarea:focus,
+    .testimonial-form select:focus {
+      border-color: #2d7eff;
+      box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.08);
+    }
+    .testimonial-form textarea { min-height: 90px; resize: vertical; }
+    .testimonial-form .star-picker {
+      display: flex;
+      gap: 0.35rem;
+      font-size: 1.15rem;
+      color: #2d4b66;
+      cursor: pointer;
+      user-select: none;
+    }
+    .testimonial-form .star-picker i {
+      transition: color 0.15s ease, transform 0.15s ease;
+    }
+    .testimonial-form .star-picker i.active,
+    .testimonial-form .star-picker i:hover {
+      color: #f59e0b;
+      transform: scale(1.1);
+    }
+    .testimonial-form .btn {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+
+    /* Admin access hint */
+    .admin-hint {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      font-size: 0.65rem;
+      color: #2d4b66;
+      background: rgba(7, 9, 12, 0.85);
+      border: 1px solid #182430;
+      padding: 0.35rem 0.75rem;
+      border-radius: 30px;
+      z-index: 90;
+      backdrop-filter: blur(12px);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .admin-hint:hover { color: #4f9cf7; border-color: #2d7eff; }
+
+    /* Admin panel drawer */
+    .admin-drawer {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      max-width: 380px;
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 20px 20px 0 0;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 101;
+      box-shadow: 0 -20px 60px -20px rgba(0, 0, 0, 0.8);
+    }
+    .admin-drawer.open { transform: translateY(0); }
+    .admin-drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #182430;
+    }
+    .admin-drawer-head h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .admin-drawer-head h4 i { color: #a78bfa; }
+    .admin-drawer-head button {
+      background: none;
+      border: none;
+      color: #6b8aa6;
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.25rem;
+      transition: color 0.2s ease;
+    }
+    .admin-drawer-head button:hover { color: #ffffff; }
+    .admin-drawer-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .admin-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 0.9rem;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 12px;
+      font-size: 0.82rem;
+      color: #b8cbdd;
+    }
+    .admin-toggle {
+      position: relative;
+      width: 36px;
+      height: 20px;
+      background: #1a2a38;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: background 0.25s ease;
+      flex-shrink: 0;
+    }
+    .admin-toggle::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ffffff;
+      transition: transform 0.25s ease;
+    }
+    .admin-toggle.on { background: #2d7eff; }
+    .admin-toggle.on::after { transform: translateX(16px); }
+    .admin-note {
+      font-size: 0.72rem;
+      color: #6b8aa6;
+      line-height: 1.55;
+      padding: 0.75rem 0.9rem;
+      background: rgba(45, 126, 255, 0.05);
+      border: 1px solid rgba(45, 126, 255, 0.15);
+      border-radius: 10px;
+    }
+    .admin-note strong { color: #7cb8ff; }
 
     /* ===== CONTACT ===== */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
@@ -717,6 +1112,7 @@
       .project-gallery { grid-template-columns: 1fr 1fr; }
       .project-gallery img { height: 100px; }
       .project-gallery.single img { height: 180px; }
+      .testimonial-form { position: static; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 1.95rem; }
@@ -729,6 +1125,9 @@
       .project-gallery { grid-template-columns: 1fr; }
       .project-gallery img { height: 140px; }
       .project-gallery.single img { height: 180px; }
+      .reply-form { flex-direction: column; }
+      .reply-form .reply-submit { padding: 0.7rem 1.2rem; justify-content: center; }
+      .admin-drawer { max-width: 100%; }
     }
 
     /* ===== SCROLL REVEAL ===== */
@@ -752,7 +1151,7 @@
   <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
-  <!-- ===== TOP RIBBON — 9+ YEARS ===== -->
+  <!-- ===== TOP RIBBON ===== -->
   <div class="top-ribbon">
     <div class="ribbon-inner">
       <span class="ribbon-badge">
@@ -817,7 +1216,6 @@
             <a href="#projects" class="btn btn-outline"><i class="fas fa-arrow-down"></i> View Our Work</a>
           </div>
 
-          <!-- HERO STATS -->
           <div class="hero-stats">
             <div class="hero-stat">
               <div class="hero-stat-num"><span class="counter" data-target="9">0</span><span class="suffix">+</span></div>
@@ -1186,7 +1584,7 @@
     </div>
   </section>
 
-  <!-- ===== TESTIMONIALS ===== -->
+  <!-- ===== TESTIMONIALS + COMMENTS ===== -->
   <section class="section" id="testimonials">
     <div class="container">
       <div class="section-head reveal">
@@ -1195,9 +1593,46 @@
           <h2 class="section-title">What clients say</h2>
         </div>
       </div>
-      <div class="testimonial-note reveal">
-        <i class="fas fa-quote-left"></i>
-        Real testimonials coming soon. We only publish genuine feedback from actual clients.
+
+      <div class="testimonials-wrap">
+        <!-- LEFT: Testimonials list -->
+        <div class="testimonial-list reveal" id="testimonialList">
+          <!-- Testimonials injected via JS -->
+        </div>
+
+        <!-- RIGHT: Add testimonial form -->
+        <div class="testimonial-form reveal reveal-delay-1">
+          <h3>Leave a testimonial</h3>
+          <p class="form-sub">Worked with Gozzy Group? Share your experience — it will appear on this page.</p>
+
+          <form id="testimonialForm">
+            <div class="form-group">
+              <label for="tName">Your Name</label>
+              <input type="text" id="tName" placeholder="e.g. Mr. Kind" required />
+            </div>
+            <div class="form-group">
+              <label for="tRole">Role / Company <span style="color: #4a6075; font-weight: 400;">(optional)</span></label>
+              <input type="text" id="tRole" placeholder="e.g. Business Owner" />
+            </div>
+            <div class="form-group">
+              <label>Your Rating</label>
+              <div class="star-picker" id="starPicker" data-value="5">
+                <i class="fas fa-star active" data-star="1"></i>
+                <i class="fas fa-star active" data-star="2"></i>
+                <i class="fas fa-star active" data-star="3"></i>
+                <i class="fas fa-star active" data-star="4"></i>
+                <i class="fas fa-star active" data-star="5"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="tMessage">Your Testimonial</label>
+              <textarea id="tMessage" placeholder="Tell others about your experience working with Gozzy Group..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Post Testimonial
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -1313,12 +1748,39 @@
     </div>
   </footer>
 
+  <!-- ===== ADMIN HINT (click to open admin drawer) ===== -->
+  <div class="admin-hint" id="adminHint">
+    <i class="fas fa-lock"></i> Admin
+  </div>
+
+  <!-- ===== ADMIN DRAWER ===== -->
+  <div class="admin-drawer" id="adminDrawer">
+    <div class="admin-drawer-head">
+      <h4><i class="fas fa-shield-alt"></i> Gozzy Admin Panel</h4>
+      <button id="adminClose" aria-label="Close"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="admin-drawer-body">
+      <div class="admin-toggle-row">
+        <span>Admin mode (reply & delete)</span>
+        <div class="admin-toggle" id="adminToggle"></div>
+      </div>
+      <div class="admin-note">
+        <strong>No password needed</strong> — this is a local admin panel.<br />
+        Turn on <strong>Admin mode</strong> to reply to testimonials and delete any comment or testimonial. Changes are saved locally in this browser.
+      </div>
+    </div>
+  </div>
+
   <!-- ===== SCRIPTS ===== -->
   <script>
-    // ===== DYNAMIC YEAR =====
+    // ============================================================
+    // DYNAMIC YEAR
+    // ============================================================
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ===== CURSOR GLOW =====
+    // ============================================================
+    // CURSOR GLOW
+    // ============================================================
     (function() {
       const glow = document.getElementById('cursorGlow');
       if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
@@ -1334,7 +1796,9 @@
       })();
     })();
 
-    // ===== SCROLL PROGRESS BAR =====
+    // ============================================================
+    // SCROLL PROGRESS BAR
+    // ============================================================
     (function() {
       const progressBar = document.getElementById('scrollProgress');
       const header = document.getElementById('siteHeader');
@@ -1348,7 +1812,9 @@
       }, { passive: true });
     })();
 
-    // ===== SCROLL REVEAL =====
+    // ============================================================
+    // SCROLL REVEAL
+    // ============================================================
     (function() {
       const reveals = document.querySelectorAll('.reveal');
       if (!reveals.length) return;
@@ -1363,26 +1829,25 @@
       reveals.forEach(el => observer.observe(el));
     })();
 
-    // ===== ANIMATED COUNTERS =====
+    // ============================================================
+    // ANIMATED COUNTERS
+    // ============================================================
     (function() {
       const counters = document.querySelectorAll('.counter');
       if (!counters.length) return;
       const easeOut = t => 1 - Math.pow(1 - t, 3);
-
       const animateCounter = (el) => {
         const target = parseInt(el.dataset.target, 10) || 0;
         const duration = 1600;
         const start = performance.now();
         const step = (now) => {
           const p = Math.min((now - start) / duration, 1);
-          const value = Math.floor(easeOut(p) * target);
-          el.textContent = value;
+          el.textContent = Math.floor(easeOut(p) * target);
           if (p < 1) requestAnimationFrame(step);
           else el.textContent = target;
         };
         requestAnimationFrame(step);
       };
-
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -1391,17 +1856,17 @@
           }
         });
       }, { threshold: 0.5 });
-
       counters.forEach(c => observer.observe(c));
     })();
 
-    // ===== MOBILE NAV TOGGLE =====
+    // ============================================================
+    // MOBILE NAV TOGGLE
+    // ============================================================
     (function() {
       const toggle = document.getElementById('mobileNavToggle');
       const nav = document.getElementById('navLinks');
       if (!toggle || !nav) return;
       let isOpen = false;
-
       toggle.addEventListener('click', function() {
         isOpen = !isOpen;
         if (isOpen) {
@@ -1434,7 +1899,6 @@
           toggle.innerHTML = '<i class="fas fa-bars"></i>';
         }
       });
-
       nav.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           if (isOpen) {
@@ -1457,7 +1921,9 @@
       });
     })();
 
-    // ===== SMOOTH ANCHOR SCROLL =====
+    // ============================================================
+    // SMOOTH ANCHOR SCROLL
+    // ============================================================
     (function() {
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -1474,23 +1940,22 @@
       });
     })();
 
-    // ===== AJAX FORM SUBMISSION → Render API =====
+    // ============================================================
+    // AJAX FORM SUBMISSION → Render API
+    // ============================================================
     (function() {
       const form = document.getElementById('contactForm');
       const alertBox = document.getElementById('formAlert');
       const alertIcon = document.getElementById('formAlertIcon');
       const alertText = document.getElementById('formAlertText');
       const submitBtn = document.getElementById('submitBtn');
-
       if (!form) return;
 
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
-
         const name = form.name.value.trim();
         const email = form.email.value.trim();
         const message = form.message.value.trim();
-
         if (!name || !email || !message) {
           showAlert('error', 'Please fill in all required fields.');
           return;
@@ -1499,19 +1964,13 @@
           showAlert('error', 'Please enter a valid email address.');
           return;
         }
-
         submitBtn.disabled = true;
         const originalHTML = submitBtn.innerHTML;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
         try {
           const formData = new FormData(form);
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-          });
+          const response = await fetch(form.action, { method: 'POST', body: formData });
           const data = await response.json();
-
           if (data.status === 'success') {
             showAlert('success', data.message || 'Project request received. We will get back to you shortly.');
             form.reset();
@@ -1529,12 +1988,292 @@
       function showAlert(type, text) {
         alertBox.classList.remove('hidden', 'success', 'error');
         alertBox.classList.add(type);
-        alertIcon.className = type === 'success'
-          ? 'fas fa-check-circle'
-          : 'fas fa-exclamation-circle';
+        alertIcon.className = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
         alertText.textContent = text;
         alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+    })();
+
+    // ============================================================
+    // TESTIMONIALS + COMMENTS SYSTEM (localStorage, no database)
+    // ============================================================
+    (function() {
+      const STORAGE_KEY = 'gozzy_testimonials_v1';
+      const ADMIN_KEY = 'gozzy_admin_mode_v1';
+      const listEl = document.getElementById('testimonialList');
+      if (!listEl) return;
+
+      // ---- Initial seed (only added once, if storage empty) ----
+      const SEED = [
+        {
+          id: 'seed-1',
+          name: 'Mr. Kind',
+          role: 'Business Owner · 2 Projects with Gozzy',
+          rating: 5,
+          message: "Thank you Gozzy Group — it feels easier to do my business now. The systems you built for me just work, and I don't have to think about them.",
+          date: Date.now() - 1000 * 60 * 60 * 24 * 2,
+          replies: [],
+        }
+      ];
+
+      // ---- State ----
+      let items = loadItems();
+      let adminMode = localStorage.getItem(ADMIN_KEY) === '1';
+
+      // ---- Storage helpers ----
+      function loadItems() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(SEED));
+            return SEED.slice();
+          }
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : SEED.slice();
+        } catch (e) {
+          return SEED.slice();
+        }
+      }
+
+      function saveItems() {
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
+        catch (e) { console.warn('Could not save testimonials', e); }
+      }
+
+      // ---- Helpers ----
+      function escapeHtml(str) {
+        return String(str ?? '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      function initials(name) {
+        return String(name || '?')
+          .trim()
+          .split(/\s+/)
+          .slice(0, 2)
+          .map(p => p[0])
+          .join('')
+          .toUpperCase();
+      }
+
+      function timeAgo(ts) {
+        const diff = Math.max(0, Date.now() - ts);
+        const s = Math.floor(diff / 1000);
+        if (s < 60) return 'just now';
+        const m = Math.floor(s / 60);
+        if (m < 60) return m + ' min ago';
+        const h = Math.floor(m / 60);
+        if (h < 24) return h + ' hour' + (h > 1 ? 's' : '') + ' ago';
+        const d = Math.floor(h / 24);
+        if (d < 30) return d + ' day' + (d > 1 ? 's' : '') + ' ago';
+        return new Date(ts).toLocaleDateString();
+      }
+
+      function renderStars(rating) {
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+          html += '<i class="' + (i <= rating ? 'fas' : 'far') + ' fa-star"></i>';
+        }
+        return html;
+      }
+
+      // ---- Render ----
+      function render() {
+        if (!items.length) {
+          listEl.innerHTML = `
+            <div class="testimonial-card">
+              <div class="testimonial-body" style="text-align:center; color: #6b8aa6;">
+                <i class="fas fa-quote-left" style="display:block; font-size:1.5rem; margin-bottom:0.75rem; color:#2d4b66;"></i>
+                No testimonials yet. Be the first to share your experience.
+              </div>
+            </div>`;
+          return;
+        }
+
+        listEl.innerHTML = items.map(item => `
+          <div class="testimonial-card" data-id="${item.id}">
+            <div class="testimonial-head">
+              <div class="testimonial-avatar">${escapeHtml(initials(item.name))}</div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">${escapeHtml(item.name)}</div>
+                <div class="testimonial-role">${escapeHtml(item.role || 'Client')} · ${timeAgo(item.date)}</div>
+              </div>
+              <div class="testimonial-badge"><i class="fas fa-check"></i> Verified</div>
+            </div>
+            <div class="testimonial-body">${escapeHtml(item.message)}</div>
+            <div class="testimonial-foot">
+              <div class="testimonial-stars">${renderStars(item.rating || 5)}</div>
+              <div class="testimonial-actions">
+                ${adminMode ? `<button class="action-link danger" data-action="delete-testimonial" data-id="${item.id}"><i class="fas fa-trash"></i> Delete</button>` : ''}
+              </div>
+            </div>
+
+            ${item.replies && item.replies.length ? `
+              <div class="replies-list">
+                ${item.replies.map(r => `
+                  <div class="reply-item" data-reply-id="${r.id}">
+                    <div class="reply-avatar">${escapeHtml(initials(r.name))}</div>
+                    <div class="reply-content">
+                      <div class="reply-head">
+                        <span class="reply-name ${r.isAdmin ? 'admin' : ''}">${escapeHtml(r.name)}</span>
+                        <span class="reply-time">${timeAgo(r.date)}</span>
+                      </div>
+                      <div class="reply-body">${escapeHtml(r.message)}</div>
+                    </div>
+                    ${adminMode ? `<button class="reply-delete" data-action="delete-reply" data-tid="${item.id}" data-rid="${r.id}"><i class="fas fa-times"></i></button>` : ''}
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+
+            <form class="reply-form" data-tid="${item.id}">
+              <input type="text" class="reply-name-input" placeholder="${adminMode ? 'Your reply (as Admin)' : 'Your name'}" value="${adminMode ? 'Gozzy Group' : ''}" ${adminMode ? 'readonly' : ''} required />
+              <input type="text" class="reply-message-input" placeholder="Write a reply..." required />
+              <button type="submit" class="reply-submit"><i class="fas fa-paper-plane"></i> Reply</button>
+            </form>
+          </div>
+        `).join('');
+      }
+
+      // ---- Add testimonial ----
+      const form = document.getElementById('testimonialForm');
+      const starPicker = document.getElementById('starPicker');
+      let selectedRating = 5;
+
+      if (starPicker) {
+        starPicker.querySelectorAll('i').forEach(star => {
+          star.addEventListener('mouseenter', () => {
+            const val = parseInt(star.dataset.star, 10);
+            starPicker.querySelectorAll('i').forEach(s => {
+              s.classList.toggle('active', parseInt(s.dataset.star, 10) <= val);
+            });
+          });
+          star.addEventListener('click', () => {
+            selectedRating = parseInt(star.dataset.star, 10);
+            starPicker.dataset.value = selectedRating;
+            starPicker.querySelectorAll('i').forEach(s => {
+              s.classList.toggle('active', parseInt(s.dataset.star, 10) <= selectedRating);
+            });
+          });
+        });
+        starPicker.addEventListener('mouseleave', () => {
+          starPicker.querySelectorAll('i').forEach(s => {
+            s.classList.toggle('active', parseInt(s.dataset.star, 10) <= selectedRating);
+          });
+        });
+      }
+
+      if (form) {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const name = document.getElementById('tName').value.trim();
+          const role = document.getElementById('tRole').value.trim();
+          const message = document.getElementById('tMessage').value.trim();
+          if (!name || !message) {
+            alert('Please enter your name and testimonial.');
+            return;
+          }
+          items.unshift({
+            id: 't-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
+            name, role, message,
+            rating: selectedRating || 5,
+            date: Date.now(),
+            replies: [],
+          });
+          saveItems();
+          render();
+          form.reset();
+          selectedRating = 5;
+          if (starPicker) {
+            starPicker.dataset.value = 5;
+            starPicker.querySelectorAll('i').forEach(s => s.classList.add('active'));
+          }
+        });
+      }
+
+      // ---- Event delegation for replies & deletes ----
+      listEl.addEventListener('submit', e => {
+        const replyForm = e.target.closest('.reply-form');
+        if (!replyForm) return;
+        e.preventDefault();
+        const tid = replyForm.dataset.tid;
+        const nameInput = replyForm.querySelector('.reply-name-input');
+        const msgInput = replyForm.querySelector('.reply-message-input');
+        const name = nameInput.value.trim() || (adminMode ? 'Gozzy Group' : 'Anonymous');
+        const message = msgInput.value.trim();
+        if (!message) return;
+        const item = items.find(x => x.id === tid);
+        if (!item) return;
+        item.replies = item.replies || [];
+        item.replies.push({
+          id: 'r-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6),
+          name,
+          message,
+          isAdmin: adminMode,
+          date: Date.now(),
+        });
+        saveItems();
+        render();
+      });
+
+      listEl.addEventListener('click', e => {
+        const btn = e.target.closest('button[data-action]');
+        if (!btn) return;
+        const action = btn.dataset.action;
+
+        if (action === 'delete-testimonial') {
+          if (!adminMode) return;
+          if (!confirm('Delete this testimonial?')) return;
+          const id = btn.dataset.id;
+          items = items.filter(x => x.id !== id);
+          saveItems();
+          render();
+        }
+
+        if (action === 'delete-reply') {
+          if (!adminMode) return;
+          if (!confirm('Delete this reply?')) return;
+          const tid = btn.dataset.tid;
+          const rid = btn.dataset.rid;
+          const item = items.find(x => x.id === tid);
+          if (!item) return;
+          item.replies = (item.replies || []).filter(r => r.id !== rid);
+          saveItems();
+          render();
+        }
+      });
+
+      // ---- Admin drawer ----
+      const adminHint = document.getElementById('adminHint');
+      const adminDrawer = document.getElementById('adminDrawer');
+      const adminClose = document.getElementById('adminClose');
+      const adminToggle = document.getElementById('adminToggle');
+
+      function syncAdminToggle() {
+        adminToggle.classList.toggle('on', adminMode);
+      }
+      syncAdminToggle();
+
+      if (adminHint) adminHint.addEventListener('click', () => adminDrawer.classList.add('open'));
+      if (adminClose) adminClose.addEventListener('click', () => adminDrawer.classList.remove('open'));
+      if (adminToggle) {
+        adminToggle.addEventListener('click', () => {
+          adminMode = !adminMode;
+          localStorage.setItem(ADMIN_KEY, adminMode ? '1' : '0');
+          syncAdminToggle();
+          render();
+        });
+      }
+
+      // ---- Initial render ----
+      render();
+
+      // ---- Keep timestamps fresh (every 60s) ----
+      setInterval(render, 60000);
     })();
   </script>
 
