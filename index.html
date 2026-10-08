@@ -22,6 +22,23 @@
     }
     a { text-decoration: none; color: inherit; }
 
+    /* ===== CURSOR GLOW ===== */
+    .cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 480px;
+      height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(45, 126, 255, 0.10) 0%, rgba(124, 58, 237, 0.05) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    body:hover .cursor-glow { opacity: 1; }
+
     /* ===== SCROLL PROGRESS ===== */
     .scroll-progress {
       position: fixed; top: 0; left: 0; height: 2px;
@@ -99,6 +116,92 @@
     .btn-ghost { background: transparent; border: none; color: #9bb1c7; padding: 0.6rem 1.2rem; }
     .btn-ghost:hover { color: #ffffff; }
 
+    /* ===== TOP RIBBON — 9+ YEARS ===== */
+    .top-ribbon {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(90deg, #0b1118 0%, #0f1a26 50%, #0b1118 100%);
+      border-bottom: 1px solid #182430;
+      padding: 0.55rem 0;
+      z-index: 99;
+    }
+    .top-ribbon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(45, 126, 255, 0.6), rgba(124, 58, 237, 0.6), transparent);
+      animation: ribbon-glow 4s linear infinite;
+    }
+    @keyframes ribbon-glow {
+      0% { transform: translateX(-25%); }
+      100% { transform: translateX(25%); }
+    }
+    .ribbon-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      font-size: 0.72rem;
+      color: #b8cbdd;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      padding: 0 1.25rem;
+    }
+    .ribbon-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: linear-gradient(90deg, #2d7eff, #7c3aed);
+      padding: 0.28rem 0.85rem;
+      border-radius: 30px;
+      box-shadow: 0 4px 14px -4px rgba(45, 126, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .ribbon-badge::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      animation: shine 3s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { left: -100%; }
+      60%, 100% { left: 100%; }
+    }
+    .ribbon-badge i {
+      font-size: 0.65rem;
+    }
+    .ribbon-sep {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #2d4b66;
+    }
+    .ribbon-text { color: #9bb1c7; }
+    .ribbon-text strong { color: #ffffff; font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .ribbon-inner {
+        font-size: 0.65rem;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+      .ribbon-text:not(:first-of-type) { display: none; }
+      .ribbon-sep:not(:first-of-type) { display: none; }
+    }
+
     /* ===== HERO ===== */
     .hero {
       padding: 5rem 0 4.5rem; position: relative; overflow: hidden;
@@ -152,6 +255,48 @@
     }
     .hero-sub { font-size: 1.05rem; color: #9bb1c7; max-width: 600px; margin-bottom: 2.25rem; font-weight: 400; line-height: 1.7; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+
+    /* ===== HERO STATS TICKER ===== */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.75rem;
+      max-width: 620px;
+    }
+    .hero-stat {
+      border-left: 2px solid #182430;
+      padding-left: 0.9rem;
+      transition: border-color 0.3s ease;
+    }
+    .hero-stat:hover { border-color: #4f9cf7; }
+    .hero-stat-num {
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 0.15rem;
+    }
+    .hero-stat-num .suffix {
+      font-size: 0.9rem;
+      color: #4f9cf7;
+      font-weight: 600;
+    }
+    .hero-stat-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #6b8aa6;
+      margin-top: 0.4rem;
+    }
+    @media (max-width: 640px) {
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    }
+
     .hero-tags {
       margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.6rem 1rem;
       font-size: 0.75rem; color: #6b8aa6; letter-spacing: 0.3px;
@@ -159,7 +304,7 @@
     .hero-tags span { display: flex; align-items: center; gap: 0.4rem; }
     .hero-tags span::before { content: '·'; color: #4f9cf7; font-weight: 700; }
 
-    .hero-visual { display: flex; flex-direction: column; gap: 0.85rem; }
+    .hero-visual { display: flex; flex-direction: column; gap: 0.85rem; position: relative; }
     .hero-visual-card {
       background: #0b1118; border: 1px solid #182430; border-radius: 16px;
       padding: 1.1rem 1.4rem; display: flex; align-items: center; gap: 1rem;
@@ -182,6 +327,68 @@
     .hero-visual-card .hv-content { flex: 1; }
     .hero-visual-card .hv-content .hv-title { font-size: 0.88rem; font-weight: 600; color: #e8edf2; margin-bottom: 0.15rem; }
     .hero-visual-card .hv-content .hv-desc { font-size: 0.75rem; color: #6b8aa6; }
+
+    /* ===== FLOATING BADGE (9+ years) ===== */
+    .floating-badge {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      z-index: 5;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0f1a26, #0b1118);
+      border: 1.5px solid rgba(45, 126, 255, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 12px 40px -10px rgba(45, 126, 255, 0.4), inset 0 0 20px rgba(45, 126, 255, 0.08);
+      animation: badge-float 4s ease-in-out infinite;
+      cursor: default;
+    }
+    .floating-badge::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #2d7eff, #7c3aed, #06b6d4, #2d7eff);
+      opacity: 0.35;
+      z-index: -1;
+      animation: badge-spin 8s linear infinite;
+      filter: blur(6px);
+    }
+    @keyframes badge-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes badge-spin {
+      to { transform: rotate(360deg); }
+    }
+    .floating-badge .fb-num {
+      font-size: 1.85rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff, #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .floating-badge .fb-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #7cb8ff;
+      margin-top: 0.25rem;
+    }
+    @media (max-width: 1024px) {
+      .floating-badge { width: 90px; height: 90px; top: -12px; right: -12px; }
+      .floating-badge .fb-num { font-size: 1.5rem; }
+      .floating-badge .fb-label { font-size: 0.5rem; }
+    }
 
     /* ===== SECTION SHARED ===== */
     .section { padding: 5rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.04); }
@@ -539,8 +746,26 @@
 </head>
 <body>
 
+  <!-- ===== CURSOR GLOW ===== -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
   <!-- ===== SCROLL PROGRESS ===== -->
   <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== TOP RIBBON — 9+ YEARS ===== -->
+  <div class="top-ribbon">
+    <div class="ribbon-inner">
+      <span class="ribbon-badge">
+        <i class="fas fa-award"></i> 9+ Years in Business
+      </span>
+      <span class="ribbon-sep"></span>
+      <span class="ribbon-text"><strong>150+</strong> Projects Delivered</span>
+      <span class="ribbon-sep"></span>
+      <span class="ribbon-text"><strong>40+</strong> Clients Worldwide</span>
+      <span class="ribbon-sep"></span>
+      <span class="ribbon-text">Trusted since <strong>2017</strong></span>
+    </div>
+  </div>
 
   <!-- ===== STICKY HEADER ===== -->
   <header class="site-header" id="siteHeader">
@@ -591,6 +816,27 @@
             <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Start a Project</a>
             <a href="#projects" class="btn btn-outline"><i class="fas fa-arrow-down"></i> View Our Work</a>
           </div>
+
+          <!-- HERO STATS -->
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-num"><span class="counter" data-target="9">0</span><span class="suffix">+</span></div>
+              <div class="hero-stat-label">Years Active</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num"><span class="counter" data-target="150">0</span><span class="suffix">+</span></div>
+              <div class="hero-stat-label">Projects</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num"><span class="counter" data-target="40">0</span><span class="suffix">+</span></div>
+              <div class="hero-stat-label">Clients</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num"><span class="counter" data-target="24">0</span><span class="suffix">/7</span></div>
+              <div class="hero-stat-label">Support</div>
+            </div>
+          </div>
+
           <div class="hero-tags">
             <span>Full-Stack Development</span>
             <span>Automation</span>
@@ -599,6 +845,10 @@
           </div>
         </div>
         <div class="hero-visual">
+          <div class="floating-badge">
+            <div class="fb-num">9+</div>
+            <div class="fb-label">Years</div>
+          </div>
           <div class="hero-visual-card reveal">
             <div class="hv-icon"><i class="fas fa-code"></i></div>
             <div class="hv-content">
@@ -664,7 +914,7 @@
       </div>
       <div class="projects-grid">
 
-        <!-- PROJECT 01 — MT5 EA (CLIENT) -->
+        <!-- PROJECT 01 -->
         <div class="project-card reveal">
           <div class="project-number">PROJECT 01</div>
           <div class="project-title">MT5 Trading Automation System</div>
@@ -687,7 +937,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 02 — BLOG (CLIENT) -->
+        <!-- PROJECT 02 -->
         <div class="project-card reveal reveal-delay-1">
           <div class="project-number">PROJECT 02</div>
           <div class="project-title">Blog / Content Platform</div>
@@ -711,7 +961,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 03 — E-COMMERCE (CLIENT) -->
+        <!-- PROJECT 03 -->
         <div class="project-card reveal reveal-delay-2">
           <div class="project-number">PROJECT 03</div>
           <div class="project-title">E‑Commerce Platform</div>
@@ -735,7 +985,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 04 — WEB3 (SELF) -->
+        <!-- PROJECT 04 -->
         <div class="project-card reveal reveal-delay-3">
           <div class="project-number">PROJECT 04</div>
           <div class="project-title">Web3 / Crypto Application</div>
@@ -759,7 +1009,7 @@
           </div>
         </div>
 
-        <!-- PROJECT 05 — AUTOMATION (SELF) -->
+        <!-- PROJECT 05 -->
         <div class="project-card reveal reveal-delay-4">
           <div class="project-number">PROJECT 05</div>
           <div class="project-title">Automation / Bot System</div>
@@ -995,14 +1245,10 @@
           </div>
         </div>
         <div class="contact-form reveal reveal-delay-1">
-
-          <!-- Alert box (hidden by default, shown via JS) -->
           <div class="form-alert hidden" id="formAlert">
             <i class="fas fa-check-circle" id="formAlertIcon"></i>
             <span id="formAlertText"></span>
           </div>
-
-          <!-- ✅ Form now points to your Render API -->
           <form id="contactForm" action="https://api-bh8k.onrender.com/api.php" method="POST" novalidate>
             <input type="hidden" name="form_type" value="contact" />
             <div class="form-row">
@@ -1072,6 +1318,22 @@
     // ===== DYNAMIC YEAR =====
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ===== CURSOR GLOW =====
+    (function() {
+      const glow = document.getElementById('cursorGlow');
+      if (!glow || window.matchMedia('(pointer: coarse)').matches) return;
+      let x = 0, y = 0, tx = 0, ty = 0;
+      document.addEventListener('mousemove', function(e) {
+        tx = e.clientX; ty = e.clientY;
+      });
+      (function loop() {
+        x += (tx - x) * 0.12;
+        y += (ty - y) * 0.12;
+        glow.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+        requestAnimationFrame(loop);
+      })();
+    })();
+
     // ===== SCROLL PROGRESS BAR =====
     (function() {
       const progressBar = document.getElementById('scrollProgress');
@@ -1099,6 +1361,38 @@
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       reveals.forEach(el => observer.observe(el));
+    })();
+
+    // ===== ANIMATED COUNTERS =====
+    (function() {
+      const counters = document.querySelectorAll('.counter');
+      if (!counters.length) return;
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+      const animateCounter = (el) => {
+        const target = parseInt(el.dataset.target, 10) || 0;
+        const duration = 1600;
+        const start = performance.now();
+        const step = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const value = Math.floor(easeOut(p) * target);
+          el.textContent = value;
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = target;
+        };
+        requestAnimationFrame(step);
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(c => observer.observe(c));
     })();
 
     // ===== MOBILE NAV TOGGLE =====
