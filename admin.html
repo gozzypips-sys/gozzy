@@ -283,18 +283,9 @@
     </div>
 
     <div class="stat-row">
-      <div class="stat">
-        <div class="stat-label">Total Testimonials</div>
-        <div class="stat-value" id="statTotal">—</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">Total Replies</div>
-        <div class="stat-value" id="statReplies">—</div>
-      </div>
-      <div class="stat">
-        <div class="stat-label">Avg. Rating</div>
-        <div class="stat-value" id="statAvg">—</div>
-      </div>
+      <div class="stat"><div class="stat-label">Total Testimonials</div><div class="stat-value" id="statTotal">—</div></div>
+      <div class="stat"><div class="stat-label">Total Replies</div><div class="stat-value" id="statReplies">—</div></div>
+      <div class="stat"><div class="stat-label">Avg. Rating</div><div class="stat-value" id="statAvg">—</div></div>
     </div>
 
     <div class="panel">
@@ -313,7 +304,7 @@
   <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastText"></span></div>
 
   <script>
-    const API_BASE = 'https://api-bh8k.onrender.com';
+    const API = 'https://api-bh8k.onrender.com/testimonials.php';
 
     const listEl = document.getElementById('list');
     const statTotal = document.getElementById('statTotal');
@@ -377,7 +368,7 @@
                     <div class="ta-reply-name ${r.isAdmin ? 'admin' : ''}">${escapeHtml(r.name)} · <span style="color:#6b8aa6; font-weight:400;">${timeAgo(r.date)}</span></div>
                     <div class="ta-reply-body">${escapeHtml(r.message)}</div>
                   </div>
-                  <button class="reply-delete-btn" data-action="delete-reply" data-tid="${item.id}" data-rid="${r.id}"><i class="fas fa-times"></i></button>
+                  <button class="reply-delete-btn" data-action="delete-reply" data-tid="${item.id}" data-rid="${r.id}" title="Delete reply"><i class="fas fa-times"></i></button>
                 </div>
               `).join('')}
             </div>
@@ -399,16 +390,15 @@
 
     async function load() {
       try {
-        const res = await fetch(API_BASE + '/api.php?testimonials=1', { cache: 'no-store' });
+        const res = await fetch(API, { cache: 'no-store' });
         const data = await res.json();
         items = (data.items || []).sort((a, b) => b.date - a.date);
         render();
       } catch (err) {
-        listEl.innerHTML = '<div class="empty"><i class="fas fa-exclamation-triangle"></i>Could not load. Check API.</div>';
+        listEl.innerHTML = '<div class="empty"><i class="fas fa-exclamation-triangle"></i>Could not load testimonials. Check API.</div>';
       }
     }
 
-    // Reply
     listEl.addEventListener('submit', async e => {
       const form = e.target.closest('.admin-reply-form');
       if (!form) return;
@@ -424,7 +414,7 @@
         fd.append('name', 'Gozzy Group');
         fd.append('message', message);
         fd.append('is_admin', '1');
-        await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+        await fetch(API, { method: 'POST', body: fd });
         toast('Reply posted');
         await load();
       } catch (err) {
@@ -432,7 +422,6 @@
       }
     });
 
-    // Delete
     listEl.addEventListener('click', async e => {
       const btn = e.target.closest('button[data-action]');
       if (!btn) return;
@@ -440,12 +429,11 @@
 
       if (action === 'delete-testimonial') {
         if (!confirm('Delete this testimonial and all its replies?')) return;
-        const id = btn.dataset.id;
         try {
           const fd = new FormData();
           fd.append('form_type', 'delete_testimonial');
-          fd.append('id', id);
-          await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+          fd.append('id', btn.dataset.id);
+          await fetch(API, { method: 'POST', body: fd });
           toast('Testimonial deleted');
           await load();
         } catch (err) { toast('Could not delete', true); }
@@ -453,14 +441,12 @@
 
       if (action === 'delete-reply') {
         if (!confirm('Delete this reply?')) return;
-        const tid = btn.dataset.tid;
-        const rid = btn.dataset.rid;
         try {
           const fd = new FormData();
           fd.append('form_type', 'delete_reply');
-          fd.append('testimonial_id', tid);
-          fd.append('reply_id', rid);
-          await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+          fd.append('testimonial_id', btn.dataset.tid);
+          fd.append('reply_id', btn.dataset.rid);
+          await fetch(API, { method: 'POST', body: fd });
           toast('Reply deleted');
           await load();
         } catch (err) { toast('Could not delete', true); }
@@ -469,7 +455,6 @@
 
     document.getElementById('refreshBtn').addEventListener('click', load);
 
-    // Toast helper
     let toastTimer;
     function toast(msg, isError = false) {
       const el = document.getElementById('toast');
