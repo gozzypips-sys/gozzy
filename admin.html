@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gozzy Admin — Testimonials</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #07090C;
+      color: #e8edf2;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    body::before {
+      content: '';
+      position: fixed; top: -30%; right: -10%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(45, 120, 255, 0.10) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .app { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 1.75rem 2rem 3rem; }
+
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; padding: 0.9rem 1.5rem;
+      background: rgba(11, 17, 24, 0.7);
+      backdrop-filter: blur(18px);
+      border: 1px solid #182430;
+      border-radius: 16px; margin-bottom: 1.75rem;
+    }
+    .brand { display: flex; align-items: center; gap: 0.75rem; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 11px;
+      background: linear-gradient(135deg, #2d7eff, #7c3aed);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.72rem; font-weight: 800; color: white;
+      box-shadow: 0 6px 16px -6px rgba(45, 126, 255, 0.5);
+    }
+    .brand-info { display: flex; flex-direction: column; line-height: 1.2; }
+    .brand-name { font-size: 1rem; font-weight: 700; color: #fff; }
+    .brand-sub { font-size: 0.7rem; color: #6b8aa6; }
+
+    .status-pill {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 600;
+      color: #22c55e; background: rgba(34, 197, 94, 0.08);
+      padding: 0.42rem 0.9rem; border-radius: 40px;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+    }
+    .status-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    .panel {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .panel-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid #182430;
+      gap: 1rem;
+    }
+    .panel-title {
+      display: flex; align-items: center; gap: 0.65rem;
+      font-size: 0.9rem; font-weight: 600; color: #fff;
+    }
+    .panel-title i { color: #a78bfa; }
+    .panel-body { padding: 1.25rem 1.4rem; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .stat {
+      background: #0b1118;
+      border: 1px solid #182430;
+      border-radius: 14px;
+      padding: 1.1rem 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, #2d7eff, #7c3aed);
+      opacity: 0.7;
+    }
+    .stat-label {
+      font-size: 0.68rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.7px; color: #6b8aa6; margin-bottom: 0.35rem;
+    }
+    .stat-value { font-size: 1.6rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 0.65rem 1.3rem; border-radius: 40px;
+      font-weight: 600; font-size: 0.8rem;
+      transition: all 0.2s ease; cursor: pointer;
+      border: 1px solid transparent; font-family: inherit;
+    }
+    .btn-primary { background: #2d7eff; color: #fff; }
+    .btn-primary:hover { background: #1b6af0; transform: translateY(-1px); }
+    .btn-outline { background: transparent; border: 1px solid #263544; color: #ccddee; }
+    .btn-outline:hover { border-color: #4f9cf7; color: #fff; }
+    .btn-danger { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5; }
+    .btn-danger:hover { background: rgba(239, 68, 68, 0.2); border-color: #ef4444; }
+
+    .testimonial-admin {
+      background: #0d1620;
+      border: 1px solid #1a2a38;
+      border-radius: 16px;
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1.2rem;
+      transition: border-color 0.2s ease;
+    }
+    .testimonial-admin:hover { border-color: #253d52; }
+
+    .ta-head {
+      display: flex; align-items: center; gap: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .ta-avatar {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, #2d7eff, #7c3aed);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .ta-meta { flex: 1; min-width: 0; }
+    .ta-name { font-size: 0.92rem; font-weight: 700; color: #fff; }
+    .ta-role { font-size: 0.72rem; color: #6b8aa6; }
+    .ta-stars { color: #f59e0b; font-size: 0.72rem; }
+
+    .ta-body {
+      font-size: 0.88rem; color: #b8cbdd; line-height: 1.65;
+      margin-bottom: 1rem;
+      padding: 0.75rem 0.9rem;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 10px;
+    }
+
+    .ta-replies {
+      display: flex; flex-direction: column; gap: 0.6rem;
+      margin-top: 0.75rem;
+    }
+    .ta-reply {
+      display: flex; gap: 0.65rem;
+      padding: 0.7rem 0.85rem;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 10px;
+      position: relative;
+    }
+    .ta-reply .reply-avatar {
+      width: 28px; height: 28px; border-radius: 8px;
+      background: #101d29; border: 1px solid #1d2d3b;
+      display: flex; align-items: center; justify-content: center;
+      color: #4f9cf7; font-weight: 600; font-size: 0.68rem;
+      flex-shrink: 0;
+    }
+    .ta-reply-content { flex: 1; min-width: 0; }
+    .ta-reply-name {
+      font-size: 0.75rem; font-weight: 600; color: #fff;
+      margin-bottom: 0.2rem;
+    }
+    .ta-reply-name.admin { color: #a78bfa; }
+    .ta-reply-name.admin::after {
+      content: 'OWNER';
+      font-size: 0.5rem; font-weight: 700; letter-spacing: 0.5px;
+      background: rgba(124, 58, 237, 0.15);
+      color: #a78bfa;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      padding: 0.08rem 0.35rem;
+      border-radius: 4px;
+      margin-left: 0.3rem;
+    }
+    .ta-reply-body { font-size: 0.78rem; color: #a6b9cc; line-height: 1.5; }
+
+    .reply-delete-btn {
+      position: absolute; top: 0.5rem; right: 0.5rem;
+      background: none; border: none; color: #4a6075;
+      cursor: pointer; font-size: 0.7rem;
+      padding: 0.25rem; transition: color 0.2s ease;
+    }
+    .reply-delete-btn:hover { color: #ef4444; }
+
+    .ta-actions {
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      border-top: 1px solid #15202b;
+      padding-top: 1rem; margin-top: 1rem;
+    }
+
+    .admin-reply-form {
+      display: flex; gap: 0.6rem;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #15202b;
+    }
+    .admin-reply-form input {
+      flex: 1;
+      background: #080e14;
+      border: 1px solid #1a2a38;
+      border-radius: 10px;
+      padding: 0.65rem 0.9rem;
+      color: #e8edf2;
+      font-family: inherit;
+      font-size: 0.83rem;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .admin-reply-form input:focus {
+      border-color: #2d7eff;
+      box-shadow: 0 0 0 3px rgba(45, 126, 255, 0.08);
+    }
+
+    .empty {
+      text-align: center; padding: 3rem 1.5rem;
+      color: #6b8aa6; font-size: 0.9rem;
+    }
+    .empty i { font-size: 2rem; color: #2d4b66; display: block; margin-bottom: 0.85rem; }
+
+    .toast {
+      position: fixed; bottom: 1.5rem; left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: #0d1620;
+      border: 1px solid #22c55e;
+      color: #86efac;
+      padding: 0.85rem 1.5rem;
+      border-radius: 40px;
+      font-size: 0.85rem; font-weight: 500;
+      box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.8);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 999;
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.error { border-color: #ef4444; color: #fca5a5; }
+
+    @media (max-width: 640px) {
+      .app { padding: 1rem 1rem 2rem; }
+      .stat-row { grid-template-columns: 1fr; }
+      .topbar { flex-wrap: wrap; padding: 0.75rem 1rem; }
+      .admin-reply-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-mark">GG</div>
+        <div class="brand-info">
+          <span class="brand-name">Gozzy Admin</span>
+          <span class="brand-sub">Testimonials Portal</span>
+        </div>
+      </div>
+      <div class="status-pill"><span class="status-dot"></span> Connected</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="stat-label">Total Testimonials</div>
+        <div class="stat-value" id="statTotal">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Total Replies</div>
+        <div class="stat-value" id="statReplies">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat-label">Avg. Rating</div>
+        <div class="stat-value" id="statAvg">—</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-head">
+        <div class="panel-title"><i class="fas fa-comments"></i> Manage Testimonials</div>
+        <button class="btn btn-outline" id="refreshBtn"><i class="fas fa-sync-alt"></i> Refresh</button>
+      </div>
+      <div class="panel-body">
+        <div id="list">
+          <div class="empty"><i class="fas fa-spinner fa-spin"></i> Loading testimonials...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toastText"></span></div>
+
+  <script>
+    const API_BASE = 'https://api-bh8k.onrender.com';
+
+    const listEl = document.getElementById('list');
+    const statTotal = document.getElementById('statTotal');
+    const statReplies = document.getElementById('statReplies');
+    const statAvg = document.getElementById('statAvg');
+
+    let items = [];
+
+    const escapeHtml = s => String(s ?? '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+
+    const initials = name => String(name || '?').trim().split(/\s+/).slice(0, 2).map(p => p[0]).join('').toUpperCase();
+
+    const timeAgo = ts => {
+      const diff = Math.max(0, Date.now() - ts);
+      const s = Math.floor(diff / 1000);
+      if (s < 60) return 'just now';
+      const m = Math.floor(s / 60); if (m < 60) return m + ' min ago';
+      const h = Math.floor(m / 60); if (h < 24) return h + ' hour' + (h > 1 ? 's' : '') + ' ago';
+      const d = Math.floor(h / 24); return d + ' day' + (d > 1 ? 's' : '') + ' ago';
+    };
+
+    const renderStars = r => Array.from({ length: 5 }, (_, i) =>
+      `<i class="${i < r ? 'fas' : 'far'} fa-star"></i>`).join('');
+
+    function render() {
+      if (!items.length) {
+        listEl.innerHTML = '<div class="empty"><i class="fas fa-inbox"></i>No testimonials yet.</div>';
+        statTotal.textContent = '0';
+        statReplies.textContent = '0';
+        statAvg.textContent = '0.0';
+        return;
+      }
+
+      const totalReplies = items.reduce((n, i) => n + (i.replies?.length || 0), 0);
+      const avg = (items.reduce((s, i) => s + (i.rating || 5), 0) / items.length).toFixed(1);
+
+      statTotal.textContent = items.length;
+      statReplies.textContent = totalReplies;
+      statAvg.textContent = avg;
+
+      listEl.innerHTML = items.map(item => `
+        <div class="testimonial-admin" data-id="${item.id}">
+          <div class="ta-head">
+            <div class="ta-avatar">${escapeHtml(initials(item.name))}</div>
+            <div class="ta-meta">
+              <div class="ta-name">${escapeHtml(item.name)}</div>
+              <div class="ta-role">${escapeHtml(item.role || 'Client')} · ${timeAgo(item.date)}</div>
+            </div>
+            <div class="ta-stars">${renderStars(item.rating || 5)}</div>
+          </div>
+          <div class="ta-body">${escapeHtml(item.message)}</div>
+
+          ${item.replies && item.replies.length ? `
+            <div class="ta-replies">
+              ${item.replies.map(r => `
+                <div class="ta-reply" data-rid="${r.id}">
+                  <div class="reply-avatar">${escapeHtml(initials(r.name))}</div>
+                  <div class="ta-reply-content">
+                    <div class="ta-reply-name ${r.isAdmin ? 'admin' : ''}">${escapeHtml(r.name)} · <span style="color:#6b8aa6; font-weight:400;">${timeAgo(r.date)}</span></div>
+                    <div class="ta-reply-body">${escapeHtml(r.message)}</div>
+                  </div>
+                  <button class="reply-delete-btn" data-action="delete-reply" data-tid="${item.id}" data-rid="${r.id}"><i class="fas fa-times"></i></button>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+
+          <form class="admin-reply-form" data-tid="${item.id}">
+            <input type="text" class="admin-reply-input" placeholder="Reply as Gozzy Group..." required />
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Reply</button>
+          </form>
+
+          <div class="ta-actions">
+            <button class="btn btn-danger" data-action="delete-testimonial" data-id="${item.id}">
+              <i class="fas fa-trash"></i> Delete Testimonial
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function load() {
+      try {
+        const res = await fetch(API_BASE + '/api.php?testimonials=1', { cache: 'no-store' });
+        const data = await res.json();
+        items = (data.items || []).sort((a, b) => b.date - a.date);
+        render();
+      } catch (err) {
+        listEl.innerHTML = '<div class="empty"><i class="fas fa-exclamation-triangle"></i>Could not load. Check API.</div>';
+      }
+    }
+
+    // Reply
+    listEl.addEventListener('submit', async e => {
+      const form = e.target.closest('.admin-reply-form');
+      if (!form) return;
+      e.preventDefault();
+      const tid = form.dataset.tid;
+      const message = form.querySelector('.admin-reply-input').value.trim();
+      if (!message) return;
+
+      try {
+        const fd = new FormData();
+        fd.append('form_type', 'reply');
+        fd.append('testimonial_id', tid);
+        fd.append('name', 'Gozzy Group');
+        fd.append('message', message);
+        fd.append('is_admin', '1');
+        await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+        toast('Reply posted');
+        await load();
+      } catch (err) {
+        toast('Could not post reply', true);
+      }
+    });
+
+    // Delete
+    listEl.addEventListener('click', async e => {
+      const btn = e.target.closest('button[data-action]');
+      if (!btn) return;
+      const action = btn.dataset.action;
+
+      if (action === 'delete-testimonial') {
+        if (!confirm('Delete this testimonial and all its replies?')) return;
+        const id = btn.dataset.id;
+        try {
+          const fd = new FormData();
+          fd.append('form_type', 'delete_testimonial');
+          fd.append('id', id);
+          await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+          toast('Testimonial deleted');
+          await load();
+        } catch (err) { toast('Could not delete', true); }
+      }
+
+      if (action === 'delete-reply') {
+        if (!confirm('Delete this reply?')) return;
+        const tid = btn.dataset.tid;
+        const rid = btn.dataset.rid;
+        try {
+          const fd = new FormData();
+          fd.append('form_type', 'delete_reply');
+          fd.append('testimonial_id', tid);
+          fd.append('reply_id', rid);
+          await fetch(API_BASE + '/api.php', { method: 'POST', body: fd });
+          toast('Reply deleted');
+          await load();
+        } catch (err) { toast('Could not delete', true); }
+      }
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', load);
+
+    // Toast helper
+    let toastTimer;
+    function toast(msg, isError = false) {
+      const el = document.getElementById('toast');
+      const txt = document.getElementById('toastText');
+      txt.textContent = msg;
+      el.classList.toggle('error', isError);
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+    }
+
+    load();
+  </script>
+
+</body>
+</html>
